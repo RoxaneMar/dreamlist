@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @dream.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @dream.description %>
+</p>
+
+<p>
+  <strong>Goal amount:</strong>
+  <%= @dream.goal_amount %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @dream.end_date %>
+</p>
+
+<p>
+  <strong>Reached:</strong>
+  <%= @dream.reached %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @dream.user %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @dream.category %>
+</p>
+
+<%= link_to 'Edit', edit_dream_path(@dream) %> |
+<%= link_to 'Back', dreams_path %>

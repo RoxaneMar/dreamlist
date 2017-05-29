@@ -1,0 +1,17 @@
+<%= simple_form_for(@dream) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :goal_amount %>
+    <%= f.input :end_date %>
+    <%= f.input :reached %>
+    <%= f.association :user %>
+    <%= f.association :category %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
