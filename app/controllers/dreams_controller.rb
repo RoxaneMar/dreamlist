@@ -6,17 +6,22 @@ class DreamsController < ApplicationController
   end
 
   def show
+    authorize(@dream)
   end
 
   def new
     @dream = Dream.new
+    authorize(@dream)
   end
 
   def edit
+    authorize(@dream)
   end
 
   def create
     @dream = Dream.new(dream_params)
+    authorize(@dream)
+
     if @dream.save
       redirect_to @dream, notice: 'Dream was successfully created.'
     else
@@ -25,6 +30,8 @@ class DreamsController < ApplicationController
   end
 
   def update
+    authorize(@dream)
+
     if @dream.update(dream_params)
       redirect_to @dream, notice: 'Dream was successfully updated.'
     else
@@ -33,6 +40,7 @@ class DreamsController < ApplicationController
   end
 
   def destroy
+    authorize(@dream)
     @dream.destroy
     redirect_to dreams_url, notice: 'Dream was successfully destroyed.'
   end

@@ -10,16 +10,27 @@
   padding-bottom: 5em;
 }
 
-// Backgrounds
-.bg-black {
-  background: #4a4a4a;
+
+.bg-beige {
+  background-color: #fafafa;
 }
-.bg-grey {
-  background: #aeaeae;
+
+.margin-for-navbar {
+  margin-top: 70px;
 }
-.bg-blue {
-  background: #00a3e1;
+
+.height-page {
+  min-height: 100vh;
 }
-.bg-dark-blue {
-  background: #3b5998;
+
+.users.profile_edit {
+  background-color: #fafafa;
+  .auth-card {
+    position: relative;
+  }
+  .form-actions {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }
