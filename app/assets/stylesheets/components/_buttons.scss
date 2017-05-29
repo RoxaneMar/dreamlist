@@ -1,0 +1,46 @@
+.btn-dreamlist {
+  color: white;
+  background-color: $light-green;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.75;
+  transition: background 0.3s ease;
+  border: none;
+  &:hover {
+    color: white;
+    background-color: $green;
+    text-decoration: none;
+  }
+}
+
+.btn-dreamlist-default {
+  background-color: transparent;
+  color: $gray;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: 1px solid $gray;
+  &:hover {
+    opacity: 1;
+    color: $pink;
+    border: 1px solid $pink;
+    text-decoration: none;
+    background-color: transparent;
+  }
+}
+
+#btn-dreamlist-search {
+  padding: 15px 60px;
+  color: white;
+  background-color: $light-green;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.75;
+  transition: background 0.3s ease;
+  border: none;
+  &:hover {
+    color: white;
+    background-color: $green;
+    text-decoration: none;
+  }
+}

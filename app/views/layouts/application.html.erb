@@ -12,7 +12,13 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+
     <%= yield %>
+    <div class="btn-dreamlist">create a dream</div>
+    <div class="btn-dreamlist-default">create a dream</div>
+    <div class="btn-dreamlist-default2">create a dream</div>
+    <div id="btn-dreamlist-search">create a dream</div>
+
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
   </body>
