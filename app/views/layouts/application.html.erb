@@ -14,7 +14,9 @@
     <div class="height-page">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
-      <%= yield %>
+      <div class="margin-for-navbar">
+        <%= yield %>
+      </div>
     </div>
 
     <%= render 'shared/footer' %>
