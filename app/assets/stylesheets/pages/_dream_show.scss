@@ -1,0 +1,67 @@
+.banner-dream-show {
+  color: white;
+  text-align: center;
+  height: calc(70vh - 70px);
+  /* if you have a 70px navbar => height: calc(100vh - 70px); */
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .banner-content {
+    position: absolute;
+    bottom: 30px;
+    left: 60px;
+
+    h4 {
+      font-weight: lighter;
+      font-size: 40px;
+    }
+  }
+}
+
+.dream-show-description {
+
+  .description{
+    margin: 40px;
+    text-align: justify;
+  }
+
+   .other-info {
+    margin: 40px;
+    padding: 10px;
+
+    .avatar-large {
+      margin-bottom: 15px;
+    }
+
+    .global-bar {
+      height: 4px;
+      // background-color: white;
+      background-color: #eaeaea;
+      border-radius: 2px;
+      margin-bottom: 10px;
+
+      .participation-bar {
+        background-color: $green;
+        height: 100%;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+      }
+    }
+  }
+
+  .edit-link {
+    position: relative;
+
+    .btn-dreamlist-subtile {
+      position: absolute;
+      bottom: 0px;
+      right: 20px;
+      margin-top: 10px;
+    }
+  }
+}
+
+
