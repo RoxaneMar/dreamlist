@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'users/profile_edit'
-  get 'users/profile_update'
+  # get 'profile/dreams'
+  # get 'profile/show'
+  # get 'profile/edit'
+  # get 'profile/update'
+
+  resource :profile, only: [:show, :edit, :update] do
+    member do
+      get '/dreams', to: 'profiles#dreams'
+    end
+  end
 
   resources :dreams
 

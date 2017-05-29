@@ -1,0 +1,24 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <% @dreams.each do |dream| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="dream-card">
+          <div class="dream-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path dream.picture.path %>');">
+            <%= image_tag "coeur.png", class: "like" %>
+            <%= link_to "Contribute", dreams_profile_path, class: 'contribute' %>
+            <%= cl_image_tag @user.avatar.path, class: 'avatar' %>
+            <div class="avatar"></div>
+          </div>
+          <div class="dream-text">
+            <h4><%= dream.title %></h4>
+            <div class="global-bar">
+              <div class="participation-bar" style="width: 25%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
