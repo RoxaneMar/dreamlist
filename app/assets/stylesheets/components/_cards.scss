@@ -1,0 +1,66 @@
+.dream-card {
+  padding: 5px;
+  padding-bottom: 10px;
+  margin: 5px;
+  border-radius: 4px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+
+  .dream-picture {
+    border-radius: 4px;
+    background-size: cover !important;
+    position: relative;
+    height: 250px;
+
+    .like {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      width: 23px;
+      background-color: white;
+    }
+
+    .like:hover {
+      opacity: 0.6;
+    }
+
+    .contribute {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      color: $green;
+      font-size: 14px;
+      font-weight: lighter;
+    }
+
+    .contribute:hover {
+      text-decoration: none;
+      opacity: 0.6;
+    }
+
+    .avatar {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+    }
+  }
+
+  .dream-text h4 {
+    color: $gray;
+    // font-weight: lighter;
+    font-size: 14px;
+  }
+
+  .global-bar {
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+
+    .participation-bar {
+      background-color: $green;
+      height: 100%;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+  }
+}
