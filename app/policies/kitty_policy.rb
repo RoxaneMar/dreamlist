@@ -1,6 +1,6 @@
 class KittyPolicy < ApplicationPolicy
   def create?
-    user == record.dream.user || user.admin?
+    true
   end
 
   def new?
