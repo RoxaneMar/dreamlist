@@ -12,7 +12,11 @@
       <div class="participation-bar" style="width: 35%"></div>
     </div>
     <div class="amount">
-      <p>Goal: collect <%= dream.goal_amount %>€ before <%= dream.end_date.strftime("%B %d, %Y") %></p>
+      <% if dream.end_date.present? %>
+        <p>Goal: collect <%= dream.kitty.goal_amount %>€ before <%= dream.end_date.strftime("%B %d, %Y") %></p>
+      <% else %>
+        <p>Goal: collect <%= dream.kitty.goal_amount %>€ %></p>
+      <% end %>
     </div>
   </div>
 </div>
