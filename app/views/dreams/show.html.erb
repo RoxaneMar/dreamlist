@@ -2,8 +2,11 @@
 
 <div class="wrapper">
   <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path @dream.picture.path %>');">
-      <div class="banner-content">
+      <div class="banner-title">
         <h4><%= @dream.title %></h4>
+      </div>
+      <div class="banner-link">
+        <%= link_to "Contribute", '#', class:'btn-dreamlist' %>
       </div>
   </div>
   <div class="dream-show-description">
