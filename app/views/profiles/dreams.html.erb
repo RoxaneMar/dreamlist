@@ -13,9 +13,11 @@
           </div>
           <div class="dream-text">
             <h4><%= dream.title %></h4>
-            <div class="global-bar">
-              <div class="participation-bar" style="width: 25%"></div>
-            </div>
+            <% if dream.kitty.goal_amount > 0 %>
+              <div class="global-bar">
+                <div class="participation-bar" style="width: 25%"></div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

@@ -1,0 +1,36 @@
+<div class="col-xs-12">
+  <div class="description">
+    <%= cl_image_tag dream.user.avatar.path, class: 'avatar-large' %>
+    <h4><%= dream.title %></h4>
+    <hr>
+    <%= dream.description %>
+  </div>
+</div>
+<% if user == dream.user %>
+  <div class="col-xs-12">
+    <div class="edit-link">
+    <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
+    </div>
+  </div>
+<% end %>
+
+
+<div class="description">
+  <div class="col-xs-2 col-xs-offset-2">
+    <%= cl_image_tag dream.user.avatar.path, class: 'avatar-large' %>
+  </div>
+  <div class="col-xs-6">
+    <h4><%= dream.title %></h4>
+    <hr>
+  </div>
+  <div class="col-xs-8 col-xs-offset-2">
+    <%= dream.description %>
+  </div>
+</div>
+<% if user == dream.user %>
+  <div class="col-xs-12">
+    <div class="edit-link">
+    <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
+    </div>
+  </div>
+<% end %>
