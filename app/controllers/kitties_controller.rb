@@ -6,15 +6,16 @@ class KittiesController < ApplicationController
 
   def new
     @kitty = Kitty.new(dream: @dream)
-    authorize(@kitty)
+    authorize(@dream, @kitty)
   end
 
   def create
     @kitty = Kitty.new(kitty_params)
     authorize(@kitty)
+    @kitty.dream = @dream
 
      if @kitty.save
-      redirect_to @dream_path, notice: 'Kitty was successfully created.'
+      redirect_to @dream, notice: 'Kitty was successfully created.'
     else
       render :new
     end
