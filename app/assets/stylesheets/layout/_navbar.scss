@@ -50,7 +50,12 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 210px;
+}
+
+.alarm {
+  width: 30px;
+  padding-bottom: 5px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -96,6 +101,38 @@
 }
 
 /* Navbar search form */
+.search {
+  padding: 15px 10px 15px 15px;
+}
+
+.search-icon {
+  width: 25px;
+}
+
+#search-input {
+  font-weight: lighter;
+  width: 0px;
+  border: none;
+  box-shadow: 0;
+  transition: width ease 0.2s;
+}
+
+
+#search-input.visible {
+  width: 300px;
+  padding-left: 10px;
+  outline: none;
+}
+// .fa-search:hover + #search-input {
+//   width: 300px;
+// }
+
+// .fa-search:focus + #search-input {
+//   width: 300px;
+//   border: none;
+//   box-shadow: 0;
+// }
+
 .navbar-wagon-search {
   flex: 0 1 300px;
   display: flex;

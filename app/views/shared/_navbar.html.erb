@@ -2,30 +2,35 @@
 
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "logo-dreamlist-text1.png" %>
   <% end %>
-
-  <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <!-- Search form -->
-    <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
-      <button type="submit" class="navbar-wagon-search-btn">
-        <i class="fa fa-search"></i>
-      </button>
-    </form>
-
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
+      <!-- button to create a dream -->
+      <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
+
+      <!-- Search form -->
+      <form action="">
+        <div class="search">
+          <%= image_tag "search.png", class: "search-icon" %>
+          <!-- <i class="fa fa-search"></i> -->
+          <input type="text" id="search-input" placeholder="Search for a dream or friend">
+          <!-- <button type="submit" class="navbar-wagon-search-btn"> -->
+          <!-- </button> -->
+        </div>
+      </form>
+
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-alarm" do %>
         <div class="badge-container">
-          <i class="fa fa-envelope-o"></i>
-          <div class="badge badge-blue">3</div>
+          <%= image_tag "alarm.png", class: "alarm" %>
+          <!-- <i class="fa fa-envelope-o"></i> -->
+          <!-- <div class="badge badge-blue">3</div> -->
         </div>
       <% end %>
 
@@ -56,13 +61,21 @@
     <% else %>
 
       <!-- Login text link -->
+      <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
+      <!-- Search form -->
+      <form action="">
+        <div class="search">
+          <%= image_tag "search.png", class: "search-icon" %>
+          <!-- <i class="fa fa-search"></i> -->
+          <input type="text" id="search-input" placeholder="Search for a dream or friend">
+          <!-- <button type="submit" class="navbar-wagon-search-btn"> -->
+          <!-- </button> -->
+        </div>
+      </form>
 
     <% end %>
-
-    <!-- Button (call-to-action) -->
-
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
