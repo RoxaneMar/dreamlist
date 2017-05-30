@@ -6,6 +6,7 @@ class DreamsController < ApplicationController
   end
 
   def show
+    @user = current_user
     authorize(@dream)
   end
 
