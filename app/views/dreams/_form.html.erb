@@ -1,17 +1,24 @@
-<%= simple_form_for(@dream) do |f| %>
-  <%= f.error_notification %>
+<div class="create-dream-card">
+  <%= link_to image_tag('cross.png'), root_path, class: "back-cross" %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :goal_amount %>
-    <%= f.input :end_date %>
-    <%= f.input :picture, as: :attachinary %>
-    <%= f.association :user %>
-    <%= f.association :category %>
-  </div>
+
+    <%= simple_form_for(@dream) do |f| %>
+      <div class="content-form">
+        <div class="form-inputs">
+          <%= f.association :category, label: false, prompt: "category" %>
+          <%= f.input :title, label: false, placeholder: "title" %>
+          <%= f.input :description, label: false, placeholder: "description" %>
+          <%= f.input :end_date, label: "Ending date:"%>
+          <%= f.input :picture, as: :attachinary, label: "upload picture" %>
+        </div>
+      </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn-dreamlist" %>
   </div>
-<% end %>
+  <% end %>
+
+</div>
+
+
+
