@@ -23,8 +23,9 @@ class DreamsController < ApplicationController
     @dream = Dream.new(dream_params)
     authorize(@dream)
 
+
     if @dream.save
-      redirect_to @dream, notice: 'Dream was successfully created.'
+      redirect_to  new_dream_kitty_path(@dream), notice: 'Dream was successfully created.'
     else
       render :new
     end
