@@ -29,4 +29,20 @@
   }
 }
 
+.btn-dreamlist-subtile {
+    color: $green;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.75;
+    transition: background 0.3s ease;
+    border: none;
+    &:hover {
+      // color: white;
+      // background-color: $gray;
+      text-decoration: none;
+      opacity: 1;
+    }
+}
+
 

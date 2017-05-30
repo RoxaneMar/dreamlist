@@ -1,39 +1,43 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @dream.title %>
-</p>
+<div class="wrapper">
+  <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path @dream.picture.path %>');">
+      <div class="banner-content">
+        <h4><%= @dream.title %></h4>
+      </div>
+  </div>
+  <div class="dream-show-description">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="description">
+            <h4>Your dream </h4>
+            <hr>
+            <%= @dream.description %>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class="other-info">
+            <%= cl_image_tag @dream.user.avatar.path, class: 'avatar-large' %>
+            <div class="global-bar">
+              <div class="participation-bar" style="width: 35%"></div>
+            </div>
+            <div class="amount">
+              <p>Goal: collect <%= @dream.goal_amount %>€ before <%= @dream.end_date.strftime("%B %d, %Y") %></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="edit-link">
+          <%= link_to 'Edit your dream', edit_dream_path(@dream), class: 'btn-dreamlist-subtile' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @dream.description %>
-</p>
 
-<p>
-  <strong>Goal amount:</strong>
-  <%= @dream.goal_amount %>
-</p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @dream.end_date %>
-</p>
 
-<p>
-  <strong>Reached:</strong>
-  <%= @dream.reached %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%= @dream.user %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @dream.category %>
-</p>
-
-<%= link_to 'Edit', edit_dream_path(@dream) %> |
-<%= link_to 'Back', dreams_path %>
