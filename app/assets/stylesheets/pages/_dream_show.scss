@@ -33,6 +33,10 @@
   .description{
     margin: 40px;
     text-align: justify;
+
+    h4 {
+      color: $dark-gray;
+    }
   }
 
    .other-info {
