@@ -5,8 +5,11 @@
       <div class="col-xs-12 col-sm-offset-3 col-sm-6">
         <div class="row">
           <div class="col-xs-12">
+            <div class="big-card-create-dream">
             <h1>Start dreaming...</h1>
+            <%= link_to image_tag('cross.png'), root_path, class: "back-cross" %>
             <%= render 'form', dream: @dream %>
+            </div>
           </div>
         </div>
       </div>
