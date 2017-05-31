@@ -1,5 +1,5 @@
 class Dream < ApplicationRecord
-  CATEGORIES = %w(travel adventure sport art music cinema culture education mode technology challenges other)
+  CATEGORIES = %w(travel adventure sport art music cinema culture education mode technology home challenges other)
   belongs_to :user
   has_one :kitty
   has_attachment :picture
