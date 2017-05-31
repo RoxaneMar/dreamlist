@@ -31,11 +31,7 @@
             <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
           <% end %>
         <% else  %>
-          <% if @dream.kitty.private? == false %>
-            <%= render 'dream_0_amount_desc', dream: @dream, user: @user %>
-          <% else %>
             <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
-          <% end %>
         <% end %>
       </div>
     </div>
