@@ -1,16 +1,16 @@
 module ApplicationHelper
-  def user_avatar_path(user)
+  def user_avatar_tag(user)
     if user.avatar.present?
-      user.avatar.path
+      cl_image_tag(user.avatar.path)
     else
-      'http://placehold.it/50x50'
+      image_tag('http://placehold.it/50x50')
     end
   end
 
 
   def dream_picture_path(dream)
     if dream.picture.present?
-      dream.picture.path
+      cl_image_path(dream.picture.path)
     else
       image_path("#{dream.category}")
     end
