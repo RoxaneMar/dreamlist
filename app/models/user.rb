@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :dreams
   has_attachment :avatar
+  has_many :likes
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -27,5 +28,9 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  def liked?(dream)
+    likes.where(dream: dream).exists?
   end
 end

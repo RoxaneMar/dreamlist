@@ -11,10 +11,17 @@
   justify-content: center;
   position: relative;
 
+  .like {
+    position: absolute;
+    bottom: 45px;
+    left: 40px;
+    height: 30px;
+  }
+
   .banner-title {
     position: absolute;
     bottom: 30px;
-    left: 60px;
+    left: 100px;
 
     h4 {
       font-weight: lighter;

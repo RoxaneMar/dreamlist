@@ -1,5 +1,10 @@
 <div class="wrapper">
   <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= dream_picture_path(@dream) %>');">
+
+    <div class="like-actions" data-id="<%=@dream.id%>">
+      <%= like_action_for(@dream) %>
+    </div>
+
     <% if @dream.category.present? %>
       <div class="banner-title">
         <h4><%=@dream.user.first_name.capitalize%>'s <%=@dream.category.downcase%> dream</h4>
