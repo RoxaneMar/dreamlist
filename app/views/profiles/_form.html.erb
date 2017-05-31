@@ -1,0 +1,17 @@
+<div class="create-dream-card">
+  <%= simple_form_for(@user, url: profile_path, method: :put) do |f| %>
+    <div class="content-form">
+      <div class="form-inputs">
+        <%= f.input :first_name, label: false %>
+        <%= f.input :last_name, label: false %>
+        <%= f.input :email, label: false %>
+        <%= f.input :avatar, as: :attachinary, label: false %>
+      </div>
+    </div>
+    <%= link_to "Reset your password", edit_user_registration_path, class: "btn-dreamlist-2"  %>
+    <div class="form-actions">
+      <%= f.button :submit, "Update you profile", class: "btn-dreamlist" %>
+    </div>
+  <% end %>
+</div>
+
