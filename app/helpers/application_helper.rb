@@ -15,4 +15,16 @@ module ApplicationHelper
       image_path("#{dream.category}")
     end
   end
+
+  def like_action_for(dream)
+    if current_user.liked?(dream)
+      link_to(dream_like_path(dream), method: :delete, remote: true) do
+        image_tag "coeur.png", class: "like"
+      end
+    else
+      link_to(dream_like_path(dream), method: :post, remote: true) do
+        image_tag "coeur-green.png", class: "like"
+      end
+    end
+  end
 end

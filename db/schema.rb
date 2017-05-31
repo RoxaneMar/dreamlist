@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531150733) do
+ActiveRecord::Schema.define(version: 20170531154512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 20170531150733) do
     t.index ["dream_id"], name: "index_kitties_on_dream_id", using: :btree
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "dream_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dream_id"], name: "index_likes_on_dream_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -77,4 +86,6 @@ ActiveRecord::Schema.define(version: 20170531150733) do
 
   add_foreign_key "dreams", "users"
   add_foreign_key "kitties", "dreams"
+  add_foreign_key "likes", "dreams"
+  add_foreign_key "likes", "users"
 end

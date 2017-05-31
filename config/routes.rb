@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resource :profile, only: [:show, :edit, :update] do
     member do
       get '/dreams', to: 'profiles#dreams'
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :dreams do
     resources :kitties, only: [:show, :new, :create]
+    resource :like, only: [:create, :destroy]
   end
 
   mount Attachinary::Engine => "/attachinary"
