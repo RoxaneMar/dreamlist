@@ -25,7 +25,7 @@ class DreamsController < ApplicationController
     @dream.user = current_user
 
     if @dream.save
-      redirect_to  new_dream_kitty_path(@dream), notice: 'Dream was successfully created.'
+      redirect_to  new_dream_kitty_path(@dream)
     else
       render :new
     end
@@ -35,7 +35,7 @@ class DreamsController < ApplicationController
     authorize(@dream)
 
     if @dream.update(dream_params)
-      redirect_to @dream, notice: 'Dream was successfully updated.'
+      redirect_to @dream
     else
       render :edit
     end
@@ -44,7 +44,7 @@ class DreamsController < ApplicationController
   def destroy
     authorize(@dream)
     @dream.destroy
-    redirect_to dreams_url, notice: 'Dream was successfully destroyed.'
+    redirect_to dreams_url
   end
 
   private
@@ -53,6 +53,18 @@ class DreamsController < ApplicationController
     end
 
     def dream_params
-      params.require(:dream).permit(:title, :description, :goal_amount, :end_date, :reached, :user_id, :category_id, :picture)
+      params
+        .require(:dream)
+        .permit(
+          :title,
+          :description,
+          :goal_amount,
+          :end_date,
+          :reached,
+          :user_id,
+          :category_id,
+          :picture,
+          kitty_attributes: [:goal_amount, :private]
+        )
     end
 end

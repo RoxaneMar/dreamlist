@@ -15,6 +15,10 @@
       <div class="banner-link">
         <%= link_to "Contribute", '#', class:'btn-dreamlist' %>
       </div>
+    <% elsif @dream.kitty.private? && current_user == @dream.user %>
+      <div class="banner-link">
+        <%= link_to "Contribute", '#', class:'btn-dreamlist' %>
+      </div>
     <% end %>
   </div>
   <div class="dream-show-description">

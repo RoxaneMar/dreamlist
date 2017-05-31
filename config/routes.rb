@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :dreams do
-    resources :kitties, only: [:show, :new, :create, :edit, :update]
+    resources :kitties, only: [:show, :new, :create]
   end
 
   mount Attachinary::Engine => "/attachinary"
