@@ -62,7 +62,7 @@ class DreamsController < ApplicationController
           :end_date,
           :reached,
           :user_id,
-          :category_id,
+          :category,
           :picture,
           kitty_attributes: [:goal_amount, :private]
         )

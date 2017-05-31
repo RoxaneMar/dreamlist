@@ -2,7 +2,7 @@
   <%= simple_form_for(@dream) do |f| %>
     <div class="content-form">
       <div class="form-inputs">
-        <%= f.association :category, label: false, prompt: "category" %>
+        <%= f.input :category, collection: Dream::CATEGORIES, label: false, prompt: "category" %>
         <%= f.input :title, label: false, placeholder: "title" %>
         <%= f.input :description, label: false, placeholder: "description" %>
         <%= f.input :end_date, label: "Ending date:"%>
