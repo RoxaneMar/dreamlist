@@ -12,7 +12,7 @@ module ApplicationHelper
     if dream.picture.present?
       dream.picture.path
     else
-      image_path("dream.category}")
+      image_path("#{dream.category}")
     end
   end
 end

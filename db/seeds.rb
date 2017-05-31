@@ -2,7 +2,6 @@ puts "destroying all data..."
 
 Kitty.destroy_all
 Dream.destroy_all
-Category.destroy_all
 User.destroy_all
 
 puts "creating all data..."
@@ -44,10 +43,6 @@ user4 = User.create!(
   avatar_url: url_user4
   )
 
-adventure = Category.new(name: 'Adventure')
-travel = Category.new(name: 'Travel')
-art = Category.new(name: 'Art')
-sport = Category.new(name: 'Sport')
 
 dream1 = Dream.create!(
   title: 'Travel to the end of the world',
@@ -55,7 +50,7 @@ dream1 = Dream.create!(
   end_date: 2.years.from_now,
   reached: false,
   user: user1,
-  category: travel,
+  category: "travel",
   picture: File.open('app/assets/images/dream1.jpg')
   )
 
@@ -72,7 +67,7 @@ dream2 = Dream.create!(
   end_date: 1.year.from_now,
   reached: false,
   user: user1,
-  category: adventure,
+  category: "adventure",
   picture: File.open('app/assets/images/dream2.jpg')
   )
 
@@ -89,7 +84,7 @@ dream3 = Dream.create!(
   end_date: 2.months.from_now,
   reached: false,
   user: user2,
-  category: art,
+  category: "art",
   picture: File.open('app/assets/images/dream3.jpg')
   )
 
@@ -105,7 +100,7 @@ dream4 = Dream.create!(
   end_date: 3.months.from_now,
   reached: false,
   user: user2,
-  category: adventure,
+  category: "adventure",
   picture: File.open('app/assets/images/dream4.jpg')
   )
 
@@ -121,7 +116,7 @@ dream5 = Dream.create!(
   end_date: 2.years.from_now,
   reached: false,
   user: user2,
-  category: art,
+  category: "art",
   picture: File.open('app/assets/images/dream5.jpg')
   )
 
@@ -137,7 +132,7 @@ dream6 = Dream.create!(
   end_date: 1.year.from_now,
   reached: false,
   user: user3,
-  category: travel,
+  category: "travel",
   picture: File.open('app/assets/images/dream6.jpg')
   )
 
@@ -153,7 +148,7 @@ dream7 = Dream.create!(
   end_date: 2.years.from_now,
   reached: false,
   user: user4,
-  category: adventure,
+  category: "adventure",
   picture: File.open('app/assets/images/dream7.jpg')
   )
 
@@ -169,7 +164,7 @@ dream8 = Dream.create!(
   end_date: 1.month.from_now,
   reached: false,
   user: user4,
-  category: art,
+  category: "home",
   picture: File.open('app/assets/images/dream8.jpg')
   )
 
@@ -185,7 +180,7 @@ dream9 = Dream.create!(
   end_date: 3.months.from_now,
   reached: false,
   user: user4,
-  category: travel,
+  category: "travel",
   picture: File.open('app/assets/images/dream9.jpg')
   )
 
@@ -201,7 +196,7 @@ dream10 = Dream.create!(
   end_date: 6.months.from_now,
   reached: false,
   user: user3,
-  category: sport,
+  category: "sport",
   picture: File.open('app/assets/images/dream10.jpg')
   )
 
