@@ -22,11 +22,13 @@
   font-weight: lighter;
   opacity: 0.75;
   transition: background 0.3s ease;
-  background-color: #fafafa;
+  background-color: transparent;
   border: none;
+  border: 1px solid $light-gray;
   &:hover {
-    color: $double-dark-gray;
-    background-color: $super-light-gray;
+    color: $almost-black;
+    border: 1px solid $almost-black;
+    background-color: transparent;
     opacity: 0.85;
     text-decoration: none;
   }
