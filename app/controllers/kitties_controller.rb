@@ -20,20 +20,6 @@ class KittiesController < ApplicationController
     end
   end
 
-  def edit
-    authorize(@kitty)
-  end
-
-  def update
-    authorize(@kitty)
-
-    if @kitty.update(kitty_params)
-      redirect_to @dream_path, notice: 'Kitty was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   private
   def set_kitty
     @kitty = Kitty.find(params[:id])
