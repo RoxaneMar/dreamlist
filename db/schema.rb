@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531150733) do
+ActiveRecord::Schema.define(version: 20170531152806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20170531150733) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "contributors", force: :cascade do |t|
+    t.float    "amount"
+    t.integer  "user_id"
+    t.integer  "kitty_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "message"
+    t.index ["kitty_id"], name: "index_contributors_on_kitty_id", using: :btree
+    t.index ["user_id"], name: "index_contributors_on_user_id", using: :btree
   end
 
   create_table "dreams", force: :cascade do |t|
@@ -75,6 +86,8 @@ ActiveRecord::Schema.define(version: 20170531150733) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "contributors", "kitties"
+  add_foreign_key "contributors", "users"
   add_foreign_key "dreams", "users"
   add_foreign_key "kitties", "dreams"
 end
