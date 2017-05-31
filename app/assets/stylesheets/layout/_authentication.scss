@@ -3,7 +3,7 @@
 }
 
 .facebook-btn {
-  margin-bottom: 35px;
+  margin-bottom: 10px;
   width: 100%;
   display: inline-block;
   text-align: center;
@@ -24,16 +24,20 @@
 
 
 .default-link {
+  margin-top: 10px;
   color: $gray;
   &:hover {
     text-decoration: none;
-    color: $dark-gray;
+    color: $double-dark-gray;
   }
 }
 
 .auth-card {
   background-color: white;
   padding: 40px 20px;
+  .btn-dreamlist {
+    margin-top: 10px;
+  }
 }
 
 .btn-auth {
@@ -52,3 +56,32 @@
   margin: 10px;
 }
 
+
+.form-control {
+  margin: 0px;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-appearance: none !important;
+  border: 1px solid rgba(0,0,0,.15) !important;
+}
+.content-form {
+  margin: 20px 0px;
+  padding: 30px 0px;
+}
+.form-inputs {
+  padding: 20px 0px;
+}
+
+.form-group {
+  margin: 25px 0px 0px 0px;
+}
+
+.form-group:first-child {
+  margin: 0px 0px 0px 0px;
+}
+
+label {
+  font-weight: lighter;
+  color: $dark-gray;
+}
