@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_user, only: [:dreams, :show, :edit, :update]
+
   def dreams
     @dreams = @user.dreams
   end
@@ -11,6 +12,12 @@ class ProfilesController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to profile_path
+    else
+      render :edit
+    end
+
   end
 
   private
@@ -18,6 +25,6 @@ class ProfilesController < ApplicationController
     @user = current_user
   end
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :avatar)
+    params.require(:user).permit(:first_name, :last_name, :email, :avatar)
   end
 end

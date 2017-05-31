@@ -1,2 +1,29 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="marged">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+          <div class="big-card-create-dream">
+            <h2><%= @user.first_name %>'s profile</h2>
+            <hr>
+            <div class="content-form">
+            <div class="row">
+              <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+              <br>
+                <p>Avatar à mettre ici</p>
+              </div>
+              <div class="col-xs-12 col-sm-6">
+              <br>
+                <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
+                <p><%= @user.email %></p>
+                <br>
+                <%= link_to "Edit your profile", edit_profile_path, class: "btn-dreamlist-subtile" %>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

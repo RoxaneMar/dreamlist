@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Pundit: white-list approach.
-  after_action :verify_authorized, except: :index, unless: :skip_pundit?
+  # after_action :verify_authorized, except: :index, unless: :skip_pundit?
   # after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
   # Uncomment when you *really understand* Pundit!
@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
   # end
 
   private
+
+  def after_update_path_for(resource)
+    edit_profile_path
+  end
 
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^profiles$)|(^pages$)/
