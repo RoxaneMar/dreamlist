@@ -22,7 +22,7 @@ class DreamsController < ApplicationController
   def create
     @dream = Dream.new(dream_params)
     authorize(@dream)
-
+    @dream.user = current_user
 
     if @dream.save
       redirect_to  new_dream_kitty_path(@dream), notice: 'Dream was successfully created.'
