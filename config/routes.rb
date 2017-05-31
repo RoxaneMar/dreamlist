@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     resources :kitties, only: [:show, :new, :create]
   end
 
+  resources :kitties, only: [] do
+    resources :contributors, only: [:new, :create]
+  end
+
   mount Attachinary::Engine => "/attachinary"
   devise_for :users,
     controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: :registrations }

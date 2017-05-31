@@ -25,7 +25,7 @@ class DreamsController < ApplicationController
     @dream.user = current_user
 
     if @dream.save
-      redirect_to  new_dream_kitty_path(@dream)
+      redirect_to new_dream_kitty_path(@dream)
     else
       render :new
     end
@@ -48,23 +48,24 @@ class DreamsController < ApplicationController
   end
 
   private
-    def set_dream
-      @dream = Dream.find(params[:id])
-    end
 
-    def dream_params
-      params
-        .require(:dream)
-        .permit(
-          :title,
-          :description,
-          :goal_amount,
-          :end_date,
-          :reached,
-          :user_id,
-          :category,
-          :picture,
-          kitty_attributes: [:goal_amount, :private]
-        )
-    end
+  def set_dream
+    @dream = Dream.find(params[:id])
+  end
+
+  def dream_params
+    params
+      .require(:dream)
+      .permit(
+        :title,
+        :description,
+        :goal_amount,
+        :end_date,
+        :reached,
+        :user_id,
+        :category,
+        :picture,
+        kitty_attributes: [:goal_amount, :private]
+      )
+  end
 end

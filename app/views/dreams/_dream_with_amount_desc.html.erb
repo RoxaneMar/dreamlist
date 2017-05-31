@@ -10,6 +10,7 @@
     <%= user_avatar_tag dream.user, class: 'avatar-large' %>
     <div class="global-bar">
       <div class="participation-bar" style="width: 35%"></div>
+      <h1><%= @dream.kitty.total_contribution %> €</h1>
     </div>
     <div class="amount">
       <% if dream.end_date.present? %>
