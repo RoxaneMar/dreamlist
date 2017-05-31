@@ -86,8 +86,12 @@
 }
 
 .create-dream-card {
+  padding: 0px 30px;
   margin-top: 0px;
   position: relative;
+  h1 {
+    margin-bottom: 0px;
+  }
   .form-group {
     margin-top: 25px;
   }
