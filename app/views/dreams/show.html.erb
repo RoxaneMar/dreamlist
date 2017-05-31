@@ -13,11 +13,11 @@
     <% end %>
     <% if @dream.kitty.private? == false %>
       <div class="banner-link">
-        <%= link_to "Contribute", '#', class:'btn-dreamlist' %>
+        <%= link_to "Contribute", '#', class: 'btn-dreamlist' %>
       </div>
-    <% elsif @dream.kitty.private? && current_user == @dream.user %>
+    <% else @dream.kitty.private? && current_user == @dream.user %>
       <div class="banner-link">
-        <%= link_to "Contribute", '#', class:'btn-dreamlist' %>
+        <%= link_to "Contribute", '#', class: 'btn-dreamlist' %>
       </div>
     <% end %>
   </div>
@@ -40,3 +40,4 @@
       </div>
     </div>
   </div>
+</div>

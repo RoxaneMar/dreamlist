@@ -8,7 +8,7 @@
           <div class="dream-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= cl_image_path dream.picture.path %>');">
             <%= image_tag "coeur-green.png", class: "like" %>
             <%= link_to "Contribute", dreams_profile_path, class: 'contribute' %>
-            <%= cl_image_tag @user.avatar.path, class: 'avatar' %>
+            <%= cl_image_tag user_avatar_path(@user), class: 'avatar' %>
             <div class="avatar"></div>
           </div>
           <div class="dream-text">
