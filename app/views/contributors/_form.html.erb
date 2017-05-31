@@ -1,0 +1,13 @@
+<div class="create-dream-card">
+  <%= simple_form_for([@kitty, contributor]) do |f| %>
+    <div class="content-form">
+      <div class="form-inputs">
+        <%= f.input :amount, label: false, placeholder: "20 €" %>
+        <%= f.input :message, label: false, placeholder: "For all the good moments we shared together!" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn-dreamlist" %>
+    </div>
+  <% end %>
+</div>
