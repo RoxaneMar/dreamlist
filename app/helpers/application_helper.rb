@@ -8,11 +8,11 @@ module ApplicationHelper
   end
 
 
-  def dream_picture_path(dream, options = {})
+  def dream_picture_path(dream)
     if dream.picture.present?
-      cl_image_path(dream.picture.path, options)
+      cl_image_path(dream.picture.path)
     else
-      image_path("#{dream.category}", options)
+      image_path("#{dream.category}")
     end
   end
 end
