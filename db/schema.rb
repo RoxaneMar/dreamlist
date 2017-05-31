@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20170531152806) do
     t.string   "title"
     t.text     "description"
     t.date     "end_date"
-    t.boolean  "reached"
+    t.boolean  "reached",     default: false
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "category"
     t.index ["user_id"], name: "index_dreams_on_user_id", using: :btree
   end
@@ -56,9 +56,9 @@ ActiveRecord::Schema.define(version: 20170531152806) do
   create_table "kitties", force: :cascade do |t|
     t.integer  "dream_id"
     t.float    "goal_amount"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.boolean  "private"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "private",     default: false
     t.index ["dream_id"], name: "index_kitties_on_dream_id", using: :btree
   end
 
