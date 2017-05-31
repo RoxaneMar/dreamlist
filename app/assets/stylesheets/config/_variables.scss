@@ -36,6 +36,7 @@ $bright-green: #00D684;
 $light-green: lighten($green, 10%);
 $gray: rgba(0,0,0,0.6);
 $dark-gray: darken($gray, 15%);
-$light-gray: lighten($gray, 25%);
+$double-dark-gray: darken($gray, 55%);
+$super-light-gray: lighten($gray, 85%);
 $pink: #E40066;
 $fb-blue: #365899;

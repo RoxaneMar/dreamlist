@@ -1,4 +1,12 @@
 /* Banner design */
+.banner-new-dream {
+  color: $dark-gray;
+  height: 100vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .banner {
   color: white;

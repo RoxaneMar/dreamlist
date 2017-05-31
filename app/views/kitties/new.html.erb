@@ -1,4 +1,15 @@
-<div class="wrapper-kitty-new text-center">
-  <h4> Make your dream come true, create a kitty!</h4>
-  <%= render 'form', kitty: @kitty %>
+<div class="marged">
+  <div class="wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-offset-3 col-sm-6">
+          <div class="big-card-create-dream">
+            <h1>Engage yourself</h1>
+            <%= link_to image_tag('cross.png'), root_path, class: "back-cross" %>
+            <%= render 'form', kitty: @kitty %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

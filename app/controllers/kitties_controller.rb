@@ -14,7 +14,7 @@ class KittiesController < ApplicationController
     authorize(@kitty)
 
      if @kitty.save
-      redirect_to @dream_path, notice: 'Kitty was successfully created.'
+      redirect_to @dream, notice: 'Kitty was successfully created.'
     else
       render :new
     end

@@ -4,3 +4,19 @@
   padding-left: 90px;
 }
 
+.kitties.new {
+  .create-dream-card {
+    position: relative;
+    .btn-dreamlist {
+      position: absolute !important;
+      right: 0px !important;
+      bottom: -15px !important;
+    }
+    .btn-dreamlist-2 {
+      margin-top: 15px;
+      position: absolute;
+      right: -85px;
+      bottom: -15px;
+    }
+  }
+}
