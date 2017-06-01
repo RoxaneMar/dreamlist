@@ -98,8 +98,6 @@
     background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    -webkit-box-shadow: none !important;
-    -webkit-appearance: none !important;
     border-bottom: 1px solid rgba(0,0,0,.15) !important;
     font-size: 18px !important;
     font-weight: normal;
@@ -132,7 +130,7 @@
       justify-content: space-between;
     }
   }
-  input[type="file"] {
+  input[type=file] {
     position: absolute;
     left: 0;
     opacity: 0;
@@ -162,7 +160,23 @@
     width: 100%;
   }
   div.dragover {
-    background-color: #aaa;
+    color: $almost-black;
+    border: 1px solid $almost-black;
+    background-color: white;
+  }
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0px;
+  }
+  a {
+  text-decoration: none;
+  color: $gray;
+  margin: 0px 20px;
+  &:hover {
+      color: $almost-black;
+    }
   }
 }
 
@@ -180,4 +194,12 @@
     top: 0px;
     right: 0px;
   }
+}
+
+input[type="text"]::placeholder {
+  color: $gray-placeholder !important;
+}
+
+textarea::placeholder {
+  color: $gray-placeholder !important;
 }

@@ -1,12 +1,22 @@
 <div class="col-xs-12 col-sm-1">
   <%= render 'shared/links_dream', dream: @dream %>
 </div>
+
+<div class="col-xs-12 col-sm-6">
+  <div class="other-info">
+
+    <div class="global-bar">
+      <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
+      <h1><%= @dream.kitty.total_contribution %> €</h1>
+      <h5><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></h5>
+
 <div class="col-xs-12 col-sm-10">
   <div class="col-xs-12 col-sm-6">
     <div class="description">
       <h4><%= dream.title %></h4>
       <hr>
       <%= dream.description %>
+
     </div>
   </div>
   <div class="col-xs-12 col-sm-6">
