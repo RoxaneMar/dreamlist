@@ -1,18 +1,22 @@
+
 <div class="navbar-dreamlist navbar-dreamlist-fixed">
-  <div class="navbar-wagon-item">
-    <div class="dropdown">
-      <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
-      <ul class="dropdown-menu navbar-wagon-dropdown-menu left">
-        <% Dream::CATEGORIES.each do |category| %>
-          <li>
-            <%= link_to dreams_path(category: category) do %>
-              <%= t(".profile", default: category) %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+  <div class="navbar-wagon-left hidden-xs hidden-sm">
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
+        <ul class="dropdown-menu navbar-wagon-dropdown-menu left">
+          <% Dream::CATEGORIES.each do |category| %>
+            <li>
+              <%= link_to dreams_path(category: category) do %>
+                <%= t(".profile", default: category) %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
+
 
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
@@ -93,15 +97,31 @@
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+  <% if user_signed_in? %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "Dreams", dreams_profile_path(current_user) %></li>
+          <li><%= link_to "Create a dream", new_dream_path %></li>
+          <li><%= link_to "Profile", profile_path(current_user) %></li>
+          <li><%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %></li>
+          <li><%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 </div>
 
