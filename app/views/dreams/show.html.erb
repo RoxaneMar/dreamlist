@@ -39,4 +39,21 @@
       </div>
     </div>
   </div>
+  <% if @dream.likes.count > 0 %>
+    <div class="dream-lovers">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4>People who loved this dream</h4>
+            <hr>
+            <% @dream.likes.each do |like| %>
+              <%= link_to dreams_profile_path(like.user) do %>
+                <%= user_avatar_tag like.user, class: 'avatar' %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

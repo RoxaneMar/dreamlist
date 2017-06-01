@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resource :profile, only: [:show, :edit, :update] do
+  resources :profiles, only: [:show, :edit, :update] do
     member do
       get '/dreams', to: 'profiles#dreams'
     end
