@@ -1,21 +1,46 @@
-<div class="description">
-  <div class="col-xs-12 col-sm-2">
-    <%= link_to dreams_profile_path(dream.user) do %>
-      <%= user_avatar_tag dream.user, class: 'avatar-large' %>
+
+  <div class="col-xs-12 col-sm-1">
+    <%= render 'shared/links_dream', dream: @dream %>
+  </div>
+  <div class=" col-xs-12 col-sm-10">
+    <div class="row">
+      <div class="col-xs-12 col-sm-2">
+        <%= link_to dreams_profile_path(dream.user) do %>
+          <%= user_avatar_tag dream.user, class: 'avatar-large' %>
+        <% end %>
+      </div>
+      <div class="description">
+        <div class="col-xs-12 col-sm-8">
+          <h4><%= dream.title %></h4>
+        </div>
+        <div class="col-xs-10 col-xs-offset-2">
+          <hr>
+          <%= dream.description %>
+        </div>
+      </div>
+    <% if user == dream.user %>
+      <div class="col-xs-12">
+        <div class="edit-link">
+        <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
+        </div>
+      </div>
     <% end %>
-  </div>
-  <div class="col-xs-12 col-sm-8">
-    <h4><%= dream.title %></h4>
-  </div>
-  <div class="col-xs-10 col-xs-offset-2">
-    <hr>
-    <%= dream.description %>
-  </div>
-</div>
-<% if user == dream.user %>
-  <div class="col-xs-12">
-    <div class="edit-link">
-    <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
+      <div class="dream-lovers">
+        <% if @dream.likes.count > 0 %>
+          <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <h4>People who loved this dream</h4>
+          </div>
+          <div class="col-xs-10 col-xs-offset-2">
+            <hr>
+            <% @dream.likes.each do |like| %>
+              <%= link_to dreams_profile_path(like.user) do %>
+                <%= user_avatar_tag like.user, class: 'avatar' %>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+</div>
+

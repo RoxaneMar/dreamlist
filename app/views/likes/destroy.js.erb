@@ -1,1 +1,2 @@
 $('.like-actions[data-id=<%= @dream.id %>]').html("<%= j like_action_for(@dream) %>");
+$('.nb-likes').text('<%= @dream.likes.count %>')
