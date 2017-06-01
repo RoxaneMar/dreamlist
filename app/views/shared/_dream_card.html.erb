@@ -5,7 +5,7 @@
       <div class="like-actions" data-id="<%= dream.id %>">
         <%= like_action_for(dream) %>
       </div>
-      <%= link_to "Contribute", dreams_profile_path, class: 'contribute' %>
+      <%= link_to "Contribute", dream_path(dream), class: 'contribute' %>
       <%= user_avatar_tag dream.user, class: 'avatar' %>
       <div class="avatar"></div>
     </div>

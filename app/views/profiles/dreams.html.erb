@@ -2,15 +2,17 @@
   <div class="wrapper-profile">
     <div class="container">
       <div class="row">
-        <h2>Your dreams</h2>
+        <h2><%= @dreams.first.user.first_name.capitalize %>'s dreams</h2>
         <hr>
         <% @dreams.each do |dream| %>
           <%= render 'shared/dream_card', dream: dream %>
         <% end %>
-        <h2>Dreams you loved</h2>
-        <hr>
-        <% @user.likes.each do |like| %>
-          <%= render 'shared/dream_card', dream: like.dream %>
+        <% if @dreams.first.user == current_user %>
+          <h2>Dreams you loved</h2>
+          <hr>
+          <% @user.likes.each do |like| %>
+            <%= render 'shared/dream_card', dream: like.dream %>
+          <% end %>
         <% end %>
       </div>
     </div>

@@ -7,7 +7,9 @@
 </div>
 <div class="col-xs-12 col-sm-6">
   <div class="other-info">
-    <%= user_avatar_tag dream.user, class: 'avatar-large' %>
+    <%= link_to dreams_profile_path(dream.user) do %>
+      <%= user_avatar_tag dream.user, class: 'avatar-large' %>
+    <% end %>
     <div class="global-bar">
       <div class="participation-bar" style="width: 35%"></div>
       <h1><%= @dream.kitty.total_contribution %> €</h1>
