@@ -1,0 +1,21 @@
+<div class="col-xs-12 col-sm-4">
+  <div class="dream-card">
+    <%= link_to '', dream_path(dream), class: 'card-link' %>
+    <div class="dream-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= dream_picture_path(dream) %>');">
+      <div class="like-actions" data-id="<%= dream.id %>">
+        <%= like_action_for(dream) %>
+      </div>
+      <%= link_to "Contribute", dreams_profile_path, class: 'contribute' %>
+      <%= user_avatar_tag dream.user, class: 'avatar' %>
+      <div class="avatar"></div>
+    </div>
+    <div class="dream-text">
+      <h4><%= dream.title %></h4>
+      <% if dream.kitty.goal_amount > 0 %>
+        <div class="global-bar">
+          <div class="participation-bar" style="width: 25%"></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
