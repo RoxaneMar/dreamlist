@@ -26,6 +26,7 @@ class ContributorsController < ApplicationController
       .require(:contributor)
       .permit(
         :amount,
+        :private,
         :message
       )
   end
