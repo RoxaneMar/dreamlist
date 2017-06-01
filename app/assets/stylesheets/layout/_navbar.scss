@@ -34,13 +34,13 @@
   border: none;
   text-align: center;
   &:hover {
-    color: $green;
+    color: $blue3;
     background-color: transparent;
     text-decoration: none;
   }
   &:hover:after {
     position: absolute;
-    border-bottom: 3px solid $green;
+    border-bottom: 3px solid $blue3;
     top: 45px;
     left: 0;
     right: 0;
@@ -116,7 +116,6 @@
   box-shadow: 0;
   transition: width ease 0.2s;
 }
-
 
 #search-input.visible {
   width: 300px;
