@@ -8,7 +8,8 @@ class ContributorsController < ApplicationController
     @contributor = Contributor.new(contributor_params)
 
     @contributor.user = current_user
-    @contributor.kitty = Kitty.find(params[:kitty_id])
+    @kitty = Kitty.find(params[:kitty_id])
+    @contributor.kitty = @kitty
     @dream = @contributor.kitty.dream
 
     if @contributor.save

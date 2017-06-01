@@ -16,7 +16,6 @@
     <% end %>
     <div class="col-xs-6">
       <%= simple_form_for([@dream, @kitty]) do |f| %>
-        <%= f.error_notification %>
 
         <div class="form-inputs">
           <%= f.input :goal_amount, as: :hidden, :input_html => { :value => 0 } %>
