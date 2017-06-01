@@ -2,7 +2,8 @@ class DreamsController < ApplicationController
   before_action :set_dream, only: [:show, :edit, :update, :destroy]
 
   def index
-    @dreams = Dream.all
+    @category = params[:category]
+    @dreams = Dream.where(category: @category)
   end
 
   def show

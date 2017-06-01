@@ -1,4 +1,18 @@
 <div class="navbar-dreamlist navbar-dreamlist-fixed">
+  <div class="navbar-wagon-item">
+    <div class="dropdown">
+      <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
+      <ul class="dropdown-menu navbar-wagon-dropdown-menu left">
+        <% Dream::CATEGORIES.each do |category| %>
+          <li>
+            <%= link_to dreams_path(category: category) do %>
+              <%= t(".profile", default: category) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
