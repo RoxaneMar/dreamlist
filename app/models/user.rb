@@ -33,4 +33,11 @@ class User < ApplicationRecord
   def liked?(dream)
     likes.where(dream: dream).exists?
   end
+
+  def contributed?(dream)
+    user_contributors = dream.contributors.map do |contributor|
+      contributor.user
+    end
+    user_contributors.include?(self)
+  end
 end
