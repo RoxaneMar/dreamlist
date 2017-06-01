@@ -2,12 +2,15 @@
   <%= simple_form_for([@kitty, contributor]) do |f| %>
     <div class="content-form">
       <div class="form-inputs">
+        <% if current_user != @kitty.dream.user %>
+          <%= f.input :private, label: "I want to make a surprise and make a secret contribution (my friend won't see my contribution until goal is reached!)" %>
+        <% end %>
         <%= f.input :amount, label: false, placeholder: "20 €" %>
         <%= f.input :message, label: false, placeholder: "For all the good moments we shared together!" %>
       </div>
     </div>
     <div class="form-actions">
-      <%= f.button :submit, "Make a contribution", class: "btn-dreamlist" %>
+      <%= f.button :submit, "Support this dream", class: "btn-dreamlist" %>
     </div>
   <% end %>
 </div>
