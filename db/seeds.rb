@@ -1,6 +1,8 @@
 puts "destroying all data..."
 
+Contributor.destroy_all
 Kitty.destroy_all
+Like.destroy_all
 Dream.destroy_all
 User.destroy_all
 

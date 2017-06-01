@@ -17,12 +17,18 @@ module ApplicationHelper
   end
 
   def like_action_for(dream)
-    if current_user.liked?(dream)
-      link_to(dream_like_path(dream), method: :delete, remote: true) do
-        image_tag "coeur.png", class: "like"
+    if current_user.present?
+      if current_user.liked?(dream)
+        link_to(dream_like_path(dream), method: :delete, remote: true) do
+          image_tag "coeur.png", class: "like"
+        end
+      else
+        link_to(dream_like_path(dream), method: :post, remote: true) do
+          image_tag "coeur-green.png", class: "like"
+        end
       end
     else
-      link_to(dream_like_path(dream), method: :post, remote: true) do
+      link_to(new_user_session_path) do
         image_tag "coeur-green.png", class: "like"
       end
     end
