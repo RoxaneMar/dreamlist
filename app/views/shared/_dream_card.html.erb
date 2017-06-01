@@ -13,7 +13,7 @@
       <h4><%= dream.title %></h4>
       <% if dream.kitty.goal_amount > 0 %>
         <div class="global-bar">
-          <div class="participation-bar" style="width: 25%"></div>
+          <div class="participation-bar" style="width:<%= number_to_percentage(dream.kitty.contribution_avancement, precision: 0) %>"></div>
         </div>
       <% end %>
     </div>
