@@ -3,6 +3,7 @@ class Dream < ApplicationRecord
   belongs_to :user
   has_one :kitty
   has_many :likes
+  has_many :contributors, through: :kitty
   has_attachment :picture
 
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
