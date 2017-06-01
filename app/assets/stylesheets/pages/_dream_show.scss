@@ -54,29 +54,26 @@
     }
   }
 
-   .other-info {
-    margin: 40px;
-    padding: 10px;
 
-    .avatar-large {
-      margin-bottom: 15px;
-    }
+  .avatar-large {
+    margin-bottom: 15px;
+  }
 
-    .global-bar {
-      height: 4px;
-      // background-color: white;
-      background-color: #eaeaea;
-      border-radius: 2px;
-      margin-bottom: 10px;
+  .global-bar {
+    height: 4px;
+    // background-color: white;
+    background-color: #eaeaea;
+    border-radius: 2px;
+    margin-bottom: 10px;
 
-      .participation-bar {
-        background-color: $green;
-        height: 100%;
-        border-top-left-radius: 2px;
-        border-bottom-left-radius: 2px;
-      }
+    .participation-bar {
+      background-color: $green;
+      height: 100%;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
     }
   }
+
 
   .edit-link {
     position: relative;
