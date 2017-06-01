@@ -9,8 +9,9 @@
   <div class="other-info">
     <%= user_avatar_tag dream.user, class: 'avatar-large' %>
     <div class="global-bar">
-      <div class="participation-bar" style="width: 35%"></div>
+      <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
       <h1><%= @dream.kitty.total_contribution %> €</h1>
+      <h5><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></h5>
     </div>
     <div class="amount">
       <% if dream.end_date.present? %>
