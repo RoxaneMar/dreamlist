@@ -1,10 +1,17 @@
 <div class="wrapper">
+  <!-- banner -->
   <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= dream_picture_path(@dream) %>');">
+
+    <!-- avatar dream owner -->
+    <%= link_to dreams_profile_path(@dream.user) do %>
+      <%= user_avatar_tag @dream.user, class: 'avatar-large' %>
+    <% end %>
 
     <div class="like-actions" data-id="<%=@dream.id%>">
       <%= like_action_for(@dream) %>
     </div>
 
+    <!-- title in banner -->
     <% if @dream.category.present? %>
       <div class="banner-title">
         <h4><%=@dream.user.first_name.capitalize%>'s <%=@dream.category.downcase%> dream</h4>
@@ -14,46 +21,61 @@
         <h4><%=@dream.user.first_name.capitalize%>'s dream</h4>
       </div>
     <% end %>
+
+    <!-- support button -->
     <% if @dream.kitty.private? == false %>
       <div class="banner-link">
-        <%= link_to "Contribute", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+        <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
       </div>
     <% else @dream.kitty.private? && current_user == @dream.user %>
       <div class="banner-link">
-        <%= link_to "Contribute", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+        <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
       </div>
     <% end %>
   </div>
-  <div class="dream-show-description">
-    <div class="container">
+
+  <!-- description -->
+  <div class="container">
+    <div class="dream-show-description">
+
       <div class="row">
+
+        <% if @dream.kitty.private? %>
+
         <% if @dream.kitty.goal_amount > 0 %>
+
           <% if @dream.kitty.private? == false || current_user == @dream.user %>
             <%= render 'dream_with_amount_desc', dream: @dream, user: @user %>
+
           <% elsif @dream.kitty.private? && current_user != @dream.user %>
             <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
           <% end %>
-        <% else  %>
+
             <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
-        <% end %>
+
       </div>
+
     </div>
-  </div>
-  <% if @dream.likes.count > 0 %>
-    <div class="dream-lovers">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-12">
-            <h4>People who loved this dream</h4>
-            <hr>
-            <% @dream.likes.each do |like| %>
-              <%= link_to dreams_profile_path(like.user) do %>
-                <%= user_avatar_tag like.user, class: 'avatar' %>
+
+    <!-- likes -->
+    <% if @dream.likes.count > 0 %>
+      <div class="dream-lovers">
+
+          <div class="row">
+            <div class="col-xs-12">
+              <h4>People who loved this dream</h4>
+              <hr>
+              <% @dream.likes.each do |like| %>
+                <%= link_to dreams_profile_path(like.user) do %>
+                  <%= user_avatar_tag like.user, class: 'avatar' %>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
+
       </div>
-    </div>
-  <% end %>
+    <% end %>
+
+
+  </div>
 </div>
