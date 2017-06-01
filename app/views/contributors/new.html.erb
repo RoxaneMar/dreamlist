@@ -4,8 +4,11 @@
       <div class="row">
         <div class="col-xs-12 col-sm-offset-3 col-sm-6">
           <div class="big-card-create-dream">
-            <h1>Support this dream</h1>
-            <%= link_to image_tag('cross.png'), "#", class: "back-cross" %>
+            <% if current_user != @kitty.dream.user %>
+              <h2 class="text-center">Your contribution to <%= @kitty.dream.user.first_name %>'s dream.</h2>
+            <% else %>
+              <h2 class="text-center">Your own investment.</h2>
+            <% end %>
             <%= render 'form', contributor: @contributor %>
           </div>
         </div>

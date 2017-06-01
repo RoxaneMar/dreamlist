@@ -7,7 +7,6 @@ module ApplicationHelper
     end
   end
 
-
   def dream_picture_path(dream)
     if dream.picture.present?
       cl_image_path(dream.picture.path)
