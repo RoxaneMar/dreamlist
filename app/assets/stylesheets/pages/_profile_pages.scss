@@ -70,16 +70,50 @@
 }
 
 .buttons {
+  padding-bottom: 20px;
 
   .btn-dreamlist-2 {
+    color: $dark-gray;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-weight: lighter;
+    opacity: 0.75;
+    transition: background 0.3s ease;
+    background-color: transparent;
+    border: 1px solid $light-gray;
     max-width: 100px;
-
-    &:focus:after {
+    box-shadow: none;
+    &:hover {
+      color: white;
+      background-color: $green;
+      opacity: 0.85;
       text-decoration: none;
-      color: black;
-      border: 2px solid black;
-      background-color: transparent;
-      opacity: 0.9;
+      border: none;
+      box-shadow: none;
+    }
+    &:hover:after {
+      color: white;
+      background-color: $green;
+      opacity: 0.85;
+      text-decoration: none;
+      border: none;
+      box-shadow: none;
+    }
+    &:focus {
+      color: white;
+      background-color: $green;
+      opacity: 0.85;
+      text-decoration: none;
+      border: none;
+      box-shadow: none;
+    }
+    &:focus:after {
+      color: white;
+      background-color: $green;
+      opacity: 0.85;
+      text-decoration: none;
+      border: none;
+      box-shadow: none;
     }
   }
 }
