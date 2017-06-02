@@ -12,3 +12,13 @@ $(function(){
     $(tar).removeClass('hidden');
   });
 });
+
+$(function(){
+  $(".btn").on("click", function(e){
+    $(".btn").removeClass('active');
+    $(this).addClass('active');
+    $('.dream-card').addClass('hidden');
+    var cat = $('.active').data("category");
+    $(cat).removeClass('hidden');
+  });
+});
