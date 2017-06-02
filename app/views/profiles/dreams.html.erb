@@ -11,8 +11,9 @@
           <div class= "tab-content hidden", id="tab-user-dreams-in-cat">
             <% Dream::CATEGORIES.each do |category| %>
               <% if @user.has_dream_in?(category) %>
+                <% dreams = @dreams.where(category: category) %>
                 <div class="col-xs-12 col-sm-4">
-                  <%= render 'shared/tableau', dreams: @dreams, category: category %>
+                  <%= render 'shared/tableau', dreams: dreams, category: category %>
                 </div>
               <% end %>
             <% end %>
