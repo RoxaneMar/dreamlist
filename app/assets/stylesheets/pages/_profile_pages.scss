@@ -65,28 +65,3 @@
     text-align: center;
   }
 }
-
-.tableau {
-
-  .tableau:hover {
-    opacity: 0.6px;
-  }
-
-  .photos-dreams {
-    border-radius: 5px;
-    height: 150px;
-    width: 140px;
-    margin: 30px;
-    padding: 0px;
-
-    .dream-image {
-      background-color: #fafafa;
-      border: 2px solid white;
-      border-radius: 5px;
-      margin: 0px;
-      padding: 0px;
-      height: 45px;
-      width: 45px;
-    }
-  }
-}
