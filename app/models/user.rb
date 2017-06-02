@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :dreams
   has_attachment :avatar
   has_many :likes
+  has_many :liked_dreams, through: :likes, source: :dream
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -44,5 +45,9 @@ class User < ApplicationRecord
   def has_dream_in?(category)
     dreams = self.dreams
     dreams.where(category: category).exists?
+  end
+
+  def loved_dream_in?(category)
+    liked_dreams.where(category: category).exists?
   end
 end
