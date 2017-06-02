@@ -18,7 +18,13 @@ $(function(){
     $(".btn").removeClass('active');
     $(this).addClass('active');
     $('.dream-card').addClass('hidden');
-    var cat = $('.active').data("category");
-    $(cat).removeClass('hidden');
+    var cat = $('.active.btn').text();
+    $("." + cat).removeClass('hidden');
+  });
+});
+
+$(function(){
+  $(".tab.all").on("click", function(e){
+    $('.dream-card').removeClass('hidden');
   });
 });

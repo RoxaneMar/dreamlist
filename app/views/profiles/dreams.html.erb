@@ -17,12 +17,15 @@
             <% end %>
           </div>
           <div class= "tab-content hidden", id="tab-loved-dreams">
+            <div class="buttons">
+              <%= render 'shared/buttons_cat' %>
+            </div>
             <% Dream::CATEGORIES.each do |category| %>
               <% if @user.loved_dream_in?(category) %>
                 <% loved_dreams = @user.liked_dreams.where(category: category) %>
-                <div class="col-xs-12 col-sm-4">
-                  <%= render 'shared/tableau', dreams: loved_dreams, category: category %>
-                </div>
+                  <% loved_dreams.each do |dream| %>
+                    <%= render 'shared/dream_card', dream: dream %>
+                  <% end %>
               <% end %>
             <% end %>
           </div>
