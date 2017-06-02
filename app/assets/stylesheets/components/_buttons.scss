@@ -19,6 +19,27 @@
   }
 }
 
+.btn-dreamlist-blue {
+  color: white;
+  background-color: $blue3;
+  opacity: 0.8;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: background 0.3s ease;
+  border: none;
+  &:hover {
+    color: white;
+    background-color: $blue3;
+    opacity: 1;
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+    color: white;
+  }
+}
+
 .btn-dreamlist-2 {
   color: $dark-gray;
   padding: 10px 15px;

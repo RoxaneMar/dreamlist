@@ -1,66 +1,62 @@
 <div class="wrapper">
-  <!-- banner -->
-  <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= dream_picture_path(@dream) %>');">
-
-    <!-- avatar dream owner -->
-    <%= link_to dreams_profile_path(@dream.user) do %>
-      <%= user_avatar_tag @dream.user, class: 'avatar-large' %>
-    <% end %>
-
-    <!-- edit your dream -->
-    <% if current_user == @dream.user %>
-      <div class="col-xs-12">
-        <div class="edit-link">
-        <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
-        </div>
-      </div>
-    <% end %>
-
-    <!-- title in banner -->
-    <% if @dream.category.present? %>
-      <div class="banner-title">
-        <h4><%=@dream.user.first_name.capitalize%>'s <%=@dream.category.downcase%> dream</h4>
-      </div>
-    <% else %>
-      <div class="banner-title">
-        <h4><%=@dream.user.first_name.capitalize%>'s dream</h4>
-      </div>
-    <% end %>
-
-  </div>
-
-  <!--informations: description dream & kitty -->
   <div class="container">
-    <div class="dream-show-description">
+    <div class="row">
+      <div class="margin-for-navbar">
+        <div class="col-xs-12 col-sm-10">
 
-      <% if @dream.kitty.goal_amount > 0 %>
-          <%= render 'dream_with_amount_desc', dream: @dream, user: @user %>
-      <% else %>
-          <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
-      <% end %>
+          <!-- banner -->
+          <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= dream_picture_path(@dream) %>');">
 
+            <!-- avatar dream owner -->
+            <%= link_to dreams_profile_path(@dream.user) do %>
+              <%= user_avatar_tag @dream.user, class: 'avatar-large' %>
+            <% end %>
 
-    </div>
+            <!-- edit your dream -->
+            <% if current_user == @dream.user %>
+              <div class="col-xs-12">
+                <div class="edit-link">
+                <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
+                </div>
+              </div>
+            <% end %>
+          </div>
 
+          <!--informations: description dream & kitty -->
+          <div class="dream-show-description">
+            <% if @dream.kitty.goal_amount > 0 %>
+                <%= render 'dream_with_amount_desc', dream: @dream, user: @user %>
+            <% else %>
+                <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
+            <% end %>
+          </div>
 
-    <!-- likes -->
-    <% if @dream.likes.count > 0 %>
-      <div class="dream-lovers">
-
+          <!-- likes -->
           <div class="row">
             <div class="col-xs-12">
-              <h4>People who loved this dream</h4>
-              <hr>
-              <% @dream.likes.each do |like| %>
-                <%= link_to dreams_profile_path(like.user) do %>
-                  <%= user_avatar_tag like.user, class: 'avatar' %>
-                <% end %>
-              <% end %>
+              <div class="dream-lovers">
+              <% if @dream.likes.count > 0 %>
+                  <h4>People who loved this dream</h4>
+                  <% @dream.likes.each do |like| %>
+                    <%= link_to dreams_profile_path(like.user) do %>
+                      <%= user_avatar_tag like.user, class: 'avatar' %>
+                    <% end %>
+                  <% end %>
+                  <% end %>
+                </div>
+              </div>
             </div>
+
+          </div>
+
+          <!-- liens de like contribution et partage -->
+          <div class="col-xs-12 col-sm-2">
+            <%= render 'shared/links_dream', dream: @dream %>
           </div>
 
       </div>
-    <% end %>
-
+    </div>
   </div>
+
 </div>
+

@@ -1,60 +1,56 @@
 <div class="row">
-
-  <!-- liens à gauche de like contribution et partage -->
-  <div class="col-xs-12 col-sm-2">
-    <%= render 'shared/links_dream', dream: @dream %>
-  </div>
-
   <!-- partie titre et content dream -->
-  <div class="col-xs-12 col-sm-5">
+  <div class="col-xs-12 col-sm-6">
     <div class="description">
       <h4><%= dream.title %></h4>
-      <hr>
-      <%= dream.description %>
+      <p><%= dream.description %></p>
     </div>
   </div>
 
   <!-- partie kitty -->
-  <div class="col-xs-12 col-sm-5">
+  <div class="col-xs-12 col-sm-6">
     <div class="kitty-part">
-
+      <!-- kitty privee et utilisateur != owner -->
       <% if current_user != @dream.user && @dream.kitty.private? %>
-        <!-- ne rien afficher au niveau kitty car kitty privee et utilisateur != owner -->
         <p>This kitty is closed for now</p>
-
+      <!-- afficher kitty avec bar -->
       <% else %>
-        <!-- afficher kitty avec bar -->
-
         <!-- barre avancement kitty -->
         <div class="global-bar">
           <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
         </div>
 
         <!-- information about kitty evolution -->
-        <div class="amount">
-          <p><%= @dream.kitty.total_contribution %> €</p>
+        <div class="kitty-info-and-btn">
+          <div class="kitty-details">
 
-          <% if dream.end_date.present? %>
-            <p><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
-          <% else %>
-            <p>Goal: collect <%= dream.kitty.goal_amount %>€ %></p>
-          <% end %>
+            <div class="in-column">
+              <p><span><%= @dream.kitty.total_contribution %> €</span></p>
+              <p>/ <%= @dream.kitty.goal_amount %> €</p>
+            </div>
+
+            <div class="in-column">
+              <% if dream.end_date.present? %>
+                <p class="strong"><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
+                <p>left</p>
+              <% else %>
+                <p class="strong">No limit date </p>
+                <p>for this dream</p>
+              <% end %>
+            </div>
+
+            <div class="in-column">
+              <p class="strong"><%= @dream.kitty.contributors.count %></p>
+              <p>contributors</p>
+            </div>
+
+          </div>
+          <!-- support button -->
+          <div class="button-support-centered">
+            <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+          </div>
         </div>
       <% end %>
-
     </div>
-
-    <!-- support button -->
-    <% if @dream.kitty.private? == false %>
-      <div class="banner-link">
-        <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
-      </div>
-    <% else @dream.kitty.private? && current_user == @dream.user %>
-      <div class="banner-link">
-        <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
-      </div>
-    <% end %>
   </div>
-
-
 </div>
