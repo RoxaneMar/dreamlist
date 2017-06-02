@@ -50,4 +50,24 @@ class User < ApplicationRecord
   def loved_dream_in?(category)
     liked_dreams.where(category: category).exists?
   end
+
+  def categories
+    @categories = []
+    Dream::CATEGORIES.each do |category|
+      if self.has_dream_in?(category)
+        @categories << category
+      end
+    end
+    return @categories
+  end
+
+  def categories_liked
+    @categories = []
+    Dream::CATEGORIES.each do |category|
+      if self.loved_dream_in?(category)
+        @categories << category
+      end
+    end
+    return @categories
+  end
 end
