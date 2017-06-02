@@ -5,12 +5,19 @@
         <%= f.input :first_name, label: false %>
         <%= f.input :last_name, label: false %>
         <%= f.input :email, label: false %>
-        <%= f.input :avatar, as: :attachinary, label: false %>
+        <label class="super-label">
+          <div class="super-text-attach">Upload or drop your dream picture here</div>
+          <%= f.input :avatar, as: :attachinary, label: false %>
+        </label>
+        <p id="filename"></p>
       </div>
     </div>
-    <%= link_to "Reset your password", edit_user_registration_path, class: "btn-dreamlist-2"  %>
+
     <div class="form-actions">
-      <%= f.button :submit, "Update you profile", class: "btn-dreamlist" %>
+      <div class="button-reset-psw-edit">
+        <%= link_to "Reset your password", edit_user_registration_path, class: "btn-dreamlist-2"  %>
+        <%= f.button :submit, "Update you profile", class: "btn-dreamlist" %>
+      </div>
     </div>
   <% end %>
 </div>

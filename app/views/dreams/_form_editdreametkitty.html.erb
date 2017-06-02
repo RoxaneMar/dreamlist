@@ -10,7 +10,12 @@
           <%= kitty_form.input :goal_amount %>
           <%= kitty_form.input :private %>
         <% end %>
-        <%= f.input :picture, as: :attachinary, label: "upload picture" %>
+
+        <label class="super-label">
+          <div class="super-text-attach">Upload or drop your dream picture here</div>
+          <%= f.input :picture, as: :attachinary, label: "upload picture" %>
+        </label>
+        <p id="filename"></p>
       </div>
 
     </div>
