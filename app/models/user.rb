@@ -40,4 +40,9 @@ class User < ApplicationRecord
     end
     user_contributors.include?(self)
   end
+
+  def has_dream_in?(category)
+    dreams = self.dreams
+    dreams.where(category: category).exists?
+  end
 end
