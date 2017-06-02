@@ -24,7 +24,7 @@ $(function(){
 });
 
 $(function(){
-  $(".tab.all").on("click", function(e){
+  $(".tab").on("click", function(e){
     $('.dream-card').removeClass('hidden');
   });
 });
