@@ -1,9 +1,17 @@
 <div class="row">
   <!-- partie titre et content dream -->
   <div class="col-xs-12 col-sm-6">
-    <div class="description">
-      <h4><%= dream.title %></h4>
-      <p><%= dream.description %></p>
+    <div class="row">
+      <div class="sharing-links">
+        <div class="col-xs-12 col-sm-1">
+          <%= render 'shared/links_dream', dream: @dream %>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-11">
+        <div class="description">
+          <p><%= dream.description %></p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -12,7 +20,7 @@
     <div class="kitty-part">
       <!-- kitty privee et utilisateur != owner -->
       <% if current_user != @dream.user && @dream.kitty.private? %>
-        <p>This kitty is closed for now</p>
+        <h4>This kitty is closed for now</h4>
       <!-- afficher kitty avec bar -->
       <% else %>
         <!-- barre avancement kitty -->
@@ -23,10 +31,19 @@
         <!-- information about kitty evolution -->
         <div class="kitty-info-and-btn">
           <div class="kitty-details">
+            <div class="in-column">
+              <p class="strong-green"><%= @dream.kitty.total_contribution %> €</p>
+              <p>out of <%= @dream.kitty.goal_amount.to_i %> €</p>
+            </div>
 
             <div class="in-column">
-              <p><span><%= @dream.kitty.total_contribution %> €</span></p>
-              <p>/ <%= @dream.kitty.goal_amount %> €</p>
+              <p class="strong"><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></p>
+              <p>collected</p>
+            </div>
+
+            <div class="in-column">
+              <p class="strong"><%= @dream.kitty.contributors.count %></p>
+              <p>contributors</p>
             </div>
 
             <div class="in-column">
@@ -39,16 +56,8 @@
               <% end %>
             </div>
 
-            <div class="in-column">
-              <p class="strong"><%= @dream.kitty.contributors.count %></p>
-              <p>contributors</p>
-            </div>
+          </div>
 
-          </div>
-          <!-- support button -->
-          <div class="button-support-centered">
-            <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
-          </div>
         </div>
       <% end %>
     </div>

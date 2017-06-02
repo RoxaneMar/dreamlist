@@ -8,7 +8,7 @@ class Kitty < ApplicationRecord
     self.contributors.each do |contributor|
       contribution += contributor.amount
     end
-    return contribution
+    return contribution.to_i
   end
 
   def contribution_avancement

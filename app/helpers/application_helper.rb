@@ -32,4 +32,22 @@ module ApplicationHelper
       end
     end
   end
+
+  def like_action_gray_for(dream)
+    if current_user.present?
+      if current_user.liked?(dream)
+        link_to(dream_like_path(dream), method: :delete, remote: true) do
+          image_tag "like-gray-full.png", class: "like"
+        end
+      else
+        link_to(dream_like_path(dream), method: :post, remote: true) do
+          image_tag "like-gray.png", class: "like"
+        end
+      end
+    else
+      link_to(new_user_session_path) do
+        image_tag "love-gray.png", class: "like"
+      end
+    end
+  end
 end

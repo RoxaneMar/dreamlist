@@ -1,0 +1,13 @@
+<div class="navbar-show-dream">
+    <div class="navbar-wagon-item">
+    <h4><%= @dream.title %></h4>
+    </div>
+    <div class="show-navbar-btn-items">
+    <div class="like-part">
+      <div class="like-actions" data-id="<%=@dream.id%>">
+        <%= like_action_for(@dream) %>
+      </div>
+    </div>
+    <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+    </div>
+</div>
