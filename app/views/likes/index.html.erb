@@ -1,0 +1,13 @@
+<div class="marged">
+  <div class="wrapper-profile">
+    <div class="container">
+      <div class="row">
+        <h2>Dreams you loved</h2>
+        <hr>
+        <% @user.likes.each do |like| %>
+          <%= render 'shared/dream_card', dream: like.dream %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
