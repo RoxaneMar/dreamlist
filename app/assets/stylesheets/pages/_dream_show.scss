@@ -15,21 +15,29 @@
   align-items: center;
   justify-content: center;
   position: relative;
-    .avatar-large {
-      position: absolute;
-      bottom: -60px;
-      left: 100px;
-      border: 4px solid white;
-    }
-    .banner-title {
-        position: absolute;
-        margin-top: 0px;
-        top: 25px;
-        left: 25px;
-        font-weight: lighter;
-        font-size: 28px;
-    }
+  .avatar-large {
+    position: absolute;
+    bottom: -60px;
+    left: 100px;
+    border: 4px solid white;
   }
+  .banner-title {
+    position: absolute;
+    margin-top: 0px;
+    top: 25px;
+    left: 25px;
+    font-weight: lighter;
+    font-size: 28px;
+  }
+  .dream-owner-name {
+    color: white;
+    position: absolute;
+    left: 300px;
+    bottom: 20px;
+    font-weight: lighter;
+    font-size: 28px;
+  }
+}
 
 .show-dream-card {
   margin: 70px 200px 0px 0px;
@@ -61,21 +69,25 @@
     }
     .kitty-info-and-btn {
       .kitty-details {
+        margin-top: 25px;
         margin-bottom: 50px;
+        width: 85%;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         .in-column {
           display: block;
-          p span {
+          .strong-green {
             color: $green;
-            font-size: 24px;
+            font-size: 18px !important;
           }
           p:first-child {
             margin-bottom: 0px;
-            font-size: 20px;
+            font-size: 16px;
+            font-weight: lighter;
           }
           .strong {
+            font-size: 18px !important;
             color: $almost-black;
           }
         }
@@ -123,33 +135,26 @@
     }
   }
   .content-links {
-    img {
-      height: 30px;
-      width: 30px;
-    }
-    border-radius: 5px;
-    margin: 0px;
+    margin: 0px 20px;
     p {
       margin: 0px;
       font-weight: lighter;
       font-size: 14px;
     }
-    .contributor-gift-part {
-      padding: 5px 0px;
-      .gift {
-        height: 30px;
-        // width: 30px;
-      }
-    }
     .share-part {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 5px 0px;
-      .share {
-        padding: 5px 0px;
-        height: 30px;
-        // width: 30px;
+      padding: 0px;
+      .fa:first-child {
+        margin-top: 0px;
+        padding-left: 0px;
+      }
+      .fa {
+        font-size: 25px;
+        &:hover {
+          color: $almost-black;
+        }
       }
     }
   }

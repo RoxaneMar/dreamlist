@@ -13,6 +13,10 @@
               <%= user_avatar_tag @dream.user, class: 'avatar-large' %>
             <% end %>
 
+            <div class="dream-owner-name">
+              <%= @dream.user.first_name %> <%= @dream.user.last_name %>
+            </div>
+
             <!-- edit your dream -->
             <% if current_user == @dream.user %>
               <div class="col-xs-12">

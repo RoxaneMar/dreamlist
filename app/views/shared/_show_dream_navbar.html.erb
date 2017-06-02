@@ -5,9 +5,9 @@
     <div class="show-navbar-btn-items">
     <div class="like-part">
       <div class="like-actions" data-id="<%=@dream.id%>">
-        <%= like_action_gray_for(@dream) %>
+        <%= like_action_for(@dream) %>
       </div>
     </div>
-    <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist-blue' %>
+    <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
     </div>
 </div>

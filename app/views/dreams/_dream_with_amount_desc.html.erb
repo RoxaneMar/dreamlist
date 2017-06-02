@@ -2,8 +2,8 @@
   <!-- partie titre et content dream -->
   <div class="col-xs-12 col-sm-6">
     <div class="row">
-      <div class="col-xs-12 col-sm-1">
-        <div class="sharing-links">
+      <div class="sharing-links">
+        <div class="col-xs-12 col-sm-1">
           <%= render 'shared/links_dream', dream: @dream %>
         </div>
       </div>
@@ -31,10 +31,19 @@
         <!-- information about kitty evolution -->
         <div class="kitty-info-and-btn">
           <div class="kitty-details">
+            <div class="in-column">
+              <p class="strong-green"><%= @dream.kitty.total_contribution %> €</p>
+              <p>out of <%= @dream.kitty.goal_amount.to_i %> €</p>
+            </div>
 
             <div class="in-column">
-              <p><span><%= @dream.kitty.total_contribution %> €</span></p>
-              <p>/ <%= @dream.kitty.goal_amount.to_i %> €</p>
+              <p class="strong"><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></p>
+              <p>collected</p>
+            </div>
+
+            <div class="in-column">
+              <p class="strong"><%= @dream.kitty.contributors.count %></p>
+              <p>contributors</p>
             </div>
 
             <div class="in-column">
@@ -45,11 +54,6 @@
                 <p class="strong">No limit date </p>
                 <p>for this dream</p>
               <% end %>
-            </div>
-
-            <div class="in-column">
-              <p class="strong"><%= @dream.kitty.contributors.count %></p>
-              <p>contributors</p>
             </div>
 
           </div>
