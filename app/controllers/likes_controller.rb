@@ -1,9 +1,4 @@
 class LikesController < ApplicationController
-  def index
-    @category = params[:category]
-    @dreams = Dream.where(category: @category)
-    @dreams =
-  end
 
   def create
     @dream = Dream.find(params[:dream_id])
