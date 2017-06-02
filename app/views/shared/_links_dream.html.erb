@@ -1,22 +1,7 @@
 <div class="content-links text-center">
 
-  <div class="like-part">
-    <div class="like-actions" data-id="<%=@dream.id%>">
-      <%= like_action_for(@dream) %>
-    </div>
-    <p class="nb-likes"><%= @dream.likes.count %></p>
-  </div>
 
-  <div class="contributor-gift-part">
-    <% if current_user.contributed?(dream) %>
-       <%= image_tag "gift-full.png", class: "gift" %>
-    <% else %>
-      <%= link_to new_kitty_contributor_path(dream.kitty) do %>
-        <%= image_tag "gift-empty.png", class: "gift" %>
-      <% end %>
-    <% end %>
-    <p><%= @dream.kitty.contributors.count %></p>
-  </div>
+
 
   <div class="share-part">
     <div><%= image_tag "facebook.png", class: "share" %></div>
