@@ -1,5 +1,10 @@
 .dreams.show {
-  background-color: $other-body-bg;
+  background-color: #fafafa;
+  .dreams-menu {
+    padding-left: 90px;
+    margin: 70px 0px 0px 0px;
+    background-color: white;
+  }
 }
 
 .banner-dream-show {
@@ -7,8 +12,8 @@
   color: white;
   text-align: center;
   margin: 0px 0px 0px 0px;
-  padding: 0px 20px;
-  height: calc(75vh - 70px);
+  padding: 0px;
+  height: calc(100vh - 270px);
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -21,21 +26,18 @@
     left: 100px;
     border: 4px solid white;
   }
-  .banner-title {
-    position: absolute;
-    margin-top: 0px;
-    top: 25px;
-    left: 25px;
-    font-weight: lighter;
-    font-size: 28px;
-  }
   .dream-owner-name {
     color: white;
     position: absolute;
     left: 300px;
-    bottom: 20px;
+    bottom: 60px;
     font-weight: lighter;
     font-size: 28px;
+  }
+  .edit-link {
+    position: absolute;
+    left: 300px;
+    bottom: 20px;
   }
 }
 
@@ -68,6 +70,22 @@
       }
     }
     .kitty-info-and-btn {
+      .in-column {
+        display: block;
+        .strong-green {
+          color: $green;
+          font-size: 18px !important;
+        }
+        p:first-child {
+          margin-bottom: 0px;
+          font-size: 16px;
+          font-weight: lighter;
+        }
+        .strong {
+          font-size: 18px !important;
+          color: $almost-black;
+        }
+      }
       .kitty-details {
         margin-top: 25px;
         margin-bottom: 50px;
@@ -75,45 +93,34 @@
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        .in-column {
-          display: block;
-          .strong-green {
-            color: $green;
-            font-size: 18px !important;
-          }
-          p:first-child {
-            margin-bottom: 0px;
-            font-size: 16px;
-            font-weight: lighter;
-          }
-          .strong {
-            font-size: 18px !important;
-            color: $almost-black;
-          }
-        }
-      }
-      .button-support-centered {
-        width: 100%;
-        text-align: center;
-        a.btn-dreamlist {
-          display: block;
-          padding: 10px 50px;
-          width: 100%;
-        }
       }
     }
   }
 }
+.kitty-part {
+  h4 {
+    color: $almost-black;
+    font-size: lighter;
+  }
+}
 
-
-.edit-link {
-  position: relative;
-
-  .btn-dreamlist-subtile {
-    position: absolute;
-    bottom: 0px;
-    right: 20px;
-    margin-top: 10px;
+.kitty-details-no-amount {
+  display: flex;
+  flex-direction: column;
+  .collected-amount {
+    margin: 10px 15px;
+    h4 {
+      color: $green;
+      font-size: 24px;
+    }
+  }
+  .secondary-elements {
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    .in-column {
+      margin: 0px 15px;
+    }
   }
 }
 
@@ -126,12 +133,9 @@
 
 .dreams.show {
   .dream-lovers {
-    margin: 25px 0px;
-    padding: 0px 30px;
-    h4 {
-      color: $almost-black;
-      padding-bottom: 15px;
-      border-bottom: 1px solid #DBDBDB !important;
+    background-color: white;
+    .likes-avatars {
+      padding: 60px 30px;
     }
   }
   .content-links {
