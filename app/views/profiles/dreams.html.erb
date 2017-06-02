@@ -4,6 +4,11 @@
       <div class="row">
         <%= render 'shared/profile_show', user: @user %>
           <div class= "tab-content", id="tab-user-dreams">
+            <% @dreams.each do |dream| %>
+              <%= render 'shared/dream_card', dream: dream %>
+            <% end %>
+          </div>
+          <div class= "tab-content hidden", id="tab-user-dreams-in-cat">
             <% Dream::CATEGORIES.each do |category| %>
               <% if @user.has_dream_in?(category) %>
                 <div class="col-xs-12 col-sm-4">
@@ -23,7 +28,6 @@
             <% end %>
           </div>
           <div class= "tab-content hidden", id="tab-followed-dreams">
-
           </div>
       </div>
     </div>
