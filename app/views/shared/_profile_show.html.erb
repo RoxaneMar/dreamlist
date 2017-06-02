@@ -21,9 +21,11 @@
         <br>
         <div class="dreams-menu">
           <div class="navbar-right-links text-center">
-            <%= link_to 'Dreams', dreams_profile_path(user), class: " navbar-dreamlist-button text-center" %>
-            <%= link_to 'Dreams loved', '#', class: " navbar-dreamlist-button text-center" %>
-            <%= link_to 'Followed', '#', class: " navbar-dreamlist-button text-center" %>
+            <div class="tabs">
+              <%= link_to 'Dreams', dreams_profile_path(user), class: "navbar-dreamlist-button text-center tab active", "data-target" => "#tab-user-dreams" %>
+              <%= link_to 'Dreams loved', '#', class: "navbar-dreamlist-button text-center tab", "data-target" => "#tab-loved-dreams" %>
+              <%= link_to 'Followed', '#', class: " navbar-dreamlist-button text-center tab", "data-target" => "#tab-followed-dreams" %>
+            </div>
           </div>
         </div>
       </div>
