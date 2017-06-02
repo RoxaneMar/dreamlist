@@ -1,3 +1,15 @@
 .edit-profile-card {
   padding: 80px;
 }
+
+.profiles.edit {
+  .form-actions {
+    width: 100%
+  }
+}
+
+.button-reset-psw-edit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
