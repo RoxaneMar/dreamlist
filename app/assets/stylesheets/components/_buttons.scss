@@ -66,16 +66,20 @@
 
 .btn-dreamlist-default {
   background-color: transparent;
-  color: $gray;
-  padding: 10px 15px;
+  font-weight: lighter;
+  color: #fafafa;
+  padding: 7px 40px;
   border-radius: 50px;
-  border: 1px solid $gray;
+  border: 1px solid #fafafa;
+  opacity: 0.7;
   &:hover {
     opacity: 1;
-    color: $pink;
-    border: 1px solid $pink;
+    color: #fafafa;
     text-decoration: none;
-    background-color: transparent;
+  }
+  &:focus {
+    color: #fafafa;
+    text-decoration: none;
   }
 }
 

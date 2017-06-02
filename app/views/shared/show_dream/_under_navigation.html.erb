@@ -1,0 +1,27 @@
+<div class="dreams-menu">
+  <div class="navbar-right-links text-center">
+    <%= link_to 'Popularity', "#", class: " navbar-dreamlist-button text-center" %>
+    <%= link_to 'Financement', '#', class: " navbar-dreamlist-button text-center" %>
+    <%= link_to 'Similar dreams', '#', class: " navbar-dreamlist-button text-center" %>
+  </div>
+</div>
+
+<!-- likes -->
+<div class="dream-lovers">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="likes-avatars">
+          <% if @dream.likes.count > 0 %>
+            <p class="nb-likes"><%= @dream.likes.count %></p>
+            <% @dream.likes.each do |like| %>
+              <%= link_to dreams_profile_path(like.user) do %>
+                <%= user_avatar_tag like.user, class: 'avatar' %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,46 +24,69 @@
     font-weight: lighter;
     font-size: 25px;
   }
+}
 
-  .dreams-menu {
-    transition: all 0.3s ease;
-    display: flex;
-    height: 60px;
-    padding: 20px 30px 5px 30px;
-    align-items: left;
-    justify-content: space-between;
+.dreams-menu {
+  transition: all 0.3s ease;
+  display: flex;
+  height: 60px;
+  padding: 20px 30px 5px 30px;
+  align-items: left;
+  justify-content: space-between;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid #DBDBDB !important;
+
+  .navbar-dreamlist-button {
+
+    &:hover:after {
+      top: 48px;
+    }
+
+    &:focus:after {
+      text-decoration: none;
+      color: $blue3;
+      position: absolute;
+      border-bottom: 3px solid $blue3;
+      top: 48px;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  a {
     text-align: center;
-    cursor: pointer;
-    border-bottom: 1px solid #DBDBDB !important;
-
-    .navbar-dreamlist-button {
-
-      &:hover:after {
-        top: 48px;
-      }
-
-      &:focus:after {
-        text-decoration: none;
-        color: $blue3;
-        position: absolute;
-        border-bottom: 3px solid $blue3;
-        top: 48px;
-        left: 0;
-        right: 0;
-        content: "";
-      }
-    }
-
-    a {
-      text-align: center;
-    }
+  }
 
 
-    .navbar-right-links {
-      height: 100%;
-      max-width: 1000px;
-      text-align: center;
-    }
+  .navbar-right-links {
+    height: 100%;
+    max-width: 1000px;
+    text-align: center;
   }
 }
 
+.tableau {
+
+  .tableau:hover {
+    opacity: 0.6px;
+  }
+
+  .photos-dreams {
+    border-radius: 5px;
+    height: 150px;
+    width: 140px;
+    margin: 30px;
+    padding: 0px;
+
+    .dream-image {
+      background-color: #fafafa;
+      border: 2px solid white;
+      border-radius: 5px;
+      margin: 0px;
+      padding: 0px;
+      height: 45px;
+      width: 45px;
+    }
+  }
+}

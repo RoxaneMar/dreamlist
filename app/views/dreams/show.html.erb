@@ -1,4 +1,4 @@
-<%= render 'shared/show_dream_navbar' %>
+<%= render 'shared/show_dream/navbar' %>
   <div class="wrapper">
     <div class="container">
 
@@ -18,45 +18,29 @@
             </div>
 
             <!-- edit your dream -->
-            <% if current_user == @dream.user %>
-              <div class="col-xs-12">
-                <div class="edit-link">
-                <%= link_to 'Edit your dream', edit_dream_path(dream), class: 'btn-dreamlist-subtile' %>
-                </div>
-              </div>
-            <% end %>
+            <div class="edit-link">
+              <% if current_user == @dream.user %>
+                <%= link_to 'Edit your dream', edit_dream_path(@dream), class: 'btn-dreamlist-default' %>
+              <% else %>
+                <%= link_to 'Follow', '#', class: 'btn-dreamlist-default' %>
+              <% end %>
+            </div>
           </div>
 
           <!--informations: description dream & kitty -->
           <div class="dream-show-description">
             <% if @dream.kitty.goal_amount > 0 %>
-                <%= render 'dream_with_amount_desc', dream: @dream, user: @user %>
+                <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
             <% else %>
-                <%= render 'dream_no_amount_desc', dream: @dream, user: @user %>
+                <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
             <% end %>
           </div>
-
-          <!-- likes -->
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="dream-lovers">
-              <% if @dream.likes.count > 0 %>
-                  <h4>People who loved this dream</h4>
-                  <p class="nb-likes"><%= @dream.likes.count %></p>
-                  <% @dream.likes.each do |like| %>
-                    <%= link_to dreams_profile_path(like.user) do %>
-                      <%= user_avatar_tag like.user, class: 'avatar' %>
-                    <% end %>
-                  <% end %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
+        </div>
       </div>
-
     </div>
+
+    <!-- sous-navigation -->
+    <%= render 'shared/show_dream/under_navigation', dream: @dream %>
+
   </div>
 

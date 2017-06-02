@@ -4,7 +4,7 @@
     <div class="row">
       <div class="sharing-links">
         <div class="col-xs-12 col-sm-1">
-          <%= render 'shared/links_dream', dream: @dream %>
+          <%= render 'shared/show_dream/links_dream', dream: @dream %>
         </div>
       </div>
       <div class="col-xs-12 col-sm-11">
@@ -20,7 +20,7 @@
     <div class="kitty-part">
       <!-- kitty privee et utilisateur != owner -->
       <% if current_user != @dream.user && @dream.kitty.private? %>
-        <h4>This kitty is closed for now</h4>
+        <h4 class="text-center">This kitty is closed for now.</h4>
       <!-- afficher kitty avec bar -->
       <% else %>
         <!-- barre avancement kitty -->
@@ -47,8 +47,8 @@
             </div>
 
             <div class="in-column">
-              <% if dream.end_date.present? %>
-                <p class="strong"><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
+              <% if @dream.end_date.present? %>
+                <p class="strong"><%= distance_of_time_in_words(Time.now, @dream.end_date) %></p>
                 <p>left</p>
               <% else %>
                 <p class="strong">No limit date </p>
