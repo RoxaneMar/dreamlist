@@ -20,9 +20,8 @@ $('input[type=file]').on('dragleave', function() {
 
 $(function(){
   $('.btn-reveal').on('click', function(ev) {
-    $('.participation-bar').addClass('hidden');
-    $('.participation-bar-revealed').removeClass('hidden');
     $('.secret').addClass('hidden');
     $('.reveal').removeClass('hidden');
+    $('.btn-reveal').addClass('hidden');
   });
 });

@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   end
 
   resources :dreams do
-    resources :kitties, only: [:show, :new, :create ]
+    resources :kitties, only: [:show, :new, :create]
     resource :like, only: [:index, :create, :destroy]
   end
 
   resources :kitties, only: [] do
-    resources :contributors, only: [:new, :create]
     get '/reveal', to: 'kitties#reveal'
+    resources :contributors, only: [:new, :create]
   end
 
   mount Attachinary::Engine => "/attachinary"

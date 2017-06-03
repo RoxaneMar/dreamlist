@@ -34,9 +34,8 @@ module ApplicationHelper
   end
 
   # useless for now
-  def revealing(dream)
-    link_to 'reveal', dream_reveal_path(dream), method: :get, remote: true, class: 'btn-dreamlist-2 btn-reveal' do
-    end
+  def revealing(kitty)
+    link_to 'reveal', kitty_reveal_path(kitty), method: :get, remote: true, class: 'btn-dreamlist-2 btn-reveal'
   end
 
   # useless for now
