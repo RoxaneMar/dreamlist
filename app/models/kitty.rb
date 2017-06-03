@@ -46,4 +46,8 @@ class Kitty < ApplicationRecord
     end
     total_contributors
   end
+
+  def secret?
+    self.contributors.any? { |contributor| contributor.private }
+  end
 end

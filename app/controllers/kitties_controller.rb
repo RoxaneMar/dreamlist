@@ -24,9 +24,7 @@ class KittiesController < ApplicationController
   end
 
   def reveal
-    binding.pry
     @kitty = Kitty.find(params[:kitty_id])
-
 
     @contributors = @kitty.contributors
     @contributors.each do |contributor|
