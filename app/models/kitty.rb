@@ -8,7 +8,19 @@ class Kitty < ApplicationRecord
     self.contributors.each do |contributor|
       contribution += contributor.amount
     end
-    return contribution.to_i
+    contribution.to_i
+  end
+
+  def total_visible_contribution
+    contribution = 0
+    self.contributors.each do |contributor|
+      if contributor.private
+        contribution
+      else
+        contribution += contributor.amount
+      end
+    end
+    contribution.to_i
   end
 
   def contribution_avancement

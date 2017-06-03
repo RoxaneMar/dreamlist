@@ -1,66 +1,34 @@
-<div class="row">
-  <!-- partie titre et content dream -->
-  <div class="col-xs-12 col-sm-6">
-    <div class="row">
-      <div class="sharing-links">
-        <div class="col-xs-12 col-sm-1">
-          <%= render 'shared/show_dream/links_dream', dream: @dream %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-11">
-        <div class="description">
-          <p><%= dream.description %></p>
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- information about kitty evolution -->
+<div class="kitty-info-and-btn">
+  <div class="kitty-details-no-amount">
 
-  <!-- partie kitty -->
-  <div class="col-xs-12 col-sm-6">
-    <div class="kitty-part">
-      <!-- kitty privee et utilisateur != owner -->
-      <% if current_user != @dream.user && @dream.kitty.private? %>
-        <h4 class="text-center">This kitty is closed for now.</h4>
-      <!-- afficher kitty avec bar -->
+    <div class="collected-amount">
+      <% if @dream.kitty.private? %>
+        <h4 class="strong-green">You already saved <%= @dream.kitty.total_contribution %> € for your dream</h4>
       <% else %>
+        <h4 class="strong-green"><%= @dream.kitty.total_contribution %> € collected</h4>
+      <% end %>
+    </div>
 
-        <!-- information about kitty evolution -->
-        <div class="kitty-info-and-btn">
-          <div class="kitty-details-no-amount">
-
-            <div class="collected-amount">
-              <% if @dream.kitty.private? %>
-                <h4 class="strong-green">You already saved <%= @dream.kitty.total_contribution %> € for your dream</h4>
-              <% else %>
-                <h4 class="strong-green"><%= @dream.kitty.total_contribution %> € collected</h4>
-              <% end %>
-            </div>
-
-            <div class="secondary-elements">
-
-
-                <% if !@dream.kitty.private? %>
-                  <div class="in-column">
-                    <p class="strong"><%= @dream.kitty.contributors.count %></p>
-                    <p>contributors</p>
-                  </div>
-                <% end %>
-
-                <div class="in-column">
-                  <% if dream.end_date.present? %>
-                    <p class="strong"><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
-                    <p>left</p>
-                  <% else %>
-                    <p class="strong">No limit date </p>
-                    <p>for this dream</p>
-                  <% end %>
-                </div>
-            </div>
-          </div>
-
+    <div class="secondary-elements">
+      <% if !@dream.kitty.private? %>
+        <div class="in-column">
+          <p class="strong"><%= @dream.kitty.contributors.count %></p>
+          <p>contributors</p>
         </div>
       <% end %>
+
+      <div class="in-column">
+        <% if dream.end_date.present? %>
+          <p class="strong"><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
+          <p>left</p>
+        <% else %>
+          <p class="strong">No limit date </p>
+          <p>for this dream</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
+
 
