@@ -6,7 +6,7 @@
         <ul class="dropdown-menu navbar-wagon-dropdown-menu left">
           <% Dream::CATEGORIES.each do |category| %>
             <li>
-              <%= link_to dreams_path(category: category) do %>
+              <%= link_to dreams_path(query: category) do %>
                 <%= t(".profile", default: category) %>
               <% end %>
             </li>
@@ -37,9 +37,12 @@
           <%= image_tag "search.png", class: "search-icon" %>
           <!-- <i class="fa fa-search"></i> -->
           <input type="text" id="search-input" placeholder="Search for a dream or friend">
-          <!-- <button type="submit" class="navbar-wagon-search-btn"> -->
-          <!-- </button> -->
+          <button type="submit" class="navbar-wagon-search-btn"></button>
         </div>
+      </form>
+      <form action="/dreams" method="get">
+        <input type="text" name="query" placeholder="Search for a dream or friend">
+        <button class="btn-dreamlist-2"><%= icon('search') %></button>
       </form>
 
       <!-- Notification -->
@@ -82,14 +85,13 @@
       <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <!-- Search form -->
-      <form action="">
-        <div class="search">
+      <form action="/dreams" method='get'>
+        <!-- <div class="search"> -->
           <%= image_tag "search.png", class: "search-icon" %>
           <!-- <i class="fa fa-search"></i> -->
-          <input type="text" id="search-input" placeholder="Search for a dream or friend">
-          <!-- <button type="submit" class="navbar-wagon-search-btn"> -->
-          <!-- </button> -->
-        </div>
+          <input type="text" name="query" id="search-input" placeholder="Search for a dream or following">
+          <button type="submit" class="navbar-wagon-search-btn"><%= icon('search') %></button>
+        <!-- </div> -->
       </form>
 
     <% end %>
