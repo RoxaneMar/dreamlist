@@ -1,9 +1,23 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: [:show, :edit, :update, :destroy]
 
+  # def cat_index
+  #   @category = params[:category]
+  #   @dreams = Dream.where(category: @category)
+  # end
+
   def index
-    @category = params[:category]
-    @dreams = Dream.where(category: @category)
+    if params[:query].present?
+      @query = params[:query]
+      @dreams = Dream.where(
+        'title ilike ?
+        OR category ilike ?',
+        "%#{params[:query]}%",
+        "%#{params[:query]}%"
+      )
+    else
+      @dreams = Dream.all
+    end
   end
 
   def show
