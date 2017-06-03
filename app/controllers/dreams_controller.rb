@@ -9,9 +9,14 @@ class DreamsController < ApplicationController
   def index
     if params[:query].present?
       @query = params[:query]
-      @dreams = Dream.where(
+      test = Dream.joins(:user)
+      @dreams = test.where(
         'title ilike ?
-        OR category ilike ?',
+        OR category ilike ?
+        OR first_name ilike ?
+        OR last_name ilike ?',
+        "%#{params[:query]}%",
+        "%#{params[:query]}%",
         "%#{params[:query]}%",
         "%#{params[:query]}%"
       )
