@@ -39,9 +39,6 @@ class Kitty < ApplicationRecord
     end
   end
 
-  # when you want to reveal a kitty and change all contributors status to public
-
-
   def public_contributors_count
     total_contributors = 0
     self.contributors.each do |contributor|

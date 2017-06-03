@@ -1,6 +1,7 @@
 class KittiesController < ApplicationController
-  before_action :set_kitty, only: [:show, :edit, :update]
+  before_action :set_kitty, only: [:show, :edit, :update, :reveal]
   before_action :set_dream, only: [:new, :show, :create, :update]
+
   def show
   end
 
@@ -21,13 +22,13 @@ class KittiesController < ApplicationController
   end
 
   def reveal
-    @kitty = Kitty.find(params[:kitty_id])
+    authorize(@kitty)
     @contributors = @kitty.contributors
     @contributors.each do |contributor|
       contributor.private = false
-      contributor.save
+      contributor.save!
     end
-    @contributors
+    @kitty
   end
 
   private

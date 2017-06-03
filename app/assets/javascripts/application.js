@@ -22,5 +22,7 @@ $(function(){
   $('.btn-reveal').on('click', function(ev) {
     $('.participation-bar').addClass('hidden');
     $('.participation-bar-revealed').removeClass('hidden');
+    $('.secret').addClass('hidden');
+    $('.reveal').removeClass('hidden');
   });
 });

@@ -64,7 +64,7 @@
                   <div class="row text-center">
                     <div class="col-xs-12">
                       <div class="revealing" data-id="<%=@dream.id%>">
-                        <%= revealing(@dream.kitty) %>
+                        <%= link_to 'reveal', kitty_reveal_path(@dream.kitty), method: :get, remote: true, class: 'btn-dreamlist-2 btn-reveal' %>
                       </div>
                     </div>
                   </div>

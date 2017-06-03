@@ -2,24 +2,27 @@
 <div class="kitty-info-and-btn">
   <!-- barre avancement kitty -->
   <div class="global-bar">
-    <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
-    <div class="participation-bar-revealed hidden" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement_revealed, precision: 0) %>"></div>
+    <div class="participation-bar secret" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
+    <div class="participation-bar reveal hidden" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement_revealed, precision: 0) %>"></div>
   </div>
 
   <!-- text information about kitty -->
   <div class="kitty-details">
     <div class="in-column">
-      <p class="strong-green"><%= @dream.kitty.total_visible_contribution %> €</p>
+      <p class="strong-green secret"><%= @dream.kitty.total_visible_contribution %> €</p>
+      <p class="strong-green reveal hidden"><%= @dream.kitty.total_contribution %> €</p>
       <p>out of <%= @dream.kitty.goal_amount.to_i %> €</p>
     </div>
 
     <div class="in-column">
-      <p class="strong"><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></p>
+      <p class="strong secret"><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></p>
+      <p class="strong reveal hidden"><%= number_to_percentage(@dream.kitty.contribution_avancement_revealed, precision: 0) %></p>
       <p>collected</p>
     </div>
 
     <div class="in-column">
-      <p class="strong"><%= @dream.kitty.public_contributors_count %></p>
+      <p class="strong secret"><%= @dream.kitty.public_contributors_count %></p>
+      <p class="strong reveal hidden"><%= @dream.kitty.contributors.count %></p>
       <p>contributors</p>
     </div>
 
