@@ -3,11 +3,11 @@
     <h4><%= @dream.title %></h4>
     </div>
     <div class="show-navbar-btn-items">
-    <div class="like-part">
-      <div class="like-actions" data-id="<%=@dream.id%>">
-        <%= like_action_for(@dream) %>
+      <div class="like-part">
+        <div class="like-actions" data-id="<%=@dream.id%>">
+          <%= like_action_for(@dream) %>
+        </div>
       </div>
-    </div>
       <% if current_user != @dream.user && @dream.kitty.private? %>
         <!-- <h5>kitty closed</h5> -->
       <% else %>

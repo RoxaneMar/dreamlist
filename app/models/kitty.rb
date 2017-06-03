@@ -25,9 +25,28 @@ class Kitty < ApplicationRecord
 
   def contribution_avancement
     if goal_amount > 0
+      (total_visible_contribution.to_f / goal_amount)*100
+    else
+      100
+    end
+  end
+
+  def contribution_avancement_revealed
+    if goal_amount > 0
       (total_contribution.to_f / goal_amount)*100
     else
       100
     end
+  end
+
+  # when you want to reveal a kitty and change all contributors status to public
+
+
+  def public_contributors_count
+    total_contributors = 0
+    self.contributors.each do |contributor|
+      total_contributors += 1 if !contributor.private
+    end
+    total_contributors
   end
 end

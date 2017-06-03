@@ -54,14 +54,20 @@
                     <h4 class="text-center">This kitty is closed for now.</h4>
                   <!-- afficher kitty avec bar -->
                   <% else %>
-
                     <% if @dream.kitty.goal_amount > 0 %>
                         <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
                     <% else %>
                         <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
                     <% end %>
-
                   <% end %>
+
+                  <div class="row text-center">
+                    <div class="col-xs-12">
+                      <div class="revealing" data-id="<%=@dream.id%>">
+                        <%= revealing(@dream.kitty) %>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 

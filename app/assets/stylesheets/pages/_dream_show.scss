@@ -1,3 +1,16 @@
+.participation-bar {
+  background-color: $green;
+  height: 100%;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  }
+.participation-bar-revealed {
+  background-color: $green;
+  height: 100%;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  }
+
 .dreams.show {
   background-color: #fafafa;
   .dreams-menu {
@@ -62,12 +75,6 @@
     background-color: #eaeaea;
     border-radius: 2px;
     margin-bottom: 10px;
-    .participation-bar {
-      background-color: $green;
-      height: 100%;
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px;
-      }
     }
     .kitty-info-and-btn {
       .in-column {
@@ -108,14 +115,15 @@
   display: flex;
   flex-direction: column;
   .collected-amount {
-    margin: 10px 15px;
+    margin: 0px 15px 10px 15px;
     h4 {
+      margin-top: 0px;
       color: $green;
       font-size: 24px;
     }
   }
   .secondary-elements {
-    margin: 10px 0px;
+    margin: 10px 0px 0px 0px;
     display: flex;
     flex-direction: row;
     .in-column {

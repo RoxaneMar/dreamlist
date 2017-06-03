@@ -1,13 +1,15 @@
-<!-- barre avancement kitty -->
-<div class="global-bar">
-  <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
-</div>
-
 <!-- information about kitty evolution -->
 <div class="kitty-info-and-btn">
+  <!-- barre avancement kitty -->
+  <div class="global-bar">
+    <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
+    <div class="participation-bar-revealed hidden" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement_revealed, precision: 0) %>"></div>
+  </div>
+
+  <!-- text information about kitty -->
   <div class="kitty-details">
     <div class="in-column">
-      <p class="strong-green"><%= @dream.kitty.total_contribution %> €</p>
+      <p class="strong-green"><%= @dream.kitty.total_visible_contribution %> €</p>
       <p>out of <%= @dream.kitty.goal_amount.to_i %> €</p>
     </div>
 
@@ -17,7 +19,7 @@
     </div>
 
     <div class="in-column">
-      <p class="strong"><%= @dream.kitty.contributors.count %></p>
+      <p class="strong"><%= @dream.kitty.public_contributors_count %></p>
       <p>contributors</p>
     </div>
 
@@ -31,5 +33,6 @@
       <% end %>
     </div>
   </div>
+
 </div>
 

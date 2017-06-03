@@ -6,14 +6,16 @@
       <% if @dream.kitty.private? %>
         <h4 class="strong-green">You already saved <%= @dream.kitty.total_contribution %> € for your dream</h4>
       <% else %>
-        <h4 class="strong-green"><%= @dream.kitty.total_contribution %> € collected</h4>
+        <h4 class="strong-green"><%= @dream.kitty.total_visible_contribution %> € collected</h4>
       <% end %>
     </div>
 
     <div class="secondary-elements">
       <% if !@dream.kitty.private? %>
         <div class="in-column">
-          <p class="strong"><%= @dream.kitty.contributors.count %></p>
+          <p class="strong">
+            <%= @dream.kitty.public_contributors_count %>
+          </p>
           <p>contributors</p>
         </div>
       <% end %>
@@ -28,6 +30,7 @@
         <% end %>
       </div>
     </div>
+
   </div>
 </div>
 

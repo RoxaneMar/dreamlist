@@ -33,6 +33,11 @@ module ApplicationHelper
     end
   end
 
+  def revealing(kitty)
+    link_to 'reveal', kitty_reveal_path(kitty), method: :get, remote: true, class: 'btn-dreamlist-2 btn-reveal'
+  end
+
+  # useless for now
   def like_action_gray_for(dream)
     if current_user.present?
       if current_user.liked?(dream)

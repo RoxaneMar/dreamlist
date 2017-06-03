@@ -13,14 +13,25 @@ class KittiesController < ApplicationController
     @kitty = Kitty.new(kitty_params)
     authorize(@kitty)
 
-     if @kitty.save
+    if @kitty.save
       redirect_to @dream
     else
       render :new
     end
   end
 
+  def reveal
+    @kitty = Kitty.find(params[:kitty_id])
+    @contributors = @kitty.contributors
+    @contributors.each do |contributor|
+      contributor.private = false
+      contributor.save
+    end
+    @contributors
+  end
+
   private
+
   def set_kitty
     @kitty = Kitty.find(params[:id])
   end
