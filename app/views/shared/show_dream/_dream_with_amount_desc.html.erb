@@ -1,65 +1,41 @@
-<div class="row">
-  <!-- partie titre et content dream -->
-  <div class="col-xs-12 col-sm-6">
-    <div class="row">
-      <div class="sharing-links">
-        <div class="col-xs-12 col-sm-1">
-          <%= render 'shared/show_dream/links_dream', dream: @dream %>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-11">
-        <div class="description">
-          <p><%= dream.description %></p>
-        </div>
-      </div>
-    </div>
+<!-- information about kitty evolution -->
+<div class="kitty-info-and-btn">
+  <!-- barre avancement kitty -->
+  <div class="global-bar">
+    <div class="participation-bar secret" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
+    <div class="participation-bar reveal hidden" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement_revealed, precision: 0) %>"></div>
   </div>
 
-  <!-- partie kitty -->
-  <div class="col-xs-12 col-sm-6">
-    <div class="kitty-part">
-      <!-- kitty privee et utilisateur != owner -->
-      <% if current_user != @dream.user && @dream.kitty.private? %>
-        <h4 class="text-center">This kitty is closed for now.</h4>
-      <!-- afficher kitty avec bar -->
+  <!-- text information about kitty -->
+  <div class="kitty-details">
+    <div class="in-column">
+      <p class="strong-green secret"><%= @dream.kitty.total_visible_contribution %> €</p>
+      <p class="strong-green reveal hidden"><%= @dream.kitty.total_contribution %> €</p>
+      <p>out of <%= @dream.kitty.goal_amount.to_i %> €</p>
+    </div>
+
+    <div class="in-column">
+      <p class="strong secret"><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></p>
+      <p class="strong reveal hidden"><%= number_to_percentage(@dream.kitty.contribution_avancement_revealed, precision: 0) %></p>
+      <p>collected</p>
+    </div>
+
+    <div class="in-column">
+      <p class="strong secret"><%= @dream.kitty.public_contributors_count %></p>
+      <p class="strong reveal hidden"><%= @dream.kitty.contributors.count %></p>
+      <p>contributors</p>
+    </div>
+
+    <div class="in-column">
+      <% if @dream.end_date.present? %>
+        <p class="strong"><%= distance_of_time_in_words(Time.now, @dream.end_date) %></p>
+        <p>left</p>
       <% else %>
-        <!-- barre avancement kitty -->
-        <div class="global-bar">
-          <div class="participation-bar" style="width: <%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %>"></div>
-        </div>
-
-        <!-- information about kitty evolution -->
-        <div class="kitty-info-and-btn">
-          <div class="kitty-details">
-            <div class="in-column">
-              <p class="strong-green"><%= @dream.kitty.total_contribution %> €</p>
-              <p>out of <%= @dream.kitty.goal_amount.to_i %> €</p>
-            </div>
-
-            <div class="in-column">
-              <p class="strong"><%= number_to_percentage(@dream.kitty.contribution_avancement, precision: 0) %></p>
-              <p>collected</p>
-            </div>
-
-            <div class="in-column">
-              <p class="strong"><%= @dream.kitty.contributors.count %></p>
-              <p>contributors</p>
-            </div>
-
-            <div class="in-column">
-              <% if @dream.end_date.present? %>
-                <p class="strong"><%= distance_of_time_in_words(Time.now, @dream.end_date) %></p>
-                <p>left</p>
-              <% else %>
-                <p class="strong">No limit date </p>
-                <p>for this dream</p>
-              <% end %>
-            </div>
-
-          </div>
-
-        </div>
+        <p class="strong">No limit date </p>
+        <p>for this dream</p>
       <% end %>
     </div>
   </div>
+
 </div>
+
