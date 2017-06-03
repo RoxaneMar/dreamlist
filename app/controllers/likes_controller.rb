@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
   def create
     @dream = Dream.find(params[:dream_id])
     @user = current_user

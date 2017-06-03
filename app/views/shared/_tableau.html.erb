@@ -6,7 +6,7 @@
         <% i = 1 %>
         <% 6.times do %>
           <div class="col-xs-4">
-            <div class="dream-image" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= dream_picture_path(dreams[i]) %>');">
+            <div class="dream-image" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= dream_picture_path(dreams[i], width: 100, height: 100, crop: :fill) %>');">
             </div>
           </div>
           <% i += 1 %>
@@ -14,7 +14,7 @@
       <% else %>
         <% dreams.each do |dream| %>
           <div class="col-xs-4">
-            <div class="dream-image" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= dream_picture_path(dream) %>');">
+            <div class="dream-image" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= dream_picture_path(dream, width: 100, height: 100, crop: :fill) %>');">
             </div>
           </div>
         <% end %>

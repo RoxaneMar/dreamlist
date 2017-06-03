@@ -1,0 +1,37 @@
+<div class="marged">
+  <div class="wrapper-profile">
+    <div class="container">
+      <div class="row">
+        <%= render 'shared/profile_show', user: @user %>
+          <div class= "tab-content", id="tab-user-dreams">
+            <% @dreams.each do |dream| %>
+              <%= render 'shared/dream_card', dream: dream %>
+            <% end %>
+          </div>
+          <div class= "tab-content hidden", id="tab-user-dreams-in-cat">
+            <% Dream::CATEGORIES.each do |category| %>
+              <% if @user.has_dream_in?(category) %>
+                <% dreams = @dreams.where(category: category) %>
+                <div class="col-xs-12 col-sm-4">
+                  <%= render 'shared/tableau', dreams: dreams, category: category %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class= "tab-content hidden", id="tab-loved-dreams">
+            <% Dream::CATEGORIES.each do |category| %>
+              <% if @user.loved_dream_in?(category) %>
+                <% loved_dreams = @user.liked_dreams.where(category: category) %>
+                <div class="col-xs-12 col-sm-4">
+                  <%= render 'shared/tableau', dreams: loved_dreams, category: category %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <div class= "tab-content hidden", id="tab-followed-dreams">
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
