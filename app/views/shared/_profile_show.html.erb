@@ -5,8 +5,14 @@
         <div class="user-description">
           <h2><%= user.first_name.capitalize %> <%= user.last_name.capitalize %></h2>
           <p><%= user.followers.count %> followers —  <%= user.following.count %> following</p>
-          <div class="follow-actions" data-id="<%= user.id %>">
-            <%= follow_action_for(user) %>
+          <div class="edit-link">
+            <% if current_user == user %>
+              <%= link_to 'Edit your profile', edit_profile_path(user), class: 'btn-dreamlist-default' %>
+            <% else %>
+              <div class="follow-actions" data-id="<%= user.id %>">
+                <%= follow_action_for(user) %>
+              </div>
+            <% end %>
           </div>
           <% if user == current_user %>
             <br>

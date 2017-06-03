@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def followed?(other_user)
-    active_relationships.where(followed_id: other_user).exists?
+    active_relationships.where(followed_id: other_user.id).exists?
   end
 
   def contributed?(dream)
