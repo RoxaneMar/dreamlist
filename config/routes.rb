@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :kitties, only: [] do
-    get '/reveal', to: 'kitties#reveal'
+    put '/reveal', to: 'kitties#reveal'
     resources :contributors, only: [:new, :create]
   end
 

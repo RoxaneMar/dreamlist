@@ -1,6 +1,8 @@
+require 'pry'
+
 class KittiesController < ApplicationController
   before_action :set_kitty, only: [:show, :edit, :update]
-  before_action :set_dream, only: [:new, :show, :create, :update, :reveal]
+  before_action :set_dream, only: [:new, :show, :create, :update]
 
   def show
   end
@@ -22,14 +24,15 @@ class KittiesController < ApplicationController
   end
 
   def reveal
-    @kitty = Kitty.find(params[:id])
-    authorize(@kitty)
+    binding.pry
+    @kitty = Kitty.find(params[:kitty_id])
+
+
     @contributors = @kitty.contributors
     @contributors.each do |contributor|
       contributor.update(private: false)
       contributor.save
     end
-    @contributors
 
     redirect_to @dream
   end
