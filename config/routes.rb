@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :dreams do
     resources :kitties, only: [:show, :new, :create]
-    resource :like, only: [:index, :create, :destroy]
+    resource :like, only: [:create, :destroy]
   end
 
   resources :kitties, only: [] do
