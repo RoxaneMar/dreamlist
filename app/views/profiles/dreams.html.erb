@@ -32,8 +32,9 @@
 
           </div>
           <div class= "tab-content hidden", id="tab-followed-dreams">
+
             <div class="buttons">
-              <%= render 'shared/buttons_cat', categories: Dream::CATEGORIES %>
+              <%= render 'shared/buttons_cat', categories: @user.following_categories %>
             </div>
               <% if @user.following.each do |user_followed| %>
                 <% user_followed.dreams.each do |dream| %>

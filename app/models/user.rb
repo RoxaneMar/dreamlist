@@ -60,6 +60,18 @@ class User < ApplicationRecord
     liked_dreams.where(category: category).exists?
   end
 
+  def following_categories
+    @categories = []
+    Dream::CATEGORIES.each do |category|
+      self.following.each do |user_followed|
+        if user_followed.has_dream_in?(category) && @categories.include?(category) == false
+          @categories << category
+        end
+      end
+    end
+    return @categories
+  end
+
   def categories
     @categories = []
     Dream::CATEGORIES.each do |category|
