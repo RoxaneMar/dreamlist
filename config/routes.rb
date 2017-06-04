@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :kitties, only: [] do
+    put '/reveal', to: 'kitties#reveal'
     resources :contributors, only: [:new, :create]
   end
 
