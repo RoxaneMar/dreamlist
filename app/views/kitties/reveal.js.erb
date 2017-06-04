@@ -1,4 +1,12 @@
-$('.kitty-info-and-btn').append('<%= j render "shared/show_dream/kitty_part", dream: @dream, user: @user %>');
+<% if @dream.kitty.goal_amount > 0 %>
+    $('.kitty-info-and-btn').empty().append('<%= j render "shared/show_dream/dream_with_amount_desc", dream: @dream, user: @user %>');
+<% else %>
+    $('.kitty-info-and-btn').empty().append('<%= j render "shared/show_dream/dream_no_amount_desc", dream: @dream, user: @user %>');
+<% end %>
+
+$('.revealing[data-id=<%= @dream.id %>]').empty()
+// ancien
+// $('.kitty-info-and-btn').append('<%= j render "shared/show_dream/kitty_part", dream: @dream, user: @user %>');
 
 // $(function(){
 //   $('.btn-reveal').on('click', function(ev) {

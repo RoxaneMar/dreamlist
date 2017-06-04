@@ -55,7 +55,11 @@
                   <!-- afficher kitty avec bar -->
                   <% else %>
                     <div class="kitty-info-and-btn">
-                      <%= render 'shared/show_dream/kitty_part', dream: @dream, user: @user %>
+                      <% if @dream.kitty.goal_amount > 0 %>
+                        <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
+                      <% else %>
+                        <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
+                      <% end %>
                     </div>
                   <% end %>
 
