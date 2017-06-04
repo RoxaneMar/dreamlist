@@ -5,7 +5,7 @@
         <div class="user-description">
           <h2><%= user.first_name.capitalize %> <%= user.last_name.capitalize %></h2>
           <div class="text-inline">
-            <p class="nb-follower"><%= user.followers.count %> followers </p>
+            <p class="nb-follower"><%= user.followers.count %> followers  — </p>
             <p class="nb-following"><%= user.following.count %> following </p>
           </div>
           <div class="edit-link">
@@ -36,7 +36,8 @@
             <div class="tabs">
               <%= link_to 'Dreams', '#', class: "navbar-dreamlist-button text-center tab", "data-target" => "#tab-user-dreams-in-cat" %>
               <%= link_to 'Dreams liked', '#', class: "navbar-dreamlist-button text-center tab", "data-target" => "#tab-loved-dreams" %>
-              <%= link_to 'Followed', '#', class: " navbar-dreamlist-button text-center tab", "data-target" => "#tab-followed-dreams" %>
+              <%= link_to 'Following', '#', class: " navbar-dreamlist-button text-center tab", "data-target" => "#tab-followed-users" %>
+              <%= link_to 'Following dreams', '#', class: " navbar-dreamlist-button text-center tab", "data-target" => "#tab-followed-dreams" %>
             </div>
           </div>
         </div>
