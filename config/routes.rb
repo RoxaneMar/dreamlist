@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :profiles, only: [:show, :edit, :update] do
+    resource :relationship, only: [:create, :destroy]
     member do
       get '/dreams', to: 'profiles#dreams'
     end
