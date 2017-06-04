@@ -25,6 +25,7 @@ class KittiesController < ApplicationController
 
   def reveal
     @kitty = Kitty.find(params[:kitty_id])
+    @dream = @kitty.dream
 
     @contributors = @kitty.contributors
     @contributors.each do |contributor|
@@ -32,7 +33,10 @@ class KittiesController < ApplicationController
       contributor.save
     end
 
-    redirect_to @dream
+    respond_to do |format|
+      format.html { redirect_to @dream }
+      format.js
+    end
   end
 
   private

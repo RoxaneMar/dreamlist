@@ -1,11 +1,13 @@
-$(function(){
-  $('.btn-reveal').on('click', function(ev) {
-    $('.participation-bar').addClass('hidden');
-    $('.participation-bar-revealed').removeClass('hidden');
-    $('.secret').addClass('hidden');
-    $('.reveal').removeClass('hidden');
-  });
-});
+$('.kitty-info-and-btn').append('<%= j render "shared/show_dream/kitty_part", dream: @dream, user: @user %>');
+
+// $(function(){
+//   $('.btn-reveal').on('click', function(ev) {
+//     $('.participation-bar').addClass('hidden');
+//     $('.participation-bar-revealed').removeClass('hidden');
+//     $('.secret').addClass('hidden');
+//     $('.reveal').removeClass('hidden');
+//   });
+// });
 
 
 
