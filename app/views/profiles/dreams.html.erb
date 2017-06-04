@@ -24,7 +24,17 @@
               <% end %>
             <% end %>
           </div>
-          <div class= "tab-content hidden", id="tab-followed-dreams"></div>
+          <div class= "tab-content hidden", id="tab-followed-dreams">
+            <div class="buttons">
+              <%= render 'shared/buttons_cat', categories: Dream::CATEGORIES %>
+            </div>
+              <% if @user.following.each do |user_followed| %>
+                <% user_followed.dreams.each do |dream| %>
+                  <%= render 'shared/dream_card', dream: dream %>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
       </div>
     </div>
   </div>
