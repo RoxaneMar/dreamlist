@@ -4,7 +4,8 @@
     $('.kitty-info-and-btn').empty().append('<%= j render "shared/show_dream/dream_no_amount_desc", dream: @dream, user: @user %>');
 <% end %>
 
-$('.revealing[data-id=<%= @dream.id %>]').empty()
+// $('.revealing[data-id=<%= @dream.id %>]').empty()
+$('.revealing[data-id=<%= @dream.id %>]').remove()
 // ancien
 // $('.kitty-info-and-btn').append('<%= j render "shared/show_dream/kitty_part", dream: @dream, user: @user %>');
 
