@@ -1,5 +1,6 @@
 puts "destroying all data..."
 
+Relationship.destroy_all
 Contributor.destroy_all
 Kitty.destroy_all
 Like.destroy_all
