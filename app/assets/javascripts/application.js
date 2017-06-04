@@ -18,10 +18,10 @@ $('input[type=file]').on('dragleave', function() {
   $('.super-text-attach').removeClass('dragover');
 });
 
-$(function(){
-  $('.btn-reveal').on('click', function(ev) {
-    $('.secret').addClass('hidden');
-    $('.reveal').removeClass('hidden');
-    $('.btn-reveal').addClass('hidden');
-  });
-});
+// $(function(){
+//   $('.btn-reveal').on('click', function(ev) {
+//     $('.secret').addClass('hidden');
+//     $('.reveal').removeClass('hidden');
+//     $('.btn-reveal').addClass('hidden');
+//   });
+// });
