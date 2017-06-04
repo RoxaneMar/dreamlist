@@ -36,9 +36,9 @@ module ApplicationHelper
   def follow_action_for(user)
     if current_user.present?
       if current_user.followed?(user)
-        link_to "Unfollow", profile_relationship_path(user), class: "btn-dreamlist-default", method: :delete, remote: true
+        link_to "Unfollow", profile_relationship_path(user), method: :delete, remote: true, class: "btn-dreamlist-default"
       else
-        link_to "Follow", profile_relationship_path(user), class: "btn-dreamlist-default", method: :post, remote: true
+        link_to "Follow", profile_relationship_path(user), method: :post, remote: true, class: "btn-dreamlist-default"
       end
     else
       link_to "Follow", new_user_session_path, class: "btn-dreamlist-default"

@@ -1,2 +1,4 @@
 $('.follow-actions[data-id=<%= user.id %>]').html("<%= j follow_action_for(user) %>");
+$('.nb-follower').text('<%= user.followers.count %> followers');
+$('.nb-following').text('<%= user.following.count %> following');
 

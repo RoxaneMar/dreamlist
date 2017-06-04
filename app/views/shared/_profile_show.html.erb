@@ -4,7 +4,10 @@
       <div class="col-xs-6 col-sm-8">
         <div class="user-description">
           <h2><%= user.first_name.capitalize %> <%= user.last_name.capitalize %></h2>
-          <p><%= user.followers.count %> followers —  <%= user.following.count %> following</p>
+          <div class="text-inline">
+            <p class="nb-follower"><%= user.followers.count %> followers </p>
+            <p class="nb-following"><%= user.following.count %> following </p>
+          </div>
           <div class="edit-link">
             <% if current_user == user %>
               <%= link_to 'Edit your profile', edit_profile_path(user), class: 'btn-dreamlist-default' %>
