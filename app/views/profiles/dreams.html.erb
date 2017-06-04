@@ -4,23 +4,18 @@
       <div class="row">
         <%= render 'shared/profile_show', user: @user %>
           <div class= "tab-content", id="tab-user-dreams-in-cat">
-
             <div class="buttons">
               <%= render 'shared/buttons_cat', categories: @user.categories %>
             </div>
-
             <% @dreams.each do |dream| %>
               <%= render 'shared/dream_card', dream: dream %>
             <% end %>
-
           </div>
 
           <div class= "tab-content hidden", id="tab-loved-dreams">
-
             <div class="buttons">
               <%= render 'shared/buttons_cat', categories: @user.categories_liked %>
             </div>
-
             <% Dream::CATEGORIES.each do |category| %>
               <% if @user.loved_dream_in?(category) %>
                 <% loved_dreams = @user.liked_dreams.where(category: category) %>
@@ -29,17 +24,29 @@
                   <% end %>
               <% end %>
             <% end %>
-
           </div>
+
           <div class= "tab-content hidden", id="tab-followed-dreams">
             <div class="buttons">
-              <%= render 'shared/buttons_cat', categories: Dream::CATEGORIES %>
+              <%= render 'shared/buttons_cat', categories: @user.following_categories %>
             </div>
-              <% if @user.following.each do |user_followed| %>
+              <% @user.following.each do |user_followed| %>
                 <% user_followed.dreams.each do |dream| %>
                   <%= render 'shared/dream_card', dream: dream %>
                 <% end %>
               <% end %>
+          </div>
+          <div class= "tab-content hidden", id="tab-followed-users">
+            <% @user.following.each do |user_followed| %>
+              <div class="col-xs-12 col-sm-3">
+                <div class="user-card text-center">
+                  <%= link_to dreams_profile_path(user_followed) do %>
+                    <%= user_avatar_tag user_followed, class: 'avatar-large' %>
+                  <% end %>
+                  <br>
+                  <h4><%= user_followed.first_name.capitalize %> <%= user_followed.last_name.capitalize %></h4>
+                </div>
+              </div>
             <% end %>
           </div>
       </div>

@@ -34,6 +34,15 @@
       color: $dark-gray;
     }
   }
+
+  .user-card {
+    margin-top: 30px;
+
+    h4 {
+      font-weight: lighter;
+      font-size: 21px;
+    }
+  }
 }
 
 
@@ -127,6 +136,13 @@
       border: none;
       box-shadow: none;
     }
+  }
+}
+
+.user-description {
+  p {
+    display: inline-block;
+    margin-bottom: 70px;
   }
 }
 
