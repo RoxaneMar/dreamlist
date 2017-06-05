@@ -1,6 +1,7 @@
 $(function(){
 
   $(".tab").on("click", function(e){
+    e.preventDefault();
     // Change active tab
     // $(this).toggleClass('active');
     $(".tab").removeClass('active');
@@ -11,20 +12,18 @@ $(function(){
     var tar = $('.active').data("target");
     $(tar).removeClass('hidden');
   });
-});
 
-$(function(){
   $(".btn").on("click", function(e){
+    e.preventDefault();
     $(".btn").removeClass('active');
     $(this).addClass('active');
-    $('.dream-card').addClass('hidden');
+    $('.dream-card').parent().addClass('hidden');
     var cat = $('.active.btn').text();
-    $("." + cat).removeClass('hidden');
+    $("." + cat).parent().removeClass('hidden');
   });
-});
 
-$(function(){
   $(".tab").on("click", function(e){
-    $('.dream-card').removeClass('hidden');
+    e.preventDefault();
+    $('.dream-card').parent().removeClass('hidden');
   });
 });

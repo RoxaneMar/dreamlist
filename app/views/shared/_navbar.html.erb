@@ -32,17 +32,13 @@
       <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
 
       <!-- Search form -->
-      <form action="">
+      <form action="/dreams" method="get">
         <div class="search">
           <%= image_tag "search.png", class: "search-icon" %>
           <!-- <i class="fa fa-search"></i> -->
-          <input type="text" id="search-input" placeholder="Search for a dream or friend">
+          <input type="text" name="query" id="search-input" placeholder="Search for a dream or friend">
           <button type="submit" class="navbar-wagon-search-btn"></button>
         </div>
-      </form>
-      <form action="/dreams" method="get">
-        <input type="text" name="query" placeholder="Search for a dream or friend">
-        <button class="btn-dreamlist-2"><%= icon('search') %></button>
       </form>
 
       <!-- Notification -->
@@ -61,17 +57,17 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to dreams_profile_path(current_user) do %>
-                <%= image_tag "logo-dreamlistV1.png", height: 23%>  <%= t(".profile", default: "Dreams") %>
+                <%= image_tag "logo-dreamlistV1.png", height: 23%>  <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
             <li>
               <%= link_to profile_path(current_user) do %>
-                <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(".profile", default: "Settings") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Sign out") %>
               <% end %>
             </li>
           </ul>
