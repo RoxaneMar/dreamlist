@@ -42,13 +42,26 @@
       </form>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link navbar-alarm" do %>
-        <div class="badge-container">
-          <%= image_tag "alarm.png", class: "alarm" %>
-          <!-- <i class="fa fa-envelope-o"></i> -->
-          <!-- <div class="badge badge-blue">3</div> -->
-        </div>
-      <% end %>
+
+      <div class="dropdown">
+        <%= content_tag "div", class: "dropdown-toggle navbar-wagon-item navbar-wagon-link navbar-alarm", "data-toggle" => "dropdown" do %>
+          <div class="badge-container">
+            <%= image_tag "alarm.png", class: "alarm" %>
+            <% if current_user.notifications.where(read: false).count > 0 %>
+              <div class="badge badge-blue"><%= current_user.notifications.where(read: false).count %></div>
+            <% end %>
+          </div>
+        <% end %>
+        <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <% current_user.notifications.ordered.each do |notification| %>
+            <li class="notif-<%= notification.read ? 'read' : 'unread' %>">
+              <%= link_to notification_path(notification) do %>
+                <%= notification.content %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">

@@ -21,12 +21,12 @@ class Kitty < ApplicationRecord
         contribution += contributor.price
       end
     end
-    contribution.to_i
+    contribution
   end
 
   def contribution_avancement
     if goal_amount > 0
-      (total_contribution.to_f / goal_amount)*100
+      (total_contribution / goal_amount.to_i)*100
     else
       100
     end

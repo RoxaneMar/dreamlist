@@ -45,6 +45,11 @@ class DreamsController < ApplicationController
     @dream.user = current_user
 
     if @dream.save
+      @dream.user.followers.each do |follower|
+        Notification.create!(user: follower,
+          subject: @dream,
+          content: "#{@dream.user.first_name.capitalize} #{@dream.user.last_name.capitalize} created a new dream!")
+      end
       redirect_to new_dream_kitty_path(@dream)
     else
       render :new
