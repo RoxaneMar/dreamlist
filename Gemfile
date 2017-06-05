@@ -22,6 +22,8 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'pundit'
+gem 'money-rails'
+gem 'stripe'
 
 
 group :development, :test do

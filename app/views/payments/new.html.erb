@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="marged">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+        <div class="big-card-create-dream">
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="payment-recap text-center">
+                <h2>Contribute to <%= @contributor.kitty.dream.user.first_name %>'s dream: <%= @contributor.kitty.dream.title %></h2>
+                <%= form_tag contributor_payments_path(@contributor) do %>
+                  <article>
+                    <label class="price">
+                      <span>Your contribution: <%= humanized_money_with_symbol(@contributor.price) %></span>
+                    </label>
+                  </article>
+
+                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button btn-dreamlist"
+                    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+                    data-name="My contribution"
+                    data-email="<%= current_user.email %>"
+                    data-description="Contribution to <%= @contributor.kitty.dream.user.first_name %>'s dream: <%= @contributor.kitty.dream.title%>"
+                    data-amount="<%= @contributor.price_cents %>"
+                    data-currency="<%= @contributor.price.currency %>"></script>
+
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

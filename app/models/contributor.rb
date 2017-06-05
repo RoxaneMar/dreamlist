@@ -1,6 +1,7 @@
 class Contributor < ApplicationRecord
   belongs_to :user
   belongs_to :kitty
+  monetize :price_cents
 
-  validates :amount, presence: true, numericality: { greater_than: 0 }
+  validates :price, presence: true, numericality: { greater_than: 0 }
 end

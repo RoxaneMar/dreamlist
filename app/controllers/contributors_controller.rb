@@ -10,10 +10,12 @@ class ContributorsController < ApplicationController
     @contributor.user = current_user
     @kitty = Kitty.find(params[:kitty_id])
     @contributor.kitty = @kitty
+    @contributor.state = 'pending'
     @dream = @contributor.kitty.dream
 
     if @contributor.save
-      redirect_to dream_path(@dream)
+      redirect_to new_contributor_payment_path(@contributor)
+      # dream_path(@dream)
     else
       render :new
     end
@@ -25,7 +27,7 @@ class ContributorsController < ApplicationController
     params
       .require(:contributor)
       .permit(
-        :amount,
+        :price,
         :private,
         :message
       )
