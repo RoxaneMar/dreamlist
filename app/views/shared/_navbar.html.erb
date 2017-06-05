@@ -32,17 +32,13 @@
       <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
 
       <!-- Search form -->
-      <form action="">
+      <form action="/dreams" method="get">
         <div class="search">
           <%= image_tag "search.png", class: "search-icon" %>
           <!-- <i class="fa fa-search"></i> -->
-          <input type="text" id="search-input" placeholder="Search for a dream or friend">
+          <input type="text" name="query" id="search-input" placeholder="Search for a dream or friend">
           <button type="submit" class="navbar-wagon-search-btn"></button>
         </div>
-      </form>
-      <form action="/dreams" method="get">
-        <input type="text" name="query" placeholder="Search for a dream or friend">
-        <button class="btn-dreamlist-2"><%= icon('search') %></button>
       </form>
 
       <!-- Notification -->
