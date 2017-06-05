@@ -1,21 +1,28 @@
 <% if current_user != dream.user %>
   <div class="kitty-details private">
-    <div class="in-column">
-      <h5>Secret (only for you):</h5>
-    </div>
-    <div class="in-column">
-      <p class="strong-green"><%= dream.kitty.total_contribution_public + dream.kitty.total_contribution_private %> €</p>
-      <p>out of <%= dream.kitty.goal_amount.to_i %> €</p>
-    </div>
+    <% if dream.kitty.total_contribution_private == 0 && dream.kitty.total_contribution_public > 0 %>
+      <h5>There is no secret contribution for now. <span class="strong-blue-small"><%= link_to "Be the first one!", new_kitty_contributor_path(dream.kitty) %></span></h5>
+    <% else %>
+      <div class="in-column">
+        <h5><span>Secret</span> pot:</h5>
+      </div>
+      <div class="in-column">
+        <p class="strong-blue"><%= dream.kitty.total_contribution_private %> €</p>
+        <p>out of <%= dream.kitty.goal_amount.to_i %> €</p>
+      </div>
 
-    <div class="in-column">
-      <p class="strong secret"><%= number_to_percentage(dream.kitty.real_contribution_avancement + dream.kitty.real_contribution_avancement_private, precision: 0) %></p>
-      <p>collected</p>
-    </div>
+      <% if dream.kitty.goal_amount > 0 %>
+        <div class="in-column">
+          <p class="strong"><%= number_to_percentage(dream.kitty.real_contribution_avancement_private, precision: 0) %></p>
+          <p>collected</p>
+        </div>
+      <% end %>
 
-    <div class="in-column">
-      <p class="strong secret"><%= dream.kitty.contributors.count %></p>
-      <p>contributions</p>
-    </div>
+      <div class="in-column">
+        <p class="strong"><%= dream.kitty.contributors.count - dream.kitty.public_contributors_count %></p>
+        <p>contributions</p>
+      </div>
+    <% end %>
+
   </div>
 <% end %>

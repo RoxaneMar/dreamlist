@@ -1,21 +1,41 @@
 <!-- information about kitty evolution -->
-  <div class="kitty-details-no-amount">
+<% if (current_user != dream.user) %>
+  <div class="kitty-total-amount">
+    <p> Total: </p>
+    <p class="strong-black"><%= dream.kitty.total_contribution_public + dream.kitty.total_contribution_private %> €</p>
+  </div>
+<% else %>
+  <div class="kitty-total-amount">
+    <p> Total: </p>
+    <p class="strong-black"><%= dream.kitty.total_contribution_public %> €</p>
+  </div>
+<% end %>
 
-    <div class="collected-amount">
-      <% if @dream.kitty.private? %>
-        <h4 class="strong-green">You already saved <%= @dream.kitty.total_contribution_public %> € for your dream</h4>
-      <% else %>
-        <h4 class="strong-green reveal"><%= @dream.kitty.real_contribution_avancement %> € collected</h4>
-      <% end %>
-    </div>
+<div class="two-columns">
+  <div class="kitty-details">
 
-    <div class="secondary-elements">
-      <% if !@dream.kitty.private? %>
-        <div class="in-column">
+  <% if @dream.kitty.private? %>
+
+    <h5 class="strong-green">You already saved <%= @dream.kitty.total_contribution_public %> € for your dream</h5>
+
+  <% else %>
+
+   <% if dream.kitty.total_contribution_public == 0 %>
+      <h5>There is no public contribution for now. <span class="strong-green-small"><%= link_to "Be the first one!", new_kitty_contributor_path(dream.kitty) %></span></h5>
+    <% else %>
+      <div class="in-column">
+        <h5>Money pot information:</h5>
+      </div>
+      <div class="in-column">
+        <p class="strong-green"><%= @dream.kitty.total_contribution_public %> €</p>
+        <p>collected</p>
+      </div>
+      <div class="in-column">
+        <% if !@dream.kitty.private? %>
           <p class="strong secret"><%= @dream.kitty.public_contributors_count %></p>
           <p>contributions</p>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
 
       <div class="in-column">
         <% if dream.end_date.present? %>
@@ -26,9 +46,15 @@
           <p>for this dream</p>
         <% end %>
       </div>
-    </div>
+    <% end %>
 
+    <% end %>
   </div>
+
+  <% if !(dream.kitty.total_contribution_private == 0 && dream.kitty.total_contribution_public == 0) %>
+    <%= render 'shared/show_dream/kitty_infos_private_contribution', dream: @dream, user: @user %>
+  <% end %>
+</div>
 
 
 
