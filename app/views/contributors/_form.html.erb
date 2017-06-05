@@ -5,7 +5,7 @@
         <% if current_user != @kitty.dream.user %>
           <%= f.input :private, label: "I want to make a surprise and make a secret contribution (my friend won't see my contribution until goal is reached!)" %>
         <% end %>
-        <%= f.input :amount, label: false, placeholder: "20 €" %>
+        <%= f.input :price, label: false, placeholder: "20 €" %>
         <%= f.input :message, label: false, placeholder: "For all the good moments we shared together!" %>
       </div>
     </div>

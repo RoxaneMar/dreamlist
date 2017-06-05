@@ -1,0 +1,17 @@
+<h1>Contribute to <%= @contributor.kitty.dream.user.first_name %>'s dream: <%= @contributor.kitty.dream.title %></h1>
+<%= form_tag contributor_payments_path(@contributor) do %>
+  <article>
+    <label class="price">
+      <span>Amount: <%= humanized_money_with_symbol(@contributor.price) %></span>
+    </label>
+  </article>
+
+   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+    data-name="My contribution"
+    data-email="<%= current_user.email %>"
+    data-description="Contribution to <%= @contributor.kitty.dream.user.first_name %>'s dream: <%= @contributor.kitty.dream.title%>"
+    data-amount="<%= @contributor.price_cents %>"
+    data-currency="<%= @contributor.price.currency %>"></script>
+
+<% end %>

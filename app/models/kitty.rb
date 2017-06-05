@@ -1,6 +1,7 @@
 class Kitty < ApplicationRecord
   belongs_to :dream
   has_many :contributors
+  monetize :goal_amount_cents
 
   # def total_contribution
   #   # contributors.sum(:amount)
@@ -17,7 +18,7 @@ class Kitty < ApplicationRecord
       if contributor.private
         contribution
       else
-        contribution += contributor.amount
+        contribution += contributor.price
       end
     end
     contribution.to_i
