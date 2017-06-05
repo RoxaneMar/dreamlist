@@ -11,7 +11,7 @@
         <p>out of <%= dream.kitty.goal_amount.to_i %> €</p>
       </div>
 
-      <% if dream.kitty.goal_amount > 0 %>
+      <% if dream.kitty.goal_amount.to_i > 0 %>
         <div class="in-column">
           <p class="strong"><%= number_to_percentage(dream.kitty.real_contribution_avancement_private, precision: 0) %></p>
           <p>collected</p>

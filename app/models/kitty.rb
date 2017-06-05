@@ -4,7 +4,7 @@ class Kitty < ApplicationRecord
   monetize :goal_amount_cents
 
   def total_contribution_public
-    contribution = 0
+    contribution = Money.new(0)
     self.contributors.each do |contributor|
       if contributor.private
         contribution
@@ -16,12 +16,12 @@ class Kitty < ApplicationRecord
   end
 
   def total_contribution_private
-    contribution = 0
+    contribution = Money.new(0)
     self.contributors.each do |contributor|
       if !contributor.private
         contribution
       else
-        contribution += contributor.amount
+        contribution += contributor.price
       end
     end
     contribution
@@ -32,7 +32,7 @@ class Kitty < ApplicationRecord
     if total_contribution_public >= goal_amount
       100
     elsif goal_amount > 0
-      (total_contribution_public / goal_amount.to_i)*100
+      (total_contribution_public / goal_amount)*100
     else
       100
     end
@@ -42,7 +42,7 @@ class Kitty < ApplicationRecord
     if total_contribution_private >= goal_amount
       100
     elsif goal_amount > 0
-      (total_contribution_private / goal_amount.to_i)*100
+      (total_contribution_private / goal_amount)*100
     else
       100
     end
@@ -51,7 +51,7 @@ class Kitty < ApplicationRecord
   # for % of money pot reached
   def real_contribution_avancement
     if goal_amount > 0
-      (total_contribution_public / goal_amount.to_i)*100
+      (total_contribution_public / goal_amount)*100
     else
       100
     end
@@ -59,7 +59,7 @@ class Kitty < ApplicationRecord
 
   def real_contribution_avancement_private
     if goal_amount > 0
-      (total_contribution / goal_amount.to_i)*100
+      (total_contribution_private / goal_amount)*100
     else
       100
     end
@@ -74,7 +74,7 @@ class Kitty < ApplicationRecord
   # end
 
   def public_contributors_count
-    total_contributors = 0
+    total_contributors = Money.new(0)
     self.contributors.each do |contributor|
       total_contributors += 1 if !contributor.private
     end
@@ -82,6 +82,8 @@ class Kitty < ApplicationRecord
   end
 
   def secret?
-    self.contributors.any? { |contributor| contributor.private }
+    if total_contribution_private > 0
+      self.contributors.any? { |contributor| contributor.private }
+    end
   end
 end
