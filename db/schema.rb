@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605100412) do
+ActiveRecord::Schema.define(version: 20170605132513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,18 @@ ActiveRecord::Schema.define(version: 20170605100412) do
     t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "subject_type"
+    t.integer  "subject_id"
+    t.boolean  "read",         default: false
+    t.string   "content"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["subject_type", "subject_id"], name: "index_notifications_on_subject_type_and_subject_id", using: :btree
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -114,4 +126,5 @@ ActiveRecord::Schema.define(version: 20170605100412) do
   add_foreign_key "kitties", "dreams"
   add_foreign_key "likes", "dreams"
   add_foreign_key "likes", "users"
+  add_foreign_key "notifications", "users"
 end

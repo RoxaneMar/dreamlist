@@ -12,7 +12,7 @@ class Kitty < ApplicationRecord
         contribution += contributor.price
       end
     end
-    contribution.to_i
+    contribution
   end
 
   def total_contribution_private
@@ -24,7 +24,7 @@ class Kitty < ApplicationRecord
         contribution += contributor.amount
       end
     end
-    contribution.to_i
+    contribution
   end
 
   # for green progress bar
@@ -32,7 +32,7 @@ class Kitty < ApplicationRecord
     if total_contribution_public >= goal_amount
       100
     elsif goal_amount > 0
-      (total_contribution_public.to_f / goal_amount)*100
+      (total_contribution_public / goal_amount.to_i)*100
     else
       100
     end
@@ -42,7 +42,7 @@ class Kitty < ApplicationRecord
     if total_contribution_private >= goal_amount
       100
     elsif goal_amount > 0
-      (total_contribution_private.to_f / goal_amount)*100
+      (total_contribution_private / goal_amount.to_i)*100
     else
       100
     end
@@ -51,7 +51,7 @@ class Kitty < ApplicationRecord
   # for % of money pot reached
   def real_contribution_avancement
     if goal_amount > 0
-      (total_contribution_public.to_f / goal_amount)*100
+      (total_contribution_public / goal_amount.to_i)*100
     else
       100
     end
@@ -59,7 +59,7 @@ class Kitty < ApplicationRecord
 
   def real_contribution_avancement_private
     if goal_amount > 0
-      (total_contribution_private.to_f / goal_amount)*100
+      (total_contribution / goal_amount.to_i)*100
     else
       100
     end

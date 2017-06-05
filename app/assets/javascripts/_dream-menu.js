@@ -13,12 +13,12 @@ $(function(){
     $(tar).removeClass('hidden');
   });
 
-  $(".btn").on("click", function(e){
+  $(".js-btn-category").on("click", function(e){
     e.preventDefault();
-    $(".btn").removeClass('active');
+    $(".js-btn-category").removeClass('active');
     $(this).addClass('active');
     $('.dream-card').parent().addClass('hidden');
-    var cat = $('.active.btn').text();
+    var cat = $('.active.js-btn-category').text();
     $("." + cat).parent().removeClass('hidden');
   });
 

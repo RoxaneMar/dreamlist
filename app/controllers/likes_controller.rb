@@ -3,6 +3,9 @@ class LikesController < ApplicationController
     @dream = Dream.find(params[:dream_id])
     @user = current_user
     @like = Like.create(dream: @dream, user: @user)
+    @notification = Notification.create(user: @dream.user,
+      subject: @dream,
+      content: "#{@user.first_name.capitalize} #{@user.last_name.capitalize} liked your dream: #{@dream.title}")
   end
 
   def destroy

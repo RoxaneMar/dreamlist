@@ -1,0 +1,29 @@
+.navbar-dreamlist {
+  .alarm-ul {
+    padding: 0px;
+  }
+
+  li.notif-read {
+    background-color: transparent;
+
+    & > a {
+      color: $dark-gray !important;
+      border-bottom: 1px solid $light-gray;
+      white-space: normal;
+      min-width: 450px;
+      font-size: 15px;
+    }
+  }
+
+  li.notif-unread {
+    background-color: transparent;
+
+    & > a {
+      color: $blue3 !important;
+      border-bottom: 1px solid $light-gray;
+      white-space: normal;
+      min-width: 450px;
+      font-size: 15px;
+    }
+  }
+}

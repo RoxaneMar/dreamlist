@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :payments, only: [:new, :create]
   end
 
+  resources :notifications, only: [:show]
+
   mount Attachinary::Engine => "/attachinary"
   devise_for :users,
     controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: :registrations }
