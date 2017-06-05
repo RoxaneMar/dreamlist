@@ -1,5 +1,3 @@
-require 'pry'
-
 class KittiesController < ApplicationController
   before_action :set_kitty, only: [:show, :edit, :update]
   before_action :set_dream, only: [:new, :show, :create, :update]
