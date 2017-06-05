@@ -74,7 +74,7 @@ class Kitty < ApplicationRecord
   # end
 
   def public_contributors_count
-    total_contributors = Money.new(0)
+    total_contributors = 0
     self.contributors.each do |contributor|
       total_contributors += 1 if !contributor.private
     end
