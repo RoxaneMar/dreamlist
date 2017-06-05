@@ -99,34 +99,42 @@
       .in-column {
         .strong-green {
           color: $green;
-          font-size: 18px !important;
-        }
-        p:first-child {
+          font-size: 22px !important;
+          font-weight: normal;
           margin-bottom: 0px;
-          font-size: 16px;
-          font-weight: lighter;
         }
         .strong {
-          font-size: 18px !important;
           color: $almost-black;
+          font-size: 16px !important;
+          font-weight: normal;
+          margin-bottom: 0px;
+        }
+        p:last-child {
+          font-size: 14px;
+          font-weight: lighter;
         }
       }
       .kitty-details {
         margin-top: 25px;
-        margin-bottom: 50px;
+        margin-bottom: 25px;
         width: 85%;
         display: flex;
         justify-content: space-between;
         flex-direction: column;
+        h5 {
+          font-weight: normal;
+          font-size: 16px;
+        }
       }
       .kitty-details.private {
+        padding-bottom: 52px;
         .strong-green {
           color: $blue3;
-          font-size: 18px !important;
+          font-size: 22px !important;
         }
       }
     }
-    .btn-dreamlist-2 {
+    .size {
       width: 100%;
       display: block;
     }

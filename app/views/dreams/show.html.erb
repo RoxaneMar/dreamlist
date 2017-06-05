@@ -69,7 +69,7 @@
                     <div class="col-xs-12">
                       <div class="revealing" data-id="<%=@dream.id%>">
                         <% if @dream.kitty.secret? %>
-                          <%= link_to 'reveal', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-2 btn-reveal' %>
+                          <%= link_to 'reveal', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-blue size btn-reveal' %>
                         <% end %>
                       </div>
                     </div>

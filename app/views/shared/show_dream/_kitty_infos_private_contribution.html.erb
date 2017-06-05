@@ -1,28 +1,21 @@
 <% if current_user != dream.user %>
   <div class="kitty-details private">
     <div class="in-column">
+      <h5>Secret (only for you):</h5>
+    </div>
+    <div class="in-column">
       <p class="strong-green"><%= dream.kitty.total_contribution_public + dream.kitty.total_contribution_private %> €</p>
       <p>out of <%= dream.kitty.goal_amount.to_i %> €</p>
     </div>
 
     <div class="in-column">
-      <p class="strong secret"><%= number_to_percentage(dream.kitty.real_contribution_avancement, precision: 0) %></p>
+      <p class="strong secret"><%= number_to_percentage(dream.kitty.real_contribution_avancement + dream.kitty.real_contribution_avancement_private, precision: 0) %></p>
       <p>collected</p>
     </div>
 
     <div class="in-column">
-      <p class="strong secret"><%= dream.kitty.public_contributors_count %></p>
+      <p class="strong secret"><%= dream.kitty.contributors.count %></p>
       <p>contributions</p>
-    </div>
-
-    <div class="in-column">
-      <% if dream.end_date.present? %>
-        <p class="strong"><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
-        <p>left</p>
-      <% else %>
-        <p class="strong">No limit date </p>
-        <p>for this dream</p>
-      <% end %>
     </div>
   </div>
 <% end %>
