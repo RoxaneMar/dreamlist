@@ -53,23 +53,25 @@
                 <div class="kitty-part">
                   <!-- kitty privee et utilisateur != owner -->
                   <% if current_user != @dream.user && @dream.kitty.private? %>
-                    <h4 class="text-center">This kitty is closed for now.</h4>
+                    <h5 class="text-center">This kitty is closed for now.</h5>
                   <!-- afficher kitty avec bar -->
                   <% else %>
                     <div class="kitty-info-and-btn">
-                      <% if @dream.kitty.goal_amount > 0 %>
-                        <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
-                      <% else %>
-                        <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
-                      <% end %>
+
+                        <% if @dream.kitty.goal_amount > 0 %>
+                          <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
+                        <% else %>
+                          <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
+                        <% end %>
+
                     </div>
                   <% end %>
 
                   <div class="row text-center">
                     <div class="col-xs-12">
                       <div class="revealing" data-id="<%=@dream.id%>">
-                        <% if @dream.kitty.secret? %>
-                          <%= link_to 'reveal', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-2 btn-reveal' %>
+                        <% if @dream.kitty.secret? && (current_user != @dream.user) %>
+                          <%= link_to 'Disclose secret contributions', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
                         <% end %>
                       </div>
                     </div>
