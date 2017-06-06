@@ -1,8 +1,26 @@
 .profiles.show {
+  background-color: $other-body-bg;
   .profile-image {
     border-radius: 4px;
     height: 200px;
   }
+
+    .contribution-card {
+      background-color: white;
+      border-radius: 5px;
+      margin: 20px;
+      padding: 20px;
+
+      h2 {
+        font-weight: lighter;
+        font-size: 20px;
+        margin-top: 0px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
 }
 
 .profiles.edit {

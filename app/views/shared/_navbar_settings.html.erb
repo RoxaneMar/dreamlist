@@ -1,14 +1,16 @@
 <div class="navbar_settings">
-  <% if user_signed_in? %>
-    <div class="dreams-menu">
-      <div class="navbar-right-links text-center">
-        <div class="tabs-settings">
-          <%= link_to 'Account', '#', class: "navbar-dreamlist-button text-center tab-settings active", "data-target" => "#tab-account" %>
-          <%= link_to 'Contributions', '#', class: "navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-contributions" %>
-          <%= link_to 'Following', '#', class: " navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-messages" %>
-          <%= link_to 'Following dreams', '#', class: " navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-money" %>
+  <div class="container">
+    <% if user_signed_in? %>
+      <div class="dreams-menu">
+        <div class="navbar-right-links text-center">
+          <div class="tabs-settings">
+            <%= link_to 'Account', '#', class: "navbar-dreamlist-button text-center tab-settings active", "data-target" => "#tab-account" %>
+            <%= link_to 'Contributions', '#', class: "navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-contributions" %>
+            <%= link_to 'Messages', '#', class: " navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-messages" %>
+            <%= link_to 'Money Pots', '#', class: " navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-money" %>
+          </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
