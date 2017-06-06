@@ -30,8 +30,8 @@
         <div class="tab-content-settings hidden" id="tab-contributions">
           <div class="col-xs-12 col-sm-offset-2 col-sm-8">
             <% @user.contributors.ordered.each do |contribution| %>
-              <div class="row">
-                <div class="contribution-card">
+              <div class="contribution-card">
+                <div class="row">
                 <%= render 'contribution_card', contribution: contribution %>
                 </div>
               </div>

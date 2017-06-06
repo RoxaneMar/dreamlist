@@ -9,12 +9,28 @@
       background-color: white;
       border-radius: 5px;
       margin: 20px;
-      padding: 20px;
+      padding: 30px;
+      position: relative;
+
+      .card-link{
+        position: absolute;
+        top: 0px;
+        bottom: 0px;
+        right: 0px;
+        width: 100%;
+        z-index: 1;
+        background: black;
+        opacity: 0;
+        }
+      .card-link:hover{
+        opacity: 0.05;
+      }
 
       h2 {
-        font-weight: lighter;
+        font-weight: bolder;
         font-size: 20px;
         margin-top: 0px;
+        color: $blue3;
       }
 
       p {
