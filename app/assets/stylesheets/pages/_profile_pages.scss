@@ -12,6 +12,30 @@
       padding: 30px;
       position: relative;
 
+        .dream-image {
+          background-color: #fafafa;
+          border: 2px solid white;
+          border-radius: 5px;
+          margin: 0px;
+          padding: 0px;
+          height: 220px;
+          width: 220px;
+        }
+
+        .global-bar {
+          height: 4px;
+          // background-color: white;
+          background-color: #eaeaea;
+          border-radius: 2px;
+          .participation-bar {
+            background-color: $green;
+            height: 100%;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+          }
+        }
+
+
       .card-link{
         position: absolute;
         top: 0px;
@@ -23,7 +47,7 @@
         opacity: 0;
         }
       .card-link:hover{
-        opacity: 0.05;
+        opacity: 0.009;
       }
 
       h2 {
