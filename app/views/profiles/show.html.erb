@@ -1,28 +1,47 @@
 <div class="marged">
+
   <div class="wrapper">
+
     <div class="container">
+    <%= render 'shared/navbar_settings' %>
       <div class="row">
-        <div class="col-xs-12 col-sm-offset-2 col-sm-8">
-          <div class="big-card-create-dream">
-            <h2><%= @user.first_name %>'s profile</h2>
-            <hr>
-            <div class="content-form">
-            <div class="row">
-              <div class="col-xs-12 col-sm-4">
-              <br>
-                <%= user_avatar_tag @user, class: "profile-image" %>
+
+        <div class="tab-content-settings" id="tab-account">
+          <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+            <div class="big-card-create-dream">
+              <h2><%= @user.first_name %>'s profile</h2>
+              <hr>
+              <div class="content-form">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4">
+                  <br>
+                    <%= user_avatar_tag @user, class: "profile-image" %>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-sm-offset-2">
+                  <br>
+                    <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
+                    <p><%= @user.email %></p>
+                    <br>
+                    <%= link_to "Edit your profile", edit_profile_path, class: "btn-dreamlist-subtile" %>
+                  </div>
+                </div>
               </div>
-              <div class="col-xs-12 col-sm-6 col-sm-offset-2">
-              <br>
-                <p><%= @user.first_name.capitalize %> <%= @user.last_name.capitalize %></p>
-                <p><%= @user.email %></p>
-                <br>
-                <%= link_to "Edit your profile", edit_profile_path, class: "btn-dreamlist-subtile" %>
-              </div>
-            </div>
             </div>
           </div>
         </div>
+
+        <div class="tab-content-settings hidden" id="tab-contributions">
+
+        </div>
+
+        <div class="tab-content-settings hidden" id="tab-messages">
+
+        </div>
+
+        <div class="tab-content-settings hidden" id="tab-money">
+
+        </div>
+
       </div>
     </div>
   </div>

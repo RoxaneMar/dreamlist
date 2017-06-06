@@ -1,0 +1,46 @@
+.navbar_settings {
+
+    .dreams-menu {
+      transition: all 0.3s ease;
+      display: flex;
+      height: 60px;
+      padding: 20px 30px 5px 30px;
+      align-items: left;
+      justify-content: space-between;
+      text-align: center;
+      cursor: pointer;
+      border-bottom: 1px solid #DBDBDB !important;
+      margin-bottom: 20px;
+
+    .tabs-settings {
+      .navbar-dreamlist-button {
+
+        &:hover:after {
+          top: 48px;
+        }
+
+        &:focus:after {
+          text-decoration: none;
+          color: $blue3;
+          position: absolute;
+          border-bottom: 3px solid $blue3;
+          top: 48px;
+          left: 0;
+          right: 0;
+          content: "";
+        }
+      }
+
+      a {
+        text-align: center;
+      }
+
+      .navbar-right-links {
+        height: 100%;
+        max-width: 1000px;
+        text-align: center;
+      }
+    }
+  }
+}
+
