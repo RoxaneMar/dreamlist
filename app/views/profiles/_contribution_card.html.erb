@@ -6,10 +6,13 @@
   <p class="text-center"><%= contribution.kitty.dream.user.first_name %> <%= contribution.kitty.dream.user.last_name %></p>
 </div>
 <div class="col-xs-12 col-sm-6">
-  <h2 class="text-center"><%= contribution.kitty.dream.title.capitalize %></h2>
-  <% if contribution.message.present? %>
-    <p class="text-jutify">Your message: "<%= contribution.message %>"</p>
-  <% end %>
+  <div class="message">
+    <h2>Dream: <%= contribution.kitty.dream.title.capitalize %></h2>
+    <% if contribution.message.present? %>
+      <p class="message-title">Your message:</p>
+      <p>"<%= contribution.message %>"</p>
+    <% end %>
+  </div>
 </div>
 <div class="col-xs-12 col-sm-4">
     <p>You offered <%= humanized_money_with_symbol(contribution.price)%> — <%= contribution.state %></p>

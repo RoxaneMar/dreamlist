@@ -40,7 +40,15 @@
         </div>
 
         <div class="tab-content-settings hidden" id="tab-messages">
-
+          <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+            <% @user.donators.ordered.each do |contribution| %>
+                <div class="contribution-card">
+                  <div class="row">
+                  <%= render 'received_contribution_card', contribution: contribution %>
+                  </div>
+                </div>
+            <% end %>
+          </div>
         </div>
 
         <div class="tab-content-settings hidden" id="tab-money">

@@ -9,4 +9,8 @@ class Dream < ApplicationRecord
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
 
   accepts_nested_attributes_for :kitty
+
+  def self.ordered
+    order(created_at: :desc)
+  end
 end

@@ -10,6 +10,8 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships
   has_many :notifications
   has_many :contributors
+  has_many :kitties, through: :dreams
+  has_many :donators, through: :kitties, source: :contributors
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
