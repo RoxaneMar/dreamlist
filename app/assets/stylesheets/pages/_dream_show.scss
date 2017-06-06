@@ -192,11 +192,66 @@
 // sous-navbar
 .dreams.show {
   background-color: #fafafa;
-  .dreams-menu {
-    padding-left: 90px;
-    margin: 70px 0px 0px 0px;
-    background-color: white;
+  .dream-card {
+    margin: 50px 0px;
   }
+  .dreams-menu {
+    padding: 0px 0px 0px 15px;
+    margin: 0px;
+    background-color: white;
+    .navbar-dreamlist-button {
+      &:hover {
+        color: $blue3;
+      }
+      &:focus {
+        color: $blue3;
+      }
+      &:hover:after {
+        top: 57px;
+      }
+      &:focus:after {
+        text-decoration: none;
+        color: $blue3;
+        position: absolute;
+        border-bottom: 3px solid $blue3 !important;
+        top: 57px;
+        left: 0;
+        right: 0;
+        content: "";
+      }
+
+      &.active:after {
+        text-decoration: none;
+        color: $blue3;
+        position: absolute;
+        border-bottom: 3px solid $blue3;
+        top: 57px;
+        left: 0;
+        right: 0;
+        content: "";
+      }
+      p {
+        font-weight: bolder;
+        font-size: 16px;
+        text-align: center;
+        margin: 0px;
+      }
+    }
+
+  }
+  .buttons-links-tabs {
+    display: flex;
+    flex-direction: row;
+  }
+  .tab-content {
+    background-color: white;
+    min-height: 450px;
+  }
+
+}
+
+.nb {
+  margin: 0px;
 }
 
 .revealing {
