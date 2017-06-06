@@ -104,4 +104,5 @@ class Kitty < ApplicationRecord
   def different_user_contributors
     contributors.map{ |contributor| contributor.user }.uniq
   end
+
 end

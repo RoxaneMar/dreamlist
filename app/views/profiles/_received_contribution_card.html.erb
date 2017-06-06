@@ -1,23 +1,24 @@
-<% if contribution.private == false %>
-  <%= link_to '', dream_path(contribution.kitty.dream), class: 'card-link' %>
-  <div class="col-xs-12 col-sm-2">
-    <%= link_to dreams_profile_path(contribution.user) do %>
-      <%= user_avatar_tag contribution.user, class: 'avatar-medium text-center' %>
-    <% end %>
-    <p class="text-center"><%= contribution.kitty.dream.user.first_name %> <%= contribution.kitty.dream.user.last_name %></p>
-  </div>
-  <div class="col-xs-12 col-sm-6">
-    <div class="message">
-      <h2>Dream: <%= contribution.kitty.dream.title.capitalize %></h2>
-      <% if contribution.message.present? %>
-        <p class="message-title"><%=contribution.user.first_name%>'s message for you:</p>
-        <p><%= contribution.message %></p>
-        </div>
-    <% end %>
-  </div>
-  <div class="col-xs-12 col-sm-4">
+<div class="row">
+  <% if contribution.private == false %>
+    <%= link_to '', dream_path(contribution.kitty.dream), class: 'card-link' %>
+    <div class="col-xs-12 col-sm-2">
+      <%= link_to dreams_profile_path(contribution.user) do %>
+        <%= user_avatar_tag contribution.user, class: 'avatar-medium text-center' %>
+      <% end %>
+      <p class="text-center"><%= contribution.kitty.dream.user.first_name %> <%= contribution.kitty.dream.user.last_name %></p>
+    </div>
+    <div class="col-xs-12 col-sm-6">
+      <div class="message">
+        <h2>Dream: <%= contribution.kitty.dream.title.capitalize %></h2>
+        <% if contribution.message.present? %>
+          <p class="message-title"><%=contribution.user.first_name%>'s message for you:</p>
+          <p><%= contribution.message %></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
       <p>You received <%= humanized_money_with_symbol(contribution.price)%> — <%= contribution.state %></p>
       <p><%= time_ago_in_words(contribution.created_at)%> ago </p>
-  </div>
-<% end %>
-
+    </div>
+  <% end %>
+</div>

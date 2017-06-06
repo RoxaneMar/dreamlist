@@ -31,9 +31,7 @@
           <div class="col-xs-12 col-sm-offset-2 col-sm-8">
             <% @user.contributors.ordered.each do |contribution| %>
               <div class="contribution-card">
-                <div class="row">
                 <%= render 'contribution_card', contribution: contribution %>
-                </div>
               </div>
             <% end %>
           </div>
@@ -43,9 +41,7 @@
           <div class="col-xs-12 col-sm-offset-2 col-sm-8">
             <% @user.donators.ordered.each do |contribution| %>
               <div class="contribution-card">
-                <div class="row">
                 <%= render 'received_contribution_card', contribution: contribution %>
-                </div>
               </div>
             <% end %>
           </div>
@@ -55,9 +51,7 @@
           <div class="col-xs-12 col-sm-offset-2 col-sm-8">
             <% @user.dreams.each do |dream| %>
               <div class="contribution-card">
-                <div class="row">
-                  <%= render 'money_pot_card', dream: dream %>
-                </div>
+                <%= render 'money_pot_card', dream: dream %>
               </div>
             <% end %>
           </div>

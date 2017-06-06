@@ -1,38 +1,39 @@
-<%= link_to '', dream_path(dream), class: 'card-link' %>
-<div class="col-xs-12 col-sm-4">
-  <div class="dream-image" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= dream_picture_path(dream, width: 220, height: 220, crop: :fill) %>');"></div>
+<div class="row">
+  <%= link_to '', dream_path(dream), class: 'card-link' %>
+  <div class="col-xs-12 col-sm-4">
+    <div class="dream-image" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.1)), url('<%= dream_picture_path(dream, width: 220, height: 220, crop: :fill) %>');"></div>
+  </div>
+
+  <% if dream.kitty.private == true %>
+
+    <div class="col-xs-12 col-sm-8">
+      <div class="message">
+        <h2><%= dream.title.capitalize %></h2>
+        <p>Nobody can participate to this dream for now. Make your money pot public!</p>
+      </div>
+    </div>
+
+  <% else %>
+
+    <div class="col-xs-12 col-sm-8">
+      <div class="message">
+        <h2><%= dream.title.capitalize %></h2>
+        <% if dream.kitty.goal_amount > 0 || dream.kitty.total_contribution_public > 0 %>
+          <p><%= dream.kitty.contribution_avancement_public.round %>% reached </p>
+          <div class="global-bar">
+            <div class="participation-bar" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_public, precision: 0); %>">
+            </div>
+          </div>
+        <% end %>
+        <br>
+        <br>
+        <p> Goal amount: <%= humanized_money_with_symbol(dream.kitty.goal_amount) %></p>
+        <p> Current amount gathered: <%= humanized_money_with_symbol(dream.kitty.total_contribution_public) %></p>
+        <p> Number of contributions: <%= dream.kitty.public_contributors_count %></p>
+      </div>
+    </div>
+  <% end %>
 </div>
 
-<% if dream.kitty.private == true %>
-
-  <div class="col-xs-12 col-sm-8">
-    <div class="message">
-      <h2><%= dream.title.capitalize %></h2>
-      <p>Nobody can participate to this dream for now. Make your money pot public!</p>
-    </div>
-  </div>
-
-
-<% else %>
-
-  <div class="col-xs-12 col-sm-8">
-    <div class="message">
-      <h2><%= dream.title.capitalize %></h2>
-      <% if dream.kitty.goal_amount > 0 || dream.kitty.total_contribution_public > 0 %>
-        <p><%= dream.kitty.contribution_avancement_public.round %>% reached </p>
-        <div class="global-bar">
-          <div class="participation-bar" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_public, precision: 0); %>">
-          </div>
-        </div>
-      <% end %>
-      <br>
-      <br>
-      <p> Goal amount: <%= humanized_money_with_symbol(dream.kitty.goal_amount) %></p>
-      <p> Current amount gathered: <%= humanized_money_with_symbol(dream.kitty.total_contribution_public) %></p>
-      <p> Number of contributors: <%= dream.kitty.public_contributors_count %></p>
-    </div>
-  </div>
-
-<% end %>
 
 
