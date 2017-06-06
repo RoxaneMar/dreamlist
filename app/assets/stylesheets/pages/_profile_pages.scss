@@ -94,75 +94,80 @@
 
 .profiles.dreams {
 
-  h2 {
-    font-weight: lighter;
-    font-size: 25px;
-  }
-
-  .btn-dreamlist-default {
-    color: $dark-gray;
-    border: 1px solid $dark-gray;
-    &:hover {
-      color: $dark-gray;
-    }
-    &:focus {
-      color: $dark-gray;
-    }
-  }
-
-  .user-card {
-    margin-top: 30px;
-
-    h4 {
+    h2 {
       font-weight: lighter;
-      font-size: 21px;
+      font-size: 25px;
+    }
+
+    .btn-dreamlist-default {
+      color: $dark-gray;
+      border: 1px solid $dark-gray;
+      &:hover {
+        color: $dark-gray;
+      }
+      &:focus {
+        color: $dark-gray;
+      }
+    }
+
+    .user-card {
+      margin-top: 30px;
+
+      h4 {
+        font-weight: lighter;
+        font-size: 21px;
+      }
+    }
+
+  .margin-tabs {
+    margin-top: 40px;
+  }
+
+  .dreams-menu {
+    transition: all 0.3s ease;
+    display: flex;
+    padding: 20px 30px 18px 0px;
+    align-items: left;
+    justify-content: space-between;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #DBDBDB !important;
+    margin-bottom: 0px;
+    .tabs {
+
+      .navbar-dreamlist-button {
+        &:hover:after {
+          top: 48px;
+        }
+        &:focus:after {
+          text-decoration: none;
+          color: $blue3;
+          position: absolute;
+          border-bottom: 3px solid $blue3;
+          top: 48px;
+          left: 0;
+          right: 0;
+          content: "";
+        }
+      }
+
+      a {
+        text-align: center;
+      }
+
+      .navbar-right-links {
+        height: 100%;
+        max-width: 1000px;
+        text-align: center;
+      }
     }
   }
 }
 
-
-.dreams-menu {
-  transition: all 0.3s ease;
-  display: flex;
-  height: 60px;
-  padding: 20px 30px 5px 30px;
-  align-items: left;
-  justify-content: space-between;
-  text-align: center;
-  cursor: pointer;
-  border-bottom: 1px solid #DBDBDB !important;
-  margin-bottom: 20px;
-  .tabs {
-    .navbar-dreamlist-button {
-      &:hover:after {
-        top: 48px;
-      }
-      &:focus:after {
-        text-decoration: none;
-        color: $blue3;
-        position: absolute;
-        border-bottom: 3px solid $blue3;
-        top: 48px;
-        left: 0;
-        right: 0;
-        content: "";
-      }
-    }
-
-    a {
-      text-align: center;
-    }
-
-    .navbar-right-links {
-      height: 100%;
-      max-width: 1000px;
-      text-align: center;
-    }
-  }
-}
 
 .buttons {
-  padding-bottom: 20px;
+  padding-bottom: 25px;
+  margin-left: 20px;
 
   .btn-dreamlist-2 {
     color: $dark-gray;
@@ -173,11 +178,13 @@
     transition: background 0.3s ease;
     background-color: transparent;
     border: 1px solid $light-gray;
-    max-width: 100px;
+    display: inline-block;
+    min-width: 100px;
     box-shadow: none;
+    margin: 5px;
     &:hover {
       color: white;
-      background-color: $green;
+      background-color: $blue3;
       opacity: 0.85;
       text-decoration: none;
       border: none;
@@ -185,7 +192,7 @@
     }
     &:hover:after {
       color: white;
-      background-color: $green;
+      background-color: $blue3;
       opacity: 0.85;
       text-decoration: none;
       border: none;
@@ -193,7 +200,7 @@
     }
     &:focus {
       color: white;
-      background-color: $green;
+      background-color: $blue3;
       opacity: 0.85;
       text-decoration: none;
       border: none;
@@ -201,7 +208,7 @@
     }
     &:focus:after {
       color: white;
-      background-color: $green;
+      background-color: $blue3;
       opacity: 0.85;
       text-decoration: none;
       border: none;
