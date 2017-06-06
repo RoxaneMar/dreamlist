@@ -7,6 +7,10 @@ class Contributor < ApplicationRecord
 
   after_create :check_kitty_status
 
+  def self.ordered
+    order(created_at: :desc)
+  end
+
   def self.paid
     where(state: 'paid')
   end
