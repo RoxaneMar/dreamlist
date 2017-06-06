@@ -25,17 +25,11 @@ class KittiesController < ApplicationController
     @kitty = Kitty.find(params[:kitty_id])
     @dream = @kitty.dream
 
-    @contributors = @kitty.contributors
-    @contributors.each do |contributor|
-      contributor.update(private: false)
-      contributor.save
-    end
-
-    respond_to do |format|
-      format.html { redirect_to @dream }
-      format.js
-    end
+    @kitty.reveal
+    create_notification_reveal
   end
+
+
 
   private
 
@@ -53,4 +47,14 @@ class KittiesController < ApplicationController
       .permit(:goal_amount)
       .merge(dream: @dream)
   end
+
+  def create_notification_reveal
+    Notification.create!(
+      user: @kitty.dream.user,
+      subject: @kitty.dream,
+      content: "You got a surprise gift!"
+    )
+  end
+
+
 end

@@ -1,5 +1,5 @@
 .navbar-show-dream {
-  margin: 80px 0px 10px 0px;
+  margin: 10px 0px 10px 0px;
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
   background: $other-body-bg;
   transition: all 0.3s ease;
@@ -21,7 +21,7 @@
   h4 {
     padding: 0px 15px;
     color: $almost-black;
-    font-size: 30px;
+    font-size: 24px;
     //  padding-bottom: 15px;
     // border-bottom: 1px solid #DBDBDB !important;
   }
@@ -46,6 +46,6 @@
 .like-part {
   padding: 0px 18px;
   .like {
-    height: 38px;
+    height: 30px;
   }
 }

@@ -18,6 +18,14 @@ class PaymentsController < ApplicationController
     )
 
     @contributor.update(payment: charge.to_json, state: 'paid')
+
+    if !@contributor.private
+    @notification = Notification.create!(
+        user: @contributor.kitty.dream.user,
+        subject: @contributor.kitty.dream,
+        content: "#{@contributor.user.first_name.capitalize} #{@contributor.user.last_name.capitalize} made a contribution to your dream!")
+    end
+
     redirect_to dream_path(@contributor.kitty.dream)
 
   rescue Stripe::CardError => e

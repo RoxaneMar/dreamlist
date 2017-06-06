@@ -46,7 +46,8 @@ class DreamsController < ApplicationController
 
     if @dream.save
       @dream.user.followers.each do |follower|
-        Notification.create!(user: follower,
+        Notification.create!(
+          user: follower,
           subject: @dream,
           content: "#{@dream.user.first_name.capitalize} #{@dream.user.last_name.capitalize} created a new dream!")
       end
