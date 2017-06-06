@@ -120,6 +120,9 @@
   }
 }
 
+.margin-tabs {
+  margin-top: 40px;
+}
 
 .dreams-menu {
   transition: all 0.3s ease;
@@ -133,6 +136,11 @@
   border-bottom: 1px solid #DBDBDB !important;
   margin-bottom: 20px;
   .tabs {
+
+    .tab-content {
+      margin-top: 30px;
+    }
+
     .navbar-dreamlist-button {
       &:hover:after {
         top: 48px;
