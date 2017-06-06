@@ -1,5 +1,5 @@
+// for profile show
 $(function(){
-
   $(".tab").on("click", function(e){
     e.preventDefault();
     // Change active tab
@@ -25,5 +25,17 @@ $(function(){
   $(".tab").on("click", function(e){
     e.preventDefault();
     $('.dream-card').parent().removeClass('hidden');
+  });
+});
+
+// for dream show
+$(function() {
+  $(".tab").on("click", function(e) {
+    e.preventDefault();
+    $(".tab").removeClass('active');
+    $(this).addClass('active');
+    $('.tab-content').addClass('hidden');
+    var actif = $('.active').data("target");
+    $(actif).removeClass('hidden');
   });
 });

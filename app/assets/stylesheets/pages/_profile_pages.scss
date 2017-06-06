@@ -75,7 +75,6 @@
 }
 
 .profiles.edit {
-
   .content-form {
     padding-top: 0px;
     margin-top: 0px;
@@ -133,15 +132,11 @@
   cursor: pointer;
   border-bottom: 1px solid #DBDBDB !important;
   margin-bottom: 20px;
-
   .tabs {
-
     .navbar-dreamlist-button {
-
       &:hover:after {
         top: 48px;
       }
-
       &:focus:after {
         text-decoration: none;
         color: $blue3;

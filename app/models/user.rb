@@ -86,6 +86,10 @@ class User < ApplicationRecord
     return @categories
   end
 
+  def dreams_in_category(category)
+    self.dreams.select { |dream| dream.category == category }
+  end
+
   def categories_liked
     @categories = []
     Dream::CATEGORIES.each do |category|
