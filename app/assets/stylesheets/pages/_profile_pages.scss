@@ -5,6 +5,20 @@
     height: 200px;
   }
 
+  .account {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    position: relative;
+
+    .btn-dreamlist-blue {
+      position: absolute;
+      bottom: 70px;
+      right: 100px;
+    }
+  }
+
     .contribution-card {
       background-color: white;
       border-radius: 5px;
@@ -19,7 +33,6 @@
           margin: 0px;
           padding: 0px;
           height: 220px;
-          width: 220px;
         }
 
         .global-bar {
