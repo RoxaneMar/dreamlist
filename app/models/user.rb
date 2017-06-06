@@ -60,6 +60,11 @@ class User < ApplicationRecord
     dreams.where(category: category).exists?
   end
 
+  def realized_dream_in?(category)
+    dreams = self.dreams.where(reached: true)
+    dreams.where(category: category).exists?
+  end
+
   def loved_dream_in?(category)
     liked_dreams.where(category: category).exists?
   end
@@ -80,6 +85,16 @@ class User < ApplicationRecord
     @categories = []
     Dream::CATEGORIES.each do |category|
       if self.has_dream_in?(category)
+        @categories << category
+      end
+    end
+    return @categories
+  end
+
+  def realized_categories
+    @categories = []
+    Dream::CATEGORIES.each do |category|
+      if self.realized_dream_in?(category)
         @categories << category
       end
     end
