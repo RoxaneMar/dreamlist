@@ -17,7 +17,7 @@ url_user4 = "https://pbs.twimg.com/profile_images/704803842190405635/EVYfBn8h.jp
 
 user1 = User.create!(
   first_name: 'Leo',
-  last_name: 'Dicap',
+  last_name: 'Di Caprio',
   email: 'leo@norris.god',
   password: 'password',
   avatar_url: url_user1

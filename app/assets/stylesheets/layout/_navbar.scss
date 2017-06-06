@@ -19,6 +19,11 @@
   width: 100%;
 }
 
+.dreams.show .navbar-dreamlist-fixed {
+  position: relative;
+  z-index: 99 !important;
+}
+
 /* navbar buttons for sign in - sign up - create - explore */
 .navbar-dreamlist-button {
   position: relative;
