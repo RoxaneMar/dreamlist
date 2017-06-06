@@ -3,7 +3,11 @@
     <div class="container">
       <div class="row">
         <div class="filtered-dreams">
-          <h2><%=@query.capitalize %>'s dreams</h2>
+          <% if @query.present? %>
+            <h2><%=@query.capitalize  %>'s dreams</h2>
+          <% else %>
+            <h2>Results</h2>
+          <% end %>
           <hr>
           <% if @dreams.count > 0 %>
             <% @dreams.each do |dream| %>

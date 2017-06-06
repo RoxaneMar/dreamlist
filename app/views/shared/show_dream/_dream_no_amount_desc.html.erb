@@ -2,7 +2,7 @@
 <% if (current_user != dream.user) %>
   <div class="kitty-total-amount">
     <p> Total: </p>
-    <p class="strong-black"><%= dream.kitty.total_contribution_public + dream.kitty.total_contribution_private %> €</p>
+    <p class="strong-black"><%= (dream.kitty.total_contribution_public + dream.kitty.total_contribution_private).to_i %> €</p>
   </div>
 <% else %>
   <div class="kitty-total-amount">
@@ -27,7 +27,7 @@
         <h5>Money pot information:</h5>
       </div>
       <div class="in-column">
-        <p class="strong-green"><%= @dream.kitty.total_contribution_public %> €</p>
+        <p class="strong-green"><%= @dream.kitty.total_contribution_public.to_i %> €</p>
         <p>collected</p>
       </div>
       <div class="in-column">

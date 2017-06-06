@@ -29,13 +29,12 @@
     <% if user_signed_in? %>
 
       <!-- button to create a dream -->
-      <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
+      <%= link_to t(".top_call_to_action", default: "Create a dream"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
 
       <!-- Search form -->
       <form action="/dreams" method="get">
         <div class="search">
           <%= image_tag "search.png", class: "search-icon" %>
-          <!-- <i class="fa fa-search"></i> -->
           <input type="text" name="query" id="search-input" placeholder="Search for a dream or friend">
           <button type="submit" class="navbar-wagon-search-btn"></button>
         </div>
@@ -95,12 +94,11 @@
       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <!-- Search form -->
       <form action="/dreams" method='get'>
-        <!-- <div class="search"> -->
+        <div class="search">
           <%= image_tag "search.png", class: "search-icon" %>
-          <!-- <i class="fa fa-search"></i> -->
           <input type="text" name="query" id="search-input" placeholder="Search for a dream or following">
           <button type="submit" class="navbar-wagon-search-btn"><%= icon('search') %></button>
-        <!-- </div> -->
+        </div>
       </form>
 
     <% end %>
