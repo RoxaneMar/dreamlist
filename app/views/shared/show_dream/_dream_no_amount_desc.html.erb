@@ -54,7 +54,10 @@
   <% if !(dream.kitty.total_contribution_private == 0 && dream.kitty.total_contribution_public == 0) %>
     <%= render 'shared/show_dream/kitty_infos_private_contribution', dream: @dream, user: @user %>
   <% end %>
+
 </div>
 
-
+<div class="kitty-no-goal-amount">
+  <h5>There is no goal amount for this money pot. Feel free to contribute as much as you wish!</h5>
+</div>
 

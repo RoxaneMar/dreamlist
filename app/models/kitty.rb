@@ -3,9 +3,23 @@ class Kitty < ApplicationRecord
   has_many :contributors
   monetize :goal_amount_cents
 
+  def reached?
+    if self.total_contribution_public >= goal_amount && goal_amount > 0
+      true
+    else
+      false
+    end
+  end
+
+  def reveal
+    contributors.each do |contributor|
+      contributor.update(private: false)
+    end
+  end
+
   def total_contribution_public
     contribution = Money.new(0)
-    self.contributors.each do |contributor|
+    self.contributors.paid.each do |contributor|
       if contributor.private
         contribution
       else
@@ -17,7 +31,7 @@ class Kitty < ApplicationRecord
 
   def total_contribution_private
     contribution = Money.new(0)
-    self.contributors.each do |contributor|
+    self.contributors.paid.each do |contributor|
       if !contributor.private
         contribution
       else
