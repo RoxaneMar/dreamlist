@@ -1,6 +1,7 @@
 
 .profiles.show {
   background-color: $other-body-bg;
+
   .profile-image {
   border-radius: 4px;
   height: 200px;
@@ -108,9 +109,14 @@
 
 .profiles.dreams {
 
+    .user-avatar {
+    margin-top: 18px;
+  }
+
     h2 {
-      font-weight: lighter;
+      font-weight: normal;
       font-size: 25px;
+      color: $almost-black;
     }
 
     .btn-dreamlist-default {

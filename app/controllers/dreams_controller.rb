@@ -1,5 +1,5 @@
 class DreamsController < ApplicationController
-  before_action :set_dream, only: [:show, :edit, :update, :destroy]
+  before_action :set_dream, only: [:show, :edit, :update, :destroy, :realized]
 
   # def cat_index
   #   @category = params[:category]
@@ -68,6 +68,11 @@ class DreamsController < ApplicationController
     redirect_to dreams_url
   end
 
+  def realized
+    authorize(@dream)
+    @dream.update(reached: true)
+  end
+
   private
 
   def set_dream
@@ -88,5 +93,15 @@ class DreamsController < ApplicationController
         :picture,
         kitty_attributes: [:goal_amount, :private]
       )
+  end
+
+  def create_notification_realized
+    @dream.kitty.contributors.each do |contributor|
+      Notification.create!(
+        user: contributor,
+        subject: @dream,
+        content: "#{@dream.user.first_name.capitalize}'s dream is realized!"
+      )
+    end
   end
 end
