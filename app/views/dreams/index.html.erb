@@ -13,7 +13,7 @@
             <% @dreams.each do |dream| %>
               <%= render 'shared/dream_card', dream: dream %>
             <% end %>
-            <%= link_to "Create yours!", new_dream_path, class: "btn-dreamlist-subtile" %>
+            <%= link_to "Create yours!", new_dream_path, class: "btn-dreamlist" %>
           <% else %>
             <p>No <%= @query.capitalize %>'s dream created yet</p>
             <br>

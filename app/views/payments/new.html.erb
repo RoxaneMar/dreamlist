@@ -3,47 +3,46 @@
     <div class="row">
       <div class="col-xs-12 col-sm-offset-3 col-sm-6">
         <div class="big-card-create-dream">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="payment-recap">
-                <h2>You are about to contribute to the dream:</h2>
+          <div class="payment-recap">
+            <h2>You are about to contribute to the dream:</h2>
 
-                <div class="dream-info">
-                  <div class="row">
-                    <div class="col-xs-12 col-sm-4">
-                      <%= user_avatar_tag @contributor.kitty.dream.user, class: "avatar-square-dreamlist" %>
-                    </div>
-                    <div class="col-xs-12 col-sm-8">
-                      <h4 class="text-center"><%= @contributor.kitty.dream.title %></h4>
-                    </div>
+            <div class="dream-info">
+              <div class="row">
+                <div class="center-img">
+                  <div class="col-xs-12 col-sm-3">
+                    <%= user_avatar_tag @contributor.kitty.dream.user, class: "avatar-square-dreamlist" %>
                   </div>
                 </div>
-
-
-                <%= form_tag contributor_payments_path(@contributor) do %>
-                  <article>
-                    <div class="flex-price">
-                    <label class="price">
-
-                        <h4>Your contribution:</h4>
-                        <h4><%= humanized_money_with_symbol(@contributor.price) %></h4>
-
-                    </label>
-                    </div>
-                  </article>
-
-
-                   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
-                    data-name="My contribution"
-                    data-email="<%= current_user.email %>"
-                    data-description="Contribution to <%= @contributor.kitty.dream.user.first_name %>'s dream: <%= @contributor.kitty.dream.title%>"
-                    data-amount="<%= @contributor.price_cents %>"
-                    data-currency="<%= @contributor.price.currency %>"></script>
-
-                <% end %>
+                <div class="col-xs-12 col-sm-9">
+                  <h4 class="text-center"><%= @contributor.kitty.dream.title %></h4>
+                </div>
               </div>
             </div>
+
+
+            <%= form_tag contributor_payments_path(@contributor) do %>`
+              <article>
+                <div class="flex-price">
+                  <label class="price">
+                    <h4>Your contribution:</h4>
+                    <h4><%= humanized_money_with_symbol(@contributor.price) %></h4>
+                  </label>
+                </div>
+              </article>
+
+              <div class="flex-button">
+                <div class="new-button">
+                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+                  data-name="My contribution"
+                  data-email="<%= current_user.email %>"
+                  data-description="Contribution to <%= @contributor.kitty.dream.user.first_name %>'s dream: <%= @contributor.kitty.dream.title%>"
+                  data-amount="<%= @contributor.price_cents %>"
+                  data-currency="<%= @contributor.price.currency %>"></script>
+                  <p class="pay-text-button">Pay now</p>
+                </div>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

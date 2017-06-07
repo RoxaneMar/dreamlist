@@ -18,7 +18,6 @@
               <% end %>
             </div>
 
-
             <div class= "tab-content hidden" id="tab-loved-dreams">
               <div class="buttons">
                 <%= render 'shared/buttons_cat', categories: @user.categories_liked %>
@@ -32,8 +31,6 @@
                 <% end %>
               <% end %>
             </div>
-
-
 
             <div class= "tab-content hidden" id="tab-followed-users">
               <% @user.following.each do |user_followed| %>
