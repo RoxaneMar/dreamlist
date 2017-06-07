@@ -4,6 +4,8 @@
 //= require jquery-fileupload/basic
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
+//= require sweetalert2
+//= require sweet-alert2-rails
 //= require_tree .
 
 $(function() {

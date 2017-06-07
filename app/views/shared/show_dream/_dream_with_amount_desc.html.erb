@@ -22,7 +22,15 @@
   <div class="col-xs-12 col-sm-6">
     <div class="revealing" data-id="<%=@dream.id%>">
       <% if (current_user != dream.user) && @dream.kitty.secret? %>
-        <%= link_to 'Disclose secret contributions', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
+        <%= link_to 'Disclose secret contributions', kitty_reveal_path(@dream.kitty), method: :put, remote: true,
+        data: { confirm: '',
+          'text': 'Are you sure you want to reveal all the secret contributions?',
+          'width': '400px',
+          'customClass': 'modal',
+          'confirm-button-text': 'Yes',
+          'cancel-button-text': 'Cancel',
+          'confirm-button-color': '#526889',
+          'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
       <% end %>
     </div>
   </div>
