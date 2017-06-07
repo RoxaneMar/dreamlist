@@ -8,6 +8,12 @@ class Dream < ApplicationRecord
 
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
 
+  include PgSearch
+  pg_search_scope :global_search, against: [:title, :description, :category],
+    associated_against: {
+      user: [:first_name, :last_name]
+    }
+
   accepts_nested_attributes_for :kitty
 
   def self.ordered

@@ -24,6 +24,7 @@ gem 'coffee-rails'
 gem 'pundit'
 gem 'money-rails'
 gem 'stripe'
+gem 'pg_search'
 
 
 group :development, :test do
