@@ -186,7 +186,6 @@
   }
 }
 .content-links {
-  margin: 0px 20px;
   p {
     margin: 0px;
     font-weight: lighter;
@@ -194,14 +193,9 @@
   }
   .share-part {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    padding: 0px;
-    .fa:first-child {
-      margin-top: 0px;
-      padding-left: 0px;
-    }
     .fa {
+      padding: 18px 15px;
       font-size: 25px;
       &:hover {
         color: $almost-black;

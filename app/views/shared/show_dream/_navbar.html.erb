@@ -4,10 +4,10 @@
       <%= link_to dreams_profile_path(@dream.user) do %>
         <%= user_avatar_tag @dream.user, class: 'avatar-medium' %>
       <% end %>
+
       <div class="name-edit">
         <p><%= @dream.user.first_name %> <%= @dream.user.last_name %></p>
-
-        <!-- edit your dream -->
+        <!-- edit or follow your dream -->
         <div class="edit-link">
           <% if current_user == @dream.user %>
             <%= link_to 'Edit your dream', edit_dream_path(@dream), class: 'btn-dreamlist-default' %>
@@ -17,7 +17,10 @@
             </div>
           <% end %>
         </div>
+
+
       </div>
+      <%= render 'shared/show_dream/links_dream', dream: @dream%>
     </div>
 
 
