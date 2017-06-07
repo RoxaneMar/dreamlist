@@ -10,6 +10,14 @@
   justify-content: space-between;
 }
 
+.dropdown:first-child {
+  padding: 0px 10px 0px 0px;
+}
+
+.dropdown {
+  padding: 0px 10px;
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-dreamlist-fixed {
   position: fixed;
@@ -50,12 +58,13 @@
   &:hover:after {
     position: absolute;
     border-bottom: 3px solid $blue3;
-    top: 40px;
+    top: 39px;
     left: 0;
     right: 0;
     content: "";
   }
 }
+
 
 /* Navbar logo */
 .navbar-wagon-brand img {
@@ -69,26 +78,31 @@
 
 /* Navbar right section (with form, links, button) */
 .navbar-wagon-right {
+  flex-grow: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  width: 40%;
+}
+
+.navbar-wagon-left {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 40%;
+}
+
+.navbar-middle {
+  flex-grow: 1;
+  text-align: center;
 }
 
 /* Navbar item */
 .navbar-wagon-item {
   flex: 0 1 auto;
   cursor: pointer;
-  padding: 0 20px;
-}
-
-/* Navbar standard link */
-.navbar-wagon-link {
-  color: #616668;
-  font-size: 14px;
-}
-.navbar-wagon-link:hover {
-  color: #da552f;
-  text-decoration: none;
+  padding: 0 10px;
 }
 
 /* Navbar right button */
@@ -127,7 +141,7 @@
 }
 
 #search-input.visible {
-  width: 300px;
+  width: 210px;
   padding-left: 10px;
   outline: none;
 }

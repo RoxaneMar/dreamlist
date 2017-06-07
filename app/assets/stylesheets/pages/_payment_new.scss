@@ -10,13 +10,73 @@
   }
 }
 
+.dream-info {
+  margin: 30px 10px 10px 10px;
+}
+
 article {
   text-align: left;
-  margin: 45px 0px;
+  margin: 0px 0px;
 }
 
 .flex-price {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.price {
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
+  width: 100%;
+}
+
+.center-img {
+  text-align: center;
+}
+
+.stripe-button-el {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.new-button {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 240px;
+  color: white;
+  background-color: $green;
+  opacity: 0.85;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: background 0.3s ease;
+  border: none;
+  &:hover {
+    color: white;
+    background-color: $bright-green;
+    opacity: 0.85;
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.flex-button {
+  padding: 0px 10px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pay-text-button {
+  position: absolute;
+  top: 14px;
+  left: 90px;
 }

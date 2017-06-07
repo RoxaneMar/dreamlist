@@ -2,25 +2,23 @@
   <div class="wrapper-profile">
     <div class="container">
       <div class="row">
-        <div class="filtered-dreams">
           <% if @query.present? %>
             <h2><%=@query.capitalize  %>'s dreams</h2>
           <% else %>
-            <h2>Results</h2>
+            <h2>There is no dreams for this search</h2>
           <% end %>
-          <hr>
+
+        <div class="filtered-dreams">
           <% if @dreams.count > 0 %>
             <% @dreams.each do |dream| %>
               <%= render 'shared/dream_card', dream: dream %>
             <% end %>
-            <%= link_to "Create yours!", new_dream_path, class: "btn-dreamlist-subtile" %>
+
           <% else %>
-            <p>No <%= @query.capitalize %>'s dream created yet</p>
-            <br>
-            <br>
-            <%= link_to "Create yours!", new_dream_path, class: "btn-dreamlist text-center" %>
+            <p>No <%= @query %>'s dream created yet.</p>
           <% end %>
         </div>
+
       </div>
     </div>
   </div>

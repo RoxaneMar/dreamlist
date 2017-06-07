@@ -1,35 +1,40 @@
+.global-bar {
+  margin: 0px;
+  height: 4px;
+  background-color: #eaeaea;
+  margin-bottom: 10px;
+  line-height: 0px;
+  font-size: 0px;
+  .participation-bar {
+    background-color: $green;
+    height: 100%;
+    display: inline-block;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  .participation-bar-private {
+    background-color: $blue3;
+    height: 100%;
+    display: inline-block;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
 .kitty-part {
   margin: 25px 0px;
   padding: 0px 5px;
-  .global-bar {
-    margin: 0px 15px;
-    height: 4px;
-    background-color: #eaeaea;
-    border-radius: 2px;
-    margin-bottom: 10px;
-    line-height: 0px;
-    font-size: 0px;
-    .participation-bar {
-      background-color: $green;
-      height: 100%;
-      display: inline-block;
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px;
-    }
-    .participation-bar-private {
-      background-color: $blue3;
-      height: 100%;
-      display: inline-block;
-      // border-bottom-left-radius: 0;
-      // border-top-left-radius: 0;
-      border-top-left-radius: 2px;
-      border-bottom-left-radius: 2px;
-    }
   }
   h5 {
     padding: 0px 10px;
     color: $dark-gray;
     font-size: 18px;
+  }
+  .global-bar {
+  margin: 0px 15px;
   }
 }
 
@@ -186,7 +191,6 @@
   }
 }
 .content-links {
-  margin: 0px 20px;
   p {
     margin: 0px;
     font-weight: lighter;
@@ -194,20 +198,19 @@
   }
   .share-part {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    padding: 0px;
-    .fa:first-child {
-      margin-top: 0px;
-      padding-left: 0px;
-    }
     .fa {
+      padding: 18px 15px;
       font-size: 25px;
       &:hover {
         color: $almost-black;
       }
     }
   }
+}
+
+.bg-color-white {
+  background-color: white;
 }
 
 // sous-navbar

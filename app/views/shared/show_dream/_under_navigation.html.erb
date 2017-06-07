@@ -1,23 +1,26 @@
-<div class="dreams-menu">
+<div class="bg-color-white">
   <div class="container">
-  <div class="navbar-right-links text-center">
-    <div class="tabs">
-      <div class="navbar-right-links text-center buttons-links-tabs">
-        <div class="navbar-dreamlist-button text-center tab", data-target="#tab-similar-dreams">
-          <p>Similar dreams</p>
-          <p class="nb"><%= dream.user.has_dream_in?(dream.category) ? dream.user.dreams_in_category(dream.category).count : '-'  %></p>
-        </div>
-        <div class="navbar-dreamlist-button text-center tab", data-target="#tab-likers">
-          <p>Popularity</p>
-          <p class="nb"><%= dream.likes.count > 0 ? dream.likes.count : '-' %></p>
-        </div>
-        <div class="navbar-dreamlist-button text-center tab", data-target="#tab-contributors">
-          <p>Financement</p>
-          <p class="nb"><%= dream.kitty.contributors.count > 0 ? dream.kitty.different_user_contributors.count : '-' %></p>
+    <div class="dreams-menu">
+
+      <div class="navbar-right-links text-center">
+        <div class="tabs">
+          <div class="navbar-right-links text-center buttons-links-tabs">
+            <div class="navbar-dreamlist-button text-center tab", data-target="#tab-similar-dreams">
+              <p>Similar dreams</p>
+              <p class="nb"><%= dream.user.has_dream_in?(dream.category) ? dream.user.dreams_in_category(dream.category).count : '-'  %></p>
+            </div>
+            <div class="navbar-dreamlist-button text-center tab", data-target="#tab-likers">
+              <p>Popularity</p>
+              <p class="nb"><%= dream.likes.count > 0 ? dream.likes.count : '-' %></p>
+            </div>
+            <div class="navbar-dreamlist-button text-center tab", data-target="#tab-contributors">
+              <p>Contributors</p>
+              <p class="nb"><%= dream.kitty.contributors.count > 0 ? dream.kitty.different_user_contributors.count : '-' %></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 </div>
 
@@ -29,7 +32,7 @@
           <div class="likes-avatars">
             <% if dream.user.has_dream_in?(dream.category) %>
               <div class="row">
-                <% dream.user.dreams_in_category(dream.category).each do |dream| %>
+                <% dreams_in_category_except_this(dream, dream.category).each do |dream| %>
                   <div class="marged-dream-card">
                     <%= render 'shared/dream_card', dream: dream %>
                   </div>
@@ -40,7 +43,6 @@
         </div>
       </div>
     </div>
-
 </div>
 
 <!-- likes -->

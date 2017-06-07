@@ -1,10 +1,15 @@
 .dreams.index {
   h2 {
-    font-weight: lighter;
+    margin-top: 0px;
+    font-weight: normal;
+    padding: 25px 0px;
+    color: $almost-black;
     font-size: 25px;
+    border-bottom: 1px solid rgba(0,0,0,.15);
   }
 
-  .filtered-dreams {
-    margin: 20px;
-  }
+}
+
+.filtered-dreams {
+  margin: 25px 0px;
 }

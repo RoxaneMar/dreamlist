@@ -1,4 +1,5 @@
 <div class="navbar-dreamlist navbar-dreamlist-fixed">
+
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <div class="navbar-wagon-item">
       <div class="dropdown">
@@ -14,13 +15,18 @@
         </ul>
       </div>
     </div>
+    <div class="navbar-wagon-item">
+      <!-- button to create a dream -->
+      <%= link_to t(".top_call_to_action", default: "Create a dream"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
+    </div>
   </div>
 
-
   <!-- Logo -->
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo-dreamlist-text1.png" %>
-  <% end %>
+  <div class="navbar-middle">
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag "logo-dreamlist-text1.png" %>
+    <% end %>
+  </div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -28,20 +34,16 @@
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
 
-      <!-- button to create a dream -->
-      <%= link_to t(".top_call_to_action", default: "Create a dream"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
-
       <!-- Search form -->
       <form action="/dreams" method="get">
         <div class="search">
           <%= image_tag "search.png", class: "search-icon" %>
-          <input type="text" name="query" id="search-input" placeholder="Search for a dream or friend">
+          <input type="text" name="query" id="search-input" placeholder="Search for a dream...">
           <button type="submit" class="navbar-wagon-search-btn"></button>
         </div>
       </form>
 
       <!-- Notification -->
-
       <div class="dropdown">
         <%= content_tag "div", class: "dropdown-toggle navbar-wagon-item navbar-wagon-link navbar-alarm", "data-toggle" => "dropdown" do %>
           <div class="badge-container">
@@ -89,14 +91,13 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to t(".top_call_to_action", default: "Start dreaming"), new_dream_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <%= link_to t(".sign_in", default: "Sign up"), new_user_registration_path, class: "navbar-wagon-item navbar-dreamlist-button" %>
       <!-- Search form -->
       <form action="/dreams" method='get'>
         <div class="search">
           <%= image_tag "search.png", class: "search-icon" %>
-          <input type="text" name="query" id="search-input" placeholder="Search for a dream or following">
+          <input type="text" name="query" id="search-input" placeholder="Search for a dream...">
           <button type="submit" class="navbar-wagon-search-btn"></button>
         </div>
       </form>

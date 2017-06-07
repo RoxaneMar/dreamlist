@@ -68,4 +68,9 @@ module ApplicationHelper
       end
     end
   end
+
+  def dreams_in_category_except_this(dream, category)
+    dreams = dream.user.dreams_in_category(category)
+    dreams - [dream]
+  end
 end

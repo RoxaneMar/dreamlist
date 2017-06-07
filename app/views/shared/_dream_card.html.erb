@@ -13,7 +13,7 @@
       <h4><%= dream.title %></h4>
       <% if !(dream.kitty.goal_amount.to_i == 0 && dream.kitty.total_contribution_public.to_i == 0) || dream.kitty.secret? %>
         <div class="global-bar">
-          <div class="participation-bar" style="width:<%= number_to_percentage(dream.kitty.contribution_avancement_public, precision: 0) %>"></div>
+          <div class="participation-bar" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_public, precision: 0); %>"></div><% if current_user != dream.user %><div class="participation-bar-private" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_private, precision: 0); %>"></div><% end %>
         </div>
       <% end %>
     </div>
