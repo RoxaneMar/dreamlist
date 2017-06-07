@@ -1,63 +1,74 @@
 <!-- information about kitty evolution -->
-<% if (current_user != dream.user) %>
-  <div class="kitty-total-amount">
-    <p> Total: </p>
-    <p class="strong-black"><%= (dream.kitty.total_contribution_public + dream.kitty.total_contribution_private).to_i %> €</p>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <% if (current_user != dream.user) %>
+      <div class="kitty-total-amount">
+        <p> Money pot: </p>
+        <p class="strong-black"><%= (dream.kitty.total_contribution_public + dream.kitty.total_contribution_private).to_i %> €</p>
+      </div>
+    <% else %>
+      <div class="kitty-total-amount">
+        <p> Money pot: </p>
+        <p class="strong-black"><%= dream.kitty.total_contribution_public.to_i %> €</p>
+      </div>
+    <% end %>
   </div>
-<% else %>
-  <div class="kitty-total-amount">
-    <p> Total: </p>
-    <p class="strong-black"><%= dream.kitty.total_contribution_public.to_i %> €</p>
+
+  <div class="col-xs-12 col-sm-6">
+    <div class="revealing" data-id="<%=@dream.id%>">
+      <% if (current_user != dream.user) && @dream.kitty.secret? %>
+        <%= link_to 'Disclose secret contributions', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+
+</div>
+<div class="row">
+  <div class="kitty-no-goal-amount">
+    <h5>There is no goal amount for this money pot. Feel free to contribute as much as you wish!</h5>
+  </div>
+</div>
 
 <div class="two-columns">
-  <div class="kitty-details">
+  <div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="kitty-details">
 
-  <% if @dream.kitty.private? %>
-
-    <h5 class="strong-green">You already saved <%= @dream.kitty.total_contribution_public.to_i %> € for your dream</h5>
-
-  <% else %>
-
-   <% if dream.kitty.total_contribution_public == 0 %>
-      <h5>There is no public contribution for now. <span class="strong-green-small"><%= link_to "Be the first one!", new_kitty_contributor_path(dream.kitty) %></span></h5>
+    <% if @dream.kitty.private? %>
+      <% if dream.kitty.total_contribution_public > 0 %>
+        <h5 class="strong-green">You already saved <%= @dream.kitty.total_contribution_public.to_i %> € for your dream</h5>
+      <% else %>
+        <h5 class="strong-green">There is no contribution for now</h5>
+      <% end %>
     <% else %>
-      <div class="in-column">
-        <h5>Money pot information:</h5>
-      </div>
-      <div class="in-column">
-        <p class="strong-green"><%= @dream.kitty.total_contribution_public.to_i %> €</p>
-        <p>collected</p>
-      </div>
-      <div class="in-column">
-        <% if !@dream.kitty.private? %>
-          <p class="strong secret"><%= @dream.kitty.public_contributors_count %></p>
-          <p>contributions</p>
-        <% end %>
-      </div>
-
-      <div class="in-column">
-        <% if dream.end_date.present? %>
-          <p class="strong"><%= distance_of_time_in_words(Time.now, dream.end_date) %></p>
-          <p>left</p>
-        <% else %>
-          <p class="strong">No limit date </p>
-          <p>for this dream</p>
-        <% end %>
-      </div>
+      <% if dream.kitty.total_contribution_public == 0 %>
+        <h5>There is no public contribution for now. <span class="strong-green-small"><%= link_to "Be the first one!", new_kitty_contributor_path(dream.kitty) %></span></h5>
+      <% else %>
+        <h5>Public contributions</h5>
+        <div class="metric-container">
+          <div class="metric">
+            <p class="strong-green"><%= @dream.kitty.total_contribution_public.to_i %> €</p>
+            <p>collected</p>
+          </div>
+          <div class="metric">
+            <% if !@dream.kitty.private? %>
+              <p class="strong"><%= @dream.kitty.public_contributors_count %></p>
+              <p>contributions</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
-
-    <% end %>
+    </div>
   </div>
 
-  <% if !(dream.kitty.total_contribution_private == 0 && dream.kitty.total_contribution_public == 0) %>
-    <%= render 'shared/show_dream/kitty_infos_private_contribution', dream: @dream, user: @user %>
-  <% end %>
-
+    <div class="col-xs-12 col-sm-6">
+      <% if !(dream.kitty.total_contribution_private == 0 && dream.kitty.total_contribution_public == 0) %>
+        <%= render 'shared/show_dream/kitty_infos_private_contribution', dream: @dream, user: @user %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
-<div class="kitty-no-goal-amount">
-  <h5>There is no goal amount for this money pot. Feel free to contribute as much as you wish!</h5>
-</div>
+
 

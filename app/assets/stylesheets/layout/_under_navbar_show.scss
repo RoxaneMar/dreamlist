@@ -1,25 +1,39 @@
 .navbar-show-dream {
-  margin: 10px 0px 10px 0px;
+  margin: 25px 0px;
   // box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03);
   background: $other-body-bg;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: row;
-  height: 70px;
-  padding: 0px 60px;
+  height: 80px;
+  padding: 0px;
   align-items: center;
   justify-content: space-between;
   text-align: center;
   cursor: pointer;
   width: 100%;
+  .name-edit {
+    text-align: left;
+    padding: 0px 20px;
+  }
+  .btn-dreamlist-default {
+    padding: 5px 40px;
+    color: $almost-black;
+    border: 1px solid $almost-black;
+  }
+  .navbar-wagon-item {
+    margin: 0px;
+    padding: 0px;
+  }
   .btn-dreamlist-blue {
     padding: 10px 55px;
   }
   .btn-dreamlist {
-    padding: 10px 55px;
+    min-width: 240px;
+    padding: 10px 40px;
   }
   h4 {
-    padding: 0px 15px;
+    padding: 0px;
     color: $almost-black;
     font-size: 24px;
     //  padding-bottom: 15px;
@@ -38,7 +52,8 @@
   z-index: 10;
   flex: 0 1 auto;
   cursor: pointer;
-  padding: 0 30px;
+  padding: 0px;
+  margin: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -47,5 +62,14 @@
   padding: 0px 18px;
   .like {
     height: 30px;
+  }
+}
+
+.info-owner {
+  display: flex;
+  justify-content: space-between;
+  p {
+    padding: 0px 10px;
+    color: $almost-black;
   }
 }
