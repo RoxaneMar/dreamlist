@@ -7,11 +7,16 @@ class DreamsController < ApplicationController
   # end
 
   def index
+    @dreams = Dream.all
+
     if params[:query].present?
       @query = params[:query]
-      @dreams = Dream.global_search(@query)
-    else
-      @dreams = Dream.all
+      @dreams = @dreams.global_search(@query)
+    end
+
+    if params[:category].present?
+      @query = params[:category]
+      @dreams = @dreams.where(category: params[:category])
     end
   end
 
