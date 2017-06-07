@@ -5,7 +5,7 @@
         <%= f.input :category, collection: Dream::CATEGORIES, label: false, prompt: "select a category" %>
         <%= f.input :title, label: false, placeholder: "Roadtrip in the mountains" %>
         <%= f.input :description, label: false, placeholder: "Hiking in the Nepal mountains with a professional for a month. It would be a real accomplishment." %>
-        <%= f.input :end_date, label: "Your dream limit date before realization:"%>
+        <%= f.input :end_date, as: :date, label: "Your dream limit date before realization:", order: [:day, :month, :year] %>
         <label class="super-label">
           <div class="super-text-attach">Upload or drop your dream picture here</div>
           <%= f.input :picture, as: :attachinary, label: false, id: "over-btn" %>
