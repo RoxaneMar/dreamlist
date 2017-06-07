@@ -1,91 +1,64 @@
-<%= render 'shared/show_dream/navbar' %>
-  <div class="wrapper">
-    <div class="container">
+<div class="wrapper">
+  <div class="container">
+    <%= render 'shared/show_dream/navbar' %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-8">
+          <!-- image -->
+          <div class="image-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%), url('<%= dream_picture_path(@dream) %>');">
+          </div>
+        </div>
 
-        <div class="row">
-          <div class="col-xs-12">
+        <div class="col-xs-12 col-sm-4">
+          <div class="description">
+            <h4><%= @dream.title %></h4>
+            <p class="content"><%= @dream.description %></p>
 
-          <!-- banner -->
-          <div class="banner-dream-show" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%), url('<%= dream_picture_path(@dream) %>');">
-
-            <!-- avatar dream owner -->
-            <%= link_to dreams_profile_path(@dream.user) do %>
-              <%= user_avatar_tag @dream.user, class: 'avatar-large' %>
+            <% if @dream.end_date.present? %>
+              <p> <span>Ending date:</span> <%= distance_of_time_in_words(Time.now, @dream.end_date) %> left</p>
+            <% else %>
+              <p>No limit date for this dream</p>
             <% end %>
 
-            <div class="dream-owner-name">
-              <%= @dream.user.first_name %> <%= @dream.user.last_name %>
-            </div>
-
-            <!-- edit your dream -->
-            <div class="edit-link">
-              <% if current_user == @dream.user %>
-                <%= link_to 'Edit your dream', edit_dream_path(@dream), class: 'btn-dreamlist-default' %>
-              <% else %>
-                <div class="follow-actions" data-id="<%= @dream.user.id %>">
-                  <%= follow_action_for(@dream.user) %>
-                </div>
-              <% end %>
-            </div>
           </div>
+        </div>
+      </div>
 
-          <!--informations: description dream & kitty -->
-          <div class="dream-show-description">
-            <div class="row">
-              <!-- partie content dream -->
-              <div class="col-xs-12 col-sm-6">
-                <div class="row">
-                  <div class="sharing-links">
-                    <div class="col-xs-12 col-sm-1">
-                      <%= render 'shared/show_dream/links_dream', dream: @dream %>
-                    </div>
+    <!--informations: description dream & kitty -->
+    <div class="dream-show-description">
+      <div class="row">
+        <!-- partie content dream -->
+        <div class="col-xs-12">
+
+
+            <!-- partie kitty -->
+            <div class="kitty-part">
+              <div class="row">
+              <!-- kitty privee et utilisateur != owner -->
+                <% if current_user != @dream.user && @dream.kitty.private? %>
+                  <h5>This money pot is closed for now.</h5>
+                <!-- afficher kitty avec bar -->
+                <% else %>
+                  <div class="kitty-info-and-btn">
+                      <% if @dream.kitty.goal_amount > 0 %>
+                        <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
+                      <% else %>
+                        <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
+                      <% end %>
+
                   </div>
-                  <div class="col-xs-12 col-sm-11">
-                    <div class="description">
-                      <p><%= @dream.description %></p>
-                    </div>
-                  </div>
-                </div>
+                <% end %>
               </div>
-
-              <!-- partie kitty -->
-              <div class="col-xs-12 col-sm-6">
-                <div class="kitty-part">
-                  <!-- kitty privee et utilisateur != owner -->
-                  <% if current_user != @dream.user && @dream.kitty.private? %>
-                    <h5 class="text-center">This kitty is closed for now.</h5>
-                  <!-- afficher kitty avec bar -->
-                  <% else %>
-                    <div class="kitty-info-and-btn">
-                        <% if @dream.kitty.goal_amount > 0 %>
-                          <%= render 'shared/show_dream/dream_with_amount_desc', dream: @dream, user: @user %>
-                        <% else %>
-                          <%= render 'shared/show_dream/dream_no_amount_desc', dream: @dream, user: @user %>
-                        <% end %>
-
-                    </div>
-                  <% end %>
-
-                  <div class="row text-center">
-                    <div class="col-xs-12">
-                      <div class="revealing" data-id="<%=@dream.id%>">
-                        <% if @dream.kitty.secret? && (current_user != @dream.user) %>
-                          <%= link_to 'Disclose secret contributions', kitty_reveal_path(@dream.kitty), method: :put, remote: true, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
             </div>
+
           </div>
         </div>
       </div>
     </div>
+    </div>
 
-    <!-- sous-navigation -->
-    <%= render 'shared/show_dream/under_navigation', dream: @dream %>
 
-  </div>
+  <!-- sous-navigation -->
+  <%= render 'shared/show_dream/under_navigation', dream: @dream %>
+
+</div>
 

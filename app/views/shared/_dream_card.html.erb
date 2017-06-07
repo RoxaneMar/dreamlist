@@ -1,7 +1,7 @@
 <div class="col-xs-12 col-sm-4">
   <div class="dream-card <%= dream.category %>">
     <%= link_to '', dream_path(dream), class: 'card-link' %>
-    <div class="dream-picture" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('<%= dream_picture_path(dream) %>');">
+    <div class="dream-picture" style="background-image: linear-gradient(135deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.2) 50%), url('<%= dream_picture_path(dream) %>');">
       <div class="like-actions" data-id="<%= dream.id %>">
         <%= like_action_for(dream) %>
       </div>
