@@ -19,6 +19,10 @@ class DreamPolicy < ApplicationPolicy
     edit?
   end
 
+  def realized?
+    edit?
+  end
+
   def destroy?
     edit?
   end

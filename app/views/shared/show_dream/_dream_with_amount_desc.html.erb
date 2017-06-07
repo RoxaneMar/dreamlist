@@ -32,6 +32,17 @@
           'confirm-button-color': '#526889',
           'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
       <% end %>
+      <% if (current_user == dream.user) && @dream.reached == false %>
+        <%= link_to 'Dream realized', realized_dream_path(@dream), method: :put, remote: true,
+        data: { confirm: '',
+          'text': 'Are you sure you realized this dream? If so, no one will be able to contribute anymore.',
+          'width': '400px',
+          'customClass': 'modal',
+          'confirm-button-text': 'Yes',
+          'cancel-button-text': 'Cancel',
+          'confirm-button-color': '#526889',
+          'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
+      <% end %>
     </div>
   </div>
 

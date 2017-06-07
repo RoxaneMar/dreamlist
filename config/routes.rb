@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   end
 
   resources :dreams do
+    member do
+      put '/realized', to: 'dreams#realized'
+    end
     resources :kitties, only: [:show, :new, :create]
     resource :like, only: [:create, :destroy]
   end
