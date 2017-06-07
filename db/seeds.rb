@@ -82,7 +82,7 @@ dream2 = Dream.create!(
   title: 'Participate to a box championship',
   description: "I've never been part of a sport competition and I would love to do it.
   I discovered boxing a few months ago and this sport asks for a lot of discipline, work and will.
-  I really would like to practice more this sport and my final goal would be to participate to a real championship!!
+  I really would like to practice more this sport and my final goal would be be part of a real championship!!
   For that I would need equipment, to subscribe to a weekly class and of course to pay for the championship trip and all.
   I know it can sound crazy but I would be so proud of myself if I realized this dream and your support means a lot!
   Thanks so much",
@@ -102,10 +102,10 @@ kitty2 = Kitty.create!(
 
 dream3 = Dream.create!(
   title: 'Learn to play piano',
-  description: "I love music. I've always love music really but the truth is I never really had the opportunity to learn to play an instrument when I was younger.
-  It really is a difficult thing for me not to play music and even if I'm not a youngster anymore, I trully believe and still can learn.
+  description: "I love music. I've always loved music really but the truth is I never really had the opportunity to learn to play an instrument when I was younger.
+  It really is a difficult thing for me not to play music and even if I'm not a youngster anymore, I trully believe I still can learn.
   Piano is the most beautiful instrument for me and it's the one I want to play. But it's a real investment and I feel like if I don't put it as a dream I will never realize it.
-  Buying a piano and subscribe to lessons are the simple steps that would help me realize my dream. I hope you can help this would make me the happiest guy ever!!",
+  Buying a piano and subscribe to lessons are the simple steps that would help me realize my dream. I hope you can help, this would make me the happiest guy ever!!",
   end_date: 3.years.from_now,
   reached: false,
   user: arthur,
@@ -140,7 +140,7 @@ kitty4 = Kitty.create!(
 dream5 = Dream.create!(
   title: 'Learning Portuguese',
   description: "I don't feel complete speeking only french and english. Plus learning a new language sounds like a real challenge to me
-  and it would help me do business and sign new contracts all around the world. Please like my dream if you think this is a new idea and contact me
+  and it would help me do business and sign new contracts all around the world. Please like my dream if you think this is a good idea and contact me
     if your speak portuguese, I would definitely need some help to practice! Thanks",
   end_date: 2.years.from_now,
   reached: false,
@@ -157,13 +157,13 @@ kitty5 = Kitty.create!(
 
 dream6 = Dream.create!(
   title: 'Run New York half-marathon',
-  description: "I love running, it's a great sport when you can see beautiful landscapes and really empty your head.
+  description: "I love running, it's a great sport that helps you see beautiful landscapes and really empty your head.
   I ran several races already but the New Yor City marathon is a myth and I love New York too! Going there and participate
-  to this race you make me really happy. I really can't wait!",
+  to this race would make me really happy. I really can't wait!",
   end_date: 1.year.ago,
   reached: true,
   user: guillaume,
-  category: "challenge",
+  category: "challenges",
   picture: File.open('app/assets/images/seeds/dreams/brooklyn_run.jpg')
   )
 
@@ -175,7 +175,7 @@ kitty6 = Kitty.create!(
 
 dream7 = Dream.create!(
   title: 'Have an iWatch',
-  description: "I think it's finally time to switch to apple technologies. I've been fighting for years and now I can't stand it anymore.
+  description: "I think it's finally time to switch to apple technologies. I've been fighting against it for years and now I can't stand it anymore.
   This watch is too gorgeous and I dream to wear it, that would be such a great gift. ",
   end_date: 6.months.from_now,
   reached: false,
@@ -193,8 +193,8 @@ kitty7 = Kitty.create!(
 dream8 = Dream.create!(
   title: 'Become a great photographer',
   description: "I plan to do several trips all around the world in the future and I love beautiful pictures.
-  I never had a good camera and I think this would really help me to try and start take great picture.
-  I would definitely practice more if a had a good camera I'm sure, and I would take great pictures of you all to thank you for your contribution :)",
+  I never had a good camera and I think this would really help me try and start take great pictures.
+  I would definitely practice more if I had a good camera I'm sure, and I would take great pictures of you all to thank you for your contribution :)",
   end_date: 1.month.from_now,
   reached: false,
   user: arthur,
@@ -231,8 +231,8 @@ dream10 = Dream.create!(
   title: 'Camping in the forest with friends',
   description: "I would love to do a 2 weeks road trip in France with some friends. We would visit beautiful places and camp in the forest most of the nights.
   I already started to organize that trip but to make it come true I would need a lot of camping equipment which I don't have.
-  I know I could borrow it but I think I will probably do that kind of trips again in the future and so if I could have this equipment as a gift,
-     it could make me really happy and help me do a lot of adventurous trips with friends.",
+  I know I could borrow it but I think I will probably do that kind of trip again in the future and so if I could have this equipment as a gift,
+     it could make me really happy and help me do a lot of adventurous trips with friends in the future.",
   end_date: 6.months.from_now,
   reached: false,
   user: mat,
@@ -247,9 +247,9 @@ kitty10 = Kitty.create!(
   )
 
 dream11 = Dream.create!(
-  title: "See a play 'the cake' Opera",
+  title: "See a play at 'the cake' Opera",
   description: "The cake Opera just opened a few month ago and is really trendy. I am a really big fan of opera and would absolutely love to see a play there.
-  I you're looking for a way to make me happy, this is really someting that would love to do.
+  If you're looking for a way to make me happy, this is really someting I would love to do.
   The sets look absolutely beautiful in the cake Opera. They spend a lot to make the scenery look real and it looks like it is a real exepriment to go there.",
   end_date: 6.months.from_now,
   reached: false,
