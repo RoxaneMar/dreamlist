@@ -72,6 +72,7 @@ class DreamsController < ApplicationController
   def realized
     authorize(@dream)
     @dream.update(reached: true)
+    create_notification_realized
   end
 
   private
@@ -97,9 +98,12 @@ class DreamsController < ApplicationController
   end
 
   def create_notification_realized
-    @dream.kitty.contributors.each do |contributor|
+    @contributors = @dream.kitty.contributors
+    @likers = @dream.likes.map(&:user)
+
+    (@contributors + @likers).uniq.each do |user|
       Notification.create!(
-        user: contributor,
+        user: user,
         subject: @dream,
         content: "#{@dream.user.first_name.capitalize}'s dream is realized!"
       )

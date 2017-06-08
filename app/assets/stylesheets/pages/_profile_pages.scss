@@ -30,6 +30,7 @@
 
         .dream-image {
           background-color: #fafafa;
+          background-size: cover !important;
           border: 2px solid white;
           border-radius: 5px;
           margin: 0px;
@@ -81,6 +82,15 @@
         text-align: justify;
         margin-top: 0px;
         padding-top: 0px;
+
+        .money {
+          display: flex;
+          justify-content: space-between;
+
+          .btn-dreamlist-2 {
+            margin-left: auto;
+          }
+        }
       }
 
       .message-title {

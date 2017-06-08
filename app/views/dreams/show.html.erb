@@ -17,8 +17,10 @@
             <h4><%= @dream.title %></h4>
             <p class="content"><%= @dream.description %></p>
 
-            <% if @dream.end_date.present? %>
+            <% if @dream.end_date.present? && @dream.reached == false %>
               <p> <span>Ending date:</span> <%= distance_of_time_in_words(Time.now, @dream.end_date) %> left</p>
+            <% elsif @dream.reached  %>
+              <p>This dream is already realized !</p>
             <% else %>
               <p>No limit date for this dream</p>
             <% end %>
@@ -36,6 +38,9 @@
             <!-- partie kitty -->
             <div class="kitty-part">
               <div class="row">
+              <% if @dream.reached %>
+                <h5 class="marged-pot-closed">This dream has been realized! </h5>
+              <% else %>
               <!-- kitty privee et utilisateur != owner -->
                 <% if current_user != @dream.user && @dream.kitty.private? %>
                   <div class="row">
@@ -54,6 +59,7 @@
                     <% end %>
                   </div>
                 <% end %>
+              <% end %>
               </div>
             </div>
 
