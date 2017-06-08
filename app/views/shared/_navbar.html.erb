@@ -53,15 +53,17 @@
             <% end %>
           </div>
         <% end %>
-        <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <% current_user.notifications.ordered.limit(25).each do |notification| %>
-            <li class="notif-<%= notification.read ? 'read' : 'unread' %>">
-              <%= link_to notification_path(notification) do %>
-                <%= notification.content %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+        <% if current_user.notifications.count > 0 %>
+          <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <% current_user.notifications.ordered.limit(25).each do |notification| %>
+              <li class="notif-<%= notification.read ? 'read' : 'unread' %>">
+                <%= link_to notification_path(notification) do %>
+                  <%= notification.content %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
 
       <!-- Profile picture and dropdown -->
