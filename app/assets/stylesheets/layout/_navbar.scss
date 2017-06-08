@@ -132,7 +132,7 @@
   width: 25px;
 }
 
-#search-input {
+.search-input {
   font-weight: lighter;
   width: 0px;
   border: none;
@@ -140,7 +140,7 @@
   transition: width ease 0.2s;
 }
 
-#search-input.visible {
+.search-input.visible {
   width: 210px;
   padding-left: 10px;
   outline: none;

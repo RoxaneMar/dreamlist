@@ -167,6 +167,7 @@
     cursor: pointer;
     border-bottom: 1px solid #DBDBDB !important;
     margin-bottom: 0px;
+
     .tabs {
 
       .navbar-dreamlist-button {
@@ -195,6 +196,10 @@
         text-align: center;
       }
     }
+  }
+
+  .dreams-menu.mobile {
+    justify-content: flex-end;
   }
 }
 

@@ -9,10 +9,10 @@ $(function() {
 
   $('.search').on('click', function(e) {
     e.stopPropagation();
-    $('#search-input').addClass('visible').focus();
+    $('.search-input').addClass('visible').focus();
   });
 
   $(document).on('click', function(e) {
-    $('#search-input').removeClass('visible').val();
+    $('.search-input').removeClass('visible').val();
   });
 })

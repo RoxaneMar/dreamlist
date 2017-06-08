@@ -43,20 +43,28 @@ class Kitty < ApplicationRecord
 
   # for green progress bar
   def contribution_avancement_public
-    if total_contribution_public >= goal_amount
+    if total_contribution_public >= goal_amount && total_contribution_private == 0
       100
+    elsif total_contribution_public >= goal_amount && total_contribution_private > 0
+      (total_contribution_public)*100 / (total_contribution_public + total_contribution_private)
     elsif goal_amount > 0
       (total_contribution_public / goal_amount)*100
+    elsif goal_amount == 0 && total_contribution_public > 0 && total_contribution_private > 0
+      (total_contribution_public)*100 / (total_contribution_public + total_contribution_private)
     else
       100
     end
   end
 
   def contribution_avancement_private
-    if total_contribution_private >= goal_amount
+    if total_contribution_private >= goal_amount && total_contribution_public == 0
       100
+    elsif total_contribution_private >= goal_amount && total_contribution_public > 0
+      (total_contribution_private)*100 / (total_contribution_public + total_contribution_private)
     elsif goal_amount > 0
       (total_contribution_private / goal_amount)*100
+    elsif goal_amount == 0 && total_contribution_public > 0 && total_contribution_private > 0
+      (total_contribution_private)*100 / (total_contribution_public + total_contribution_private)
     else
       100
     end
