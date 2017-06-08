@@ -7,11 +7,21 @@
           <div class="navbar-right-links text-center buttons-links-tabs">
             <div class="navbar-dreamlist-button text-center tab", data-target="#tab-similar-dreams">
               <p>Similar dreams</p>
-              <p class="nb"><%= dream.user.has_dream_in?(dream.category) ? dream.user.dreams_in_category(dream.category).count : '-'  %></p>
+              <p class="nb">
+                <% if dream.user.has_dream_in?(dream.category) %>
+                  <% if dreams_in_category_except_this(dream, dream.category).count > 0 %>
+                    <%= dreams_in_category_except_this(dream, dream.category).count %>
+                  <% else %>
+                    <%= '-' %>
+                  <% end %>
+                <% else %>
+                  <%= '-' %>
+                <% end %>
+               </p>
             </div>
             <div class="navbar-dreamlist-button text-center tab", data-target="#tab-likers">
               <p>Popularity</p>
-              <p class="nb"><%= dream.likes.count > 0 ? dream.likes.count : '-' %></p>
+              <p class="nb"><%= dream.likes.count > 1 ? dream.likes.count : '-' %></p>
             </div>
             <div class="navbar-dreamlist-button text-center tab", data-target="#tab-contributors">
               <p>Contributors</p>
@@ -56,7 +66,7 @@
 
               <% @dream.likes.each do |like| %>
                 <%= link_to dreams_profile_path(like.user) do %>
-                  <%= user_avatar_tag like.user, class: 'avatar' %>
+                  <%= user_avatar_tag like.user, class: 'avatar-medium' %>
                 <% end %>
               <% end %>
             <% end %>
@@ -77,7 +87,7 @@
             <% if dream.kitty.contributors.count > 0 %>
               <% dream.kitty.different_user_contributors.each do |contributor| %>
                 <%= link_to dreams_profile_path(contributor) do %>
-                  <%= user_avatar_tag contributor, class: 'avatar' %>
+                  <%= user_avatar_tag contributor, class: 'avatar-medium' %>
                 <% end %>
               <% end %>
             <% end %>

@@ -25,7 +25,7 @@
           'confirm-button-text': 'Yes',
           'cancel-button-text': 'Cancel',
           'confirm-button-color': '#526889',
-          'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
+          'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_240 btn-reveal text-center' %>
       <% end %>
       <% if (current_user == dream.user) && @dream.reached == false %>
         <%= link_to 'Dream realized', realized_dream_path(@dream), method: :put, remote: true,
@@ -36,7 +36,7 @@
           'confirm-button-text': 'Yes',
           'cancel-button-text': 'Cancel',
           'confirm-button-color': '#526889',
-          'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_100 btn-reveal' %>
+          'sweet-alert-type': 'info'}, class: 'btn-dreamlist-blue width_240 btn-reveal text-center' %>
       <% end %>
     </div>
   </div>
@@ -57,11 +57,11 @@
       <% if dream.kitty.total_contribution_public > 0 %>
         <h5 class="strong-green">You already saved <%= @dream.kitty.total_contribution_public.to_i %> € for your dream</h5>
       <% else %>
-        <h5 class="strong-green">There is no contribution for now</h5>
+        <h5 class="strong-green text-center">There is no contribution for now</h5>
       <% end %>
     <% else %>
       <% if dream.kitty.total_contribution_public == 0 %>
-        <h5>There is no public contribution for now. <span class="strong-green-small"><%= link_to "Be the first one!", new_kitty_contributor_path(dream.kitty) %></span></h5>
+        <h5 class="text-center">There is no public contribution for now. <span class="strong-green-small"><%= link_to "Be the first one!", new_kitty_contributor_path(dream.kitty) %></span></h5>
       <% else %>
         <h5>Public contributions</h5>
         <div class="metric-container">
