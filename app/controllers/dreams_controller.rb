@@ -1,5 +1,6 @@
 class DreamsController < ApplicationController
   before_action :set_dream, only: [:show, :edit, :update, :destroy, :realized]
+  skip_before_action :authenticate_user!
 
   # def cat_index
   #   @category = params[:category]
