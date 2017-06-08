@@ -13,7 +13,7 @@
               <div class="buttons">
                 <%= render 'shared/buttons_cat', categories: @user.categories %>
               </div>
-              <% @dreams.each do |dream| %>
+              <% @dreams.ordered.each do |dream| %>
                 <%= render 'shared/dream_card', dream: dream %>
               <% end %>
             </div>
@@ -25,7 +25,7 @@
               <% Dream::CATEGORIES.each do |category| %>
                 <% if @user.loved_dream_in?(category) %>
                   <% loved_dreams = @user.liked_dreams.where(category: category) %>
-                    <% loved_dreams.each do |dream| %>
+                    <% loved_dreams.ordered.each do |dream| %>
                       <%= render 'shared/dream_card', dream: dream %>
                     <% end %>
                 <% end %>
@@ -65,7 +65,7 @@
                 <%= render 'shared/buttons_cat', categories: @user.following_categories %>
               </div>
               <% @user.following.each do |user_followed| %>
-                <% user_followed.dreams.each do |dream| %>
+                <% user_followed.dreams.ordered.each do |dream| %>
                   <%= render 'shared/dream_card', dream: dream %>
                 <% end %>
               <% end %>
@@ -75,7 +75,7 @@
               <div class="buttons">
                 <%= render 'shared/buttons_cat', categories: @user.realized_categories %>
               </div>
-              <% @dreams.where(reached: true).each do |dream| %>
+              <% @dreams.where(reached: true).ordered.each do |dream| %>
                 <%= render 'shared/dream_card', dream: dream %>
               <% end %>
             </div>
