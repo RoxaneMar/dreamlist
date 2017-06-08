@@ -458,7 +458,7 @@ contribution1 = Contributor.create!(
   state: 'paid',
   message: "I wish you all the best for your championship! I know you can do it !",
   private: true,
-  price_cents: 50
+  price_cents: 5000
   )
 
 contribution2 = Contributor.create!(
@@ -467,16 +467,16 @@ contribution2 = Contributor.create!(
   state: 'paid',
   message: "I wish you all the best for your challenge, I know it won't be a problem because you really like the see and boats! Hope you can handle your challenge!",
   private: true,
-  price_cents: 100
+  price_cents: 10000
   )
 
 contribution3 = Contributor.create!(
   user: valentine,
-  kitty: kitty6,
+  kitty: kitty9,
   state: 'paid',
-  message: "I wish you all the best for your half-marathon in NYC. For my part, I will try to finish the 20km of Paris in October!",
+  message: "I wish you all the best for your short movie!",
   private: false,
-  price_cents: 100
+  price_cents: 10000
   )
 
 contribution4 = Contributor.create!(
@@ -485,7 +485,7 @@ contribution4 = Contributor.create!(
   state: 'paid',
   message: "Etienne! I hope you can realize your short movie soon and I will come to see it with pleasure",
   private: false,
-  price_cents: 20
+  price_cents: 2000
   )
 
 contribution5 = Contributor.create!(
@@ -494,7 +494,7 @@ contribution5 = Contributor.create!(
   state: 'paid',
   message: "Matthieu! I would love to participate to your camping moment in the forest",
   private: false,
-  price_cents: 20
+  price_cents: 2000
   )
 
 contribution6 = Contributor.create!(
@@ -503,7 +503,7 @@ contribution6 = Contributor.create!(
   state: 'paid',
   message: "Matthieu! Let's go to camp ! I think June the 12th is a good date! We can go near to Saint Etienne, I know an amazing place!",
   private: false,
-  price_cents: 15
+  price_cents: 1500
   )
 
 contribution7 = Contributor.create!(
@@ -512,7 +512,7 @@ contribution7 = Contributor.create!(
   state: 'paid',
   message: "Roxane ! Have a great moment in Latin America!",
   private: false,
-  price_cents: 25
+  price_cents: 2500
   )
 
 contribution8 = Contributor.create!(
@@ -521,5 +521,5 @@ contribution8 = Contributor.create!(
   state: 'paid',
   message: "Valentine ! Hope you can keep learning!",
   private: false,
-  price_cents: 15
+  price_cents: 1500
   )
