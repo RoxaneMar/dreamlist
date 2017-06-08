@@ -2,17 +2,19 @@
 
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
-        <ul class="dropdown-menu navbar-wagon-dropdown-menu left">
-          <% Dream::CATEGORIES.each do |category| %>
-            <li>
-              <%= link_to dreams_path(category: category) do %>
-                <%= t(".profile", default: category) %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+      <div class="explore">
+        <div class="dropdown">
+          <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
+          <ul class="dropdown-menu navbar-dreamlist-dropdown-explore left">
+            <% Dream::CATEGORIES.each do |category| %>
+              <li>
+                <%= link_to dreams_path(category: category) do %>
+                  <%= t(".profile", default: category) %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="navbar-wagon-item">
@@ -71,17 +73,17 @@
         <div class="dropdown">
           <%= user_avatar_tag current_user, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li class="text-center">
+            <li class="">
               <%= link_to dreams_profile_path(current_user) do %>
                 <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
-            <li class="text-center">
+            <li class="">
               <%= link_to profile_path(current_user) do %>
                 <%= t(".profile", default: "Settings") %>
               <% end %>
             </li>
-            <li class="text-center">
+            <li class="">
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <%= t(".sign_out", default: "Sign out") %>
               <% end %>
