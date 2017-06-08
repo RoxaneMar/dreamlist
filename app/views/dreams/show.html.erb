@@ -1,6 +1,6 @@
 <% content_for :meta_title, "#{@dream.title} is on #{DEFAULT_META["meta_product_name"]}" %>
 <% content_for :meta_description, @dream.description %>
-<% content_for :meta_image, cloudinary_url(@dream.picture.path, width: 400, height: 400, crop: :fill) %>
+<% content_for :meta_image, dream_picture_path(@dream, width: 400, height: 400, crop: :fill) %>
 
 <div class="wrapper">
   <div class="container">
