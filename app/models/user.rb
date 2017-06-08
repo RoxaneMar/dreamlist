@@ -4,10 +4,11 @@ class User < ApplicationRecord
   has_many :likes
   has_many :liked_dreams, through: :likes, source: :dream
   has_many :relationships
-  has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  has_many :active_relationships, -> { order 'created_at desc' }, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :passive_relationships, -> { order 'created_at desc' }, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships
+  has_many :following_dreams, through: :following, source: :dreams
   has_many :notifications
   has_many :contributors
   has_many :kitties, through: :dreams
