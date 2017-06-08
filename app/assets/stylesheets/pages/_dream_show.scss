@@ -57,14 +57,6 @@
     left: 100px;
     border: 4px solid white;
   }
-  // .dream-owner-name {
-  //   color: white;
-  //   position: absolute;
-  //   left: 300px;
-  //   bottom: 60px;
-  //   font-weight: lighter;
-  //   font-size: 28px;
-  // }
   .edit-link {
     position: absolute;
     left: 300px;
@@ -122,6 +114,7 @@
     min-height: 150px;
     h5 {
       margin: 0px;
+      font-size: 18px !important;
     }
     .strong-blue {
       color: $blue3;
@@ -135,17 +128,15 @@
       opacity: 0.85;
       text-decoration: none;
     }
+    &:focus {
+      text-decoration: none;
+    }
   }
-
   .kitty-details {
     margin: 50px 0px;
     padding: 0px 15px;
     width: 100%;
-
   }
-
-
-
   .strong-green {
     color: $green;
     font-size: 18px !important;
@@ -177,11 +168,10 @@
 
 }
 
-// btn disclose secret contributions
-// .width_100 {
-//   width: 100%;
-//   display: block;
-// }
+
+.width_240 {
+  width: 240px;
+}
 
 // partie pour likes et partages
 .dream-lovers {
@@ -215,7 +205,10 @@
 
 // sous-navbar
 .dreams.show {
-  background-color: #fafafa;
+  background-color: $other-body-bg;
+  h5 {
+    font-size: 18px;
+  }
   .dream-card {
     margin: 50px 0px;
   }
