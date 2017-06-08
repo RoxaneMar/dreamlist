@@ -6,7 +6,7 @@ class LikesController < ApplicationController
     @notification = Notification.create(
       user: @dream.user,
       subject: @dream,
-      content: "#{@user.first_name.capitalize} #{@user.last_name.capitalize} liked your dream: #{@dream.title}")
+      content: "#{@user.first_name.capitalize} #{@user.last_name.capitalize} liked your dream: '#{@dream.title}'")
   end
 
   def destroy
