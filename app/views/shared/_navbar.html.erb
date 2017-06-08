@@ -2,17 +2,19 @@
 
   <div class="navbar-wagon-left hidden-xs hidden-sm">
     <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
-        <ul class="dropdown-menu navbar-wagon-dropdown-menu left">
-          <% Dream::CATEGORIES.each do |category| %>
-            <li>
-              <%= link_to dreams_path(category: category) do %>
-                <%= t(".profile", default: category) %>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
+      <div class="explore">
+        <div class="dropdown">
+          <%= link_to 'Explore', '', class: 'dropdown-toggle navbar-wagon-item navbar-dreamlist-button', "data-toggle" => "dropdown"  %>
+          <ul class="dropdown-menu navbar-dreamlist-dropdown-explore left">
+            <% Dream::CATEGORIES.each do |category| %>
+              <li>
+                <%= link_to dreams_path(category: category) do %>
+                  <%= t(".profile", default: category) %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="navbar-wagon-item">
@@ -54,11 +56,11 @@
           </div>
         <% end %>
         <% if current_user.notifications.count > 0 %>
-          <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-dreamlist-dropdown-notif">
             <% current_user.notifications.ordered.limit(25).each do |notification| %>
               <li class="notif-<%= notification.read ? 'read' : 'unread' %>">
                 <%= link_to notification_path(notification) do %>
-                  <%= notification.content %>
+                  <%= notification.content.html_safe %>
                 <% end %>
               </li>
             <% end %>
@@ -71,17 +73,17 @@
         <div class="dropdown">
           <%= user_avatar_tag current_user, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li class="text-center">
+            <li class="">
               <%= link_to dreams_profile_path(current_user) do %>
                 <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
-            <li class="text-center">
+            <li class="">
               <%= link_to profile_path(current_user) do %>
                 <%= t(".profile", default: "Settings") %>
               <% end %>
             </li>
-            <li class="text-center">
+            <li class="">
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <%= t(".sign_out", default: "Sign out") %>
               <% end %>
@@ -117,7 +119,7 @@
           <li><%= link_to "Create a dream", new_dream_path %></li>
           <li><%= link_to "Profile", profile_path(current_user) %></li>
           <li><%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <%= t(".sign_out", default: "Log out") %>
               <% end %>
           </li>
         </ul>
