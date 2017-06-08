@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   def after_update_path_for(resource)
     edit_profile_path
   end
