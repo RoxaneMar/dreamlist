@@ -9,6 +9,7 @@ Dream.destroy_all
 User.destroy_all
 
 puts "creating all data..."
+puts "creating all users..."
 
 arthur = User.create!(
   first_name: 'Arthur',
@@ -58,6 +59,23 @@ vanessa = User.create!(
   avatar: File.open('app/assets/images/seeds/avatars/vanessa.jpeg')
   )
 
+roxane = User.create!(
+  first_name: 'Roxane',
+  last_name: 'Marcilhacy',
+  email: 'roxane@dreamlist.fr',
+  password: 'password',
+  avatar: File.open('app/assets/images/seeds/avatars/roxane.jpeg')
+  )
+
+valentine = User.create!(
+  first_name: 'Valentine',
+  last_name: 'Langer',
+  email: 'valentine@dreamlist.fr',
+  password: 'password',
+  avatar: File.open('app/assets/images/seeds/avatars/foto_CV.jpg')
+  )
+
+puts "creating dream and kitty 1..."
 
 dream1 = Dream.create!(
   title: 'Travel to the end of the world',
@@ -77,6 +95,7 @@ kitty1 = Kitty.create!(
   private: false
   )
 
+puts "creating dream and kitty 2..."
 
 dream2 = Dream.create!(
   title: 'Participate to a box championship',
@@ -99,6 +118,7 @@ kitty2 = Kitty.create!(
   private: false
   )
 
+puts "creating dream and kitty 3..."
 
 dream3 = Dream.create!(
   title: 'Learn to play piano',
@@ -119,6 +139,8 @@ kitty3 = Kitty.create!(
   private: false
   )
 
+puts "creating dream and kitty 4..."
+
 dream4 = Dream.create!(
   title: 'Live on a boat for a year',
   description: "Living on a boat has always been one of my dearest dreams. I always hoped I would do it one day and I think listing it is the best way to make it happen!
@@ -136,6 +158,8 @@ kitty4 = Kitty.create!(
   dream: dream4,
   private: true
   )
+
+puts "creating dream and kitty 5..."
 
 dream5 = Dream.create!(
   title: 'Learning Portuguese',
@@ -155,6 +179,8 @@ kitty5 = Kitty.create!(
   private: true
   )
 
+puts "creating dream and kitty 6..."
+
 dream6 = Dream.create!(
   title: 'Run New York half-marathon',
   description: "I love running, it's a great sport that helps you see beautiful landscapes and really empty your head.
@@ -173,6 +199,8 @@ kitty6 = Kitty.create!(
   private: false
   )
 
+puts "creating dream and kitty 7..."
+
 dream7 = Dream.create!(
   title: 'Have an iWatch',
   description: "I think it's finally time to switch to apple technologies. I've been fighting against it for years and now I can't stand it anymore.
@@ -189,6 +217,8 @@ kitty7 = Kitty.create!(
   dream: dream7,
   private: false
   )
+
+puts "creating dream and kitty 8..."
 
 dream8 = Dream.create!(
   title: 'Become a great photographer',
@@ -208,6 +238,8 @@ kitty8 = Kitty.create!(
   private: true
   )
 
+puts "creating dream and kitty 9..."
+
 dream9 = Dream.create!(
   title: 'Make a short film',
   description: "I love cinema and I would really like to make my own short film with friends in the countryside.
@@ -222,10 +254,12 @@ dream9 = Dream.create!(
   )
 
 kitty9 = Kitty.create!(
-  goal_amount: 0,
+  goal_amount: 1000,
   dream: dream9,
-  private: true
+  private: false
   )
+
+puts "creating dream and kitty 10..."
 
 dream10 = Dream.create!(
   title: 'Camping in the forest with friends',
@@ -246,6 +280,8 @@ kitty10 = Kitty.create!(
   private: false
   )
 
+puts "creating dream and kitty 11..."
+
 dream11 = Dream.create!(
   title: "See a play at 'the cake' Opera",
   description: "The cake Opera just opened a few month ago and is really trendy. I am a really big fan of opera and would absolutely love to see a play there.
@@ -263,6 +299,8 @@ kitty11 = Kitty.create!(
   dream: dream11,
   private: false
   )
+
+puts "creating dream and kitty 12..."
 
 dream12 = Dream.create!(
   title: 'Plant a bio garden in my house',
@@ -283,15 +321,205 @@ kitty12 = Kitty.create!(
   private: false
   )
 
+puts "creating dream and kitty 13..."
+
+dream13 = Dream.create!(
+  title: "Learn to surf like a pro",
+  description: "I tried to surf several times but I am a complete failure. I don't really like being a failure and being good at surfing looks so cool!
+  I won't have to stay on the beach doing nothing anymore. So, well, I thing a week of surf classes could be a great way for me to stop being a failure and having way more fun during my holidays.",
+  end_date: 3.months.from_now,
+  reached: false,
+  user: roxane,
+  category: "sport",
+  picture: File.open('app/assets/images/seeds/dreams/surf.jpg')
+  )
+
+kitty13 = Kitty.create!(
+  goal_amount: 200,
+  dream: dream13,
+  private: false
+  )
+
+puts "creating dream and kitty 14.."
+
+dream14 = Dream.create!(
+  title: "Travel to the north",
+  description: "I would love to travel to a northern country like Sweden to see northern lights.
+  I find it fascinating and it really is a dream to me to see those lights with my own eyes one day",
+  end_date: 4.years.from_now,
+  reached: false,
+  user: roxane,
+  category: "adventure",
+  picture: File.open('app/assets/images/seeds/dreams/aurores_boreales.jpg')
+  )
+
+kitty14 = Kitty.create!(
+  goal_amount: 500,
+  dream: dream14,
+  private: false
+  )
+
+puts "creating dream and kitty 15..."
+
+dream15 = Dream.create!(
+  title: "Roadtrip in Latin America",
+  description: "I lived in Mexico for several months and went to Guatemala and Belize too but I am very frustrated I couldn't find the time to go further south. I would love to take some time with friends to discover Latin America.",
+  end_date: 12.months.from_now,
+  reached: false,
+  user: roxane,
+  category: "travel",
+  picture: File.open('app/assets/images/seeds/dreams/roadtrip.jpg')
+  )
+
+kitty15 = Kitty.create!(
+  goal_amount: 400,
+  dream: dream15,
+  private: false
+  )
+
+puts "creating dream and kitty 16..."
+
+dream16 = Dream.create!(
+  title: "Buy beautiful furnitures for my first flat",
+  description: "I guess I am going to move in soon since my studies are ending. I would love to have some money to buy good furnitures when I move in and have a really beautiful flat where I feel good and at home.",
+  end_date: 12.months.from_now,
+  reached: false,
+  user: roxane,
+  category: "home",
+  picture: File.open('app/assets/images/seeds/dreams/meubles.jpg')
+  )
+
+kitty16 = Kitty.create!(
+  goal_amount: 1500,
+  dream: dream16,
+  private: false
+  )
+
+puts "creating dream and kitty 17..."
+
+dream17 = Dream.create!(
+  title: "Retreat alone in the mountains",
+  description: "I always wanted to know how it feels to do a retreat and maybe even learn to meditate. I would like one day to take a rest from the world and stay alone in the wild nature in a retreat with maximum 10 other persons. It would help me understand who I am and be peaceful. I already travelled alone a little bit but always was afraid of going further. This would be a trial for me. Ideally I would like to do it in the next three years.",
+  end_date: 3.years.from_now,
+  reached: false,
+  user: valentine,
+  category: "adventure",
+  picture: File.open('app/assets/images/seeds/dreams/retreat.jpg')
+  )
+
+kitty17 = Kitty.create!(
+  goal_amount: 800,
+  dream: dream17,
+  private: false
+  )
+
+puts "creating dream and kitty 18..."
+
+dream18 = Dream.create!(
+  title: "A new dress for the summer",
+  description: "I really want to buy me this beautiful long dress for the summer! LOVE IT !",
+  end_date: 3.months.from_now,
+  reached: false,
+  user: valentine,
+  category: "adventure",
+  picture: File.open('app/assets/images/seeds/dreams/dress.jpg')
+  )
+
+kitty18 = Kitty.create!(
+  goal_amount: 300,
+  dream: dream17,
+  private: false
+  )
 
 
+puts "creating dream and kitty 19..."
 
+dream19 = Dream.create!(
+  title: "Learning Angular",
+  description: "I would like to learn angular because the orientation of the web through components makes sense to me.",
+  end_date: 1.year.from_now,
+  reached: false,
+  user: valentine,
+  category: "education",
+  picture: File.open('app/assets/images/seeds/dreams/angular.jpg')
+  )
 
+kitty19 = Kitty.create!(
+  goal_amount: 0,
+  dream: dream17,
+  private: false
+  )
 
+puts "creating contributors..."
 
+contribution1 = Contributor.create!(
+  user: valentine,
+  kitty: kitty2,
+  state: 'paid',
+  message: "I wish you all the best for your championship! I know you can do it !",
+  private: true,
+  price_cents: 50
+  )
 
+contribution2 = Contributor.create!(
+  user: valentine,
+  kitty: kitty4,
+  state: 'paid',
+  message: "I wish you all the best for your challenge, I know it won't be a problem because you really like the see and boats! Hope you can handle your challenge!",
+  private: true,
+  price_cents: 100
+  )
 
+contribution3 = Contributor.create!(
+  user: valentine,
+  kitty: kitty6,
+  state: 'paid',
+  message: "I wish you all the best for your half-marathon in NYC. For my part, I will try to finish the 20km of Paris in October!",
+  private: false,
+  price_cents: 100
+  )
 
+contribution4 = Contributor.create!(
+  user: roxane,
+  kitty: kitty9,
+  state: 'paid',
+  message: "Etienne! I hope you can realize your short movie soon and I will come to see it with pleasure",
+  private: false,
+  price_cents: 20
+  )
 
+contribution5 = Contributor.create!(
+  user: etienne,
+  kitty: kitty10,
+  state: 'paid',
+  message: "Matthieu! I would love to participate to your camping moment in the forest",
+  private: false,
+  price_cents: 20
+  )
 
+contribution6 = Contributor.create!(
+  user: kevin,
+  kitty: kitty10,
+  state: 'paid',
+  message: "Matthieu! Let's go to camp ! I think June the 12th is a good date! We can go near to Saint Etienne, I know an amazing place!",
+  private: false,
+  price_cents: 15
+  )
 
+contribution7 = Contributor.create!(
+  user: guillaume,
+  kitty: kitty15,
+  state: 'paid',
+  message: "Roxane ! Have a great moment in Latin America!",
+  private: false,
+  price_cents: 25
+  )
+
+contribution8 = Contributor.create!(
+  user: kevin,
+  kitty: kitty19,
+  state: 'paid',
+  message: "Valentine ! Hope you can keep learning!",
+  private: false,
+  price_cents: 15
+  )
