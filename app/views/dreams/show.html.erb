@@ -1,3 +1,7 @@
+<% content_for :meta_title, "#{@dream.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @dream.description %>
+<% content_for :meta_image, cloudinary_url(@dream.picture.path) %>
+
 <div class="wrapper">
   <div class="container">
     <%= render 'shared/show_dream/navbar' %>
