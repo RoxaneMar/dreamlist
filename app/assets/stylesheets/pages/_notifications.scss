@@ -4,25 +4,34 @@
   }
 
   li.notif-read {
-    background-color: transparent;
-
+    background-color: $other-body-bg;
+    opacity: 0.8;
+    &:hover {
+      background-color: #e9ebee;
+      opacity: 1;
+    }
     & > a {
-      color: $dark-gray !important;
+      color: $almost-black !important;
       border-bottom: 1px solid $light-gray;
       white-space: normal;
-      min-width: 450px;
+      min-width: 430px;
       font-size: 15px;
     }
   }
 
   li.notif-unread {
-    background-color: transparent;
+    background-color: $pastel-green;
+    opacity: 0.8;
 
+    &:hover {
+      background-color: $pastel-green;
+      opacity: 1;
+    }
     & > a {
-      color: $blue3 !important;
+      color: $almost-black !important;
       border-bottom: 1px solid $light-gray;
       white-space: normal;
-      min-width: 450px;
+      min-width: 430px;
       font-size: 15px;
     }
   }

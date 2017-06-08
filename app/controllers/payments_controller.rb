@@ -23,7 +23,7 @@ class PaymentsController < ApplicationController
     @notification = Notification.create!(
         user: @contributor.kitty.dream.user,
         subject: @contributor.kitty.dream,
-        content: "#{@contributor.user.first_name.capitalize} #{@contributor.user.last_name.capitalize} made a contribution to your dream!")
+        content: "<strong>#{@contributor.user.first_name.capitalize} #{@contributor.user.last_name.capitalize}</strong> made a contribution to your dream!")
     end
 
     redirect_to dream_path(@contributor.kitty.dream)

@@ -52,7 +52,7 @@ class KittiesController < ApplicationController
     Notification.create!(
       user: @kitty.dream.user,
       subject: @kitty.dream,
-      content: "You got a surprise gift!"
+      content: "You got a <strong>surprise gift!</strong>"
     )
   end
 

@@ -105,7 +105,7 @@ class DreamsController < ApplicationController
       Notification.create!(
         user: user,
         subject: @dream,
-        content: "#{@dream.user.first_name.capitalize}'s dream is realized!"
+        content: "<strong>#{@dream.user.first_name.capitalize}'s</strong> dream is realized!"
       )
     end
   end

@@ -54,11 +54,11 @@
           </div>
         <% end %>
         <% if current_user.notifications.count > 0 %>
-          <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-dreamlist-dropdown-notif">
             <% current_user.notifications.ordered.limit(25).each do |notification| %>
               <li class="notif-<%= notification.read ? 'read' : 'unread' %>">
                 <%= link_to notification_path(notification) do %>
-                  <%= notification.content %>
+                  <%= notification.content.html_safe %>
                 <% end %>
               </li>
             <% end %>
@@ -117,7 +117,7 @@
           <li><%= link_to "Create a dream", new_dream_path %></li>
           <li><%= link_to "Profile", profile_path(current_user) %></li>
           <li><%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+                <%= t(".sign_out", default: "Log out") %>
               <% end %>
           </li>
         </ul>
