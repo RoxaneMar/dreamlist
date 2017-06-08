@@ -30,8 +30,9 @@
         <p> Goal amount: <%= humanized_money_with_symbol(dream.kitty.goal_amount) %></p>
         <p> Current amount gathered: <%= humanized_money_with_symbol(dream.kitty.total_contribution_public) %></p>
         <p> Number of contributions: <%= dream.kitty.public_contributors_count %></p>
-        <br>
-        <%= link_to 'Collect your money', '#', class: "btn-dreamlist-2" %>
+        <div class="money ">
+          <%= link_to 'Collect your money', '#', class: "btn-dreamlist-2" %>
+        </div>
       </div>
     </div>
   <% end %>
