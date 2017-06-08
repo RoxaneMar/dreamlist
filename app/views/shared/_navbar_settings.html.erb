@@ -1,13 +1,29 @@
 <div class="navbar_settings">
   <div class="container">
     <% if user_signed_in? %>
-      <div class="dreams-menu">
+      <div class="dreams-menu hidden-xs hidden-sm">
         <div class="navbar-right-links text-center">
           <div class="tabs-settings">
             <%= link_to 'Account', '#', class: "navbar-dreamlist-button text-center tab-settings active", "data-target" => "#tab-account" %>
             <%= link_to 'Your Contributions', '#', class: "navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-contributions" %>
             <%= link_to 'Messages', '#', class: " navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-messages" %>
             <%= link_to 'Money Pots', '#', class: " navbar-dreamlist-button text-center tab-settings", "data-target" => "#tab-money" %>
+          </div>
+
+        </div>
+      </div>
+      <div class="dreams-menu mobile hidden-md hidden-lg">
+        <div class="navbar-left-links text-center">
+          <div class="tabs-settings">
+            <div class="dropdown">
+              <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li><%= link_to 'Account', '#', "data-target" => "#tab-account", class: 'tab-settings' %></li>
+                <li><%= link_to 'Your contributions', '#', "data-target" => "#tab-contributions", class: 'tab-settings' %></li>
+                <li><%= link_to 'Messages', '#', "data-target" => "#tab-messages", class: 'tab-settings' %></li>
+                <li><%= link_to 'Money Pots', '#', "data-target" => "#tab-money", class: 'tab-settings' %></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>

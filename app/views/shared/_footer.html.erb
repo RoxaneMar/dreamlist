@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer hidden-xs hidden-sm">
   <div class="container">
 
     <div class="row">
@@ -27,3 +27,37 @@
     </div>
   </div>
 </div>
+
+<% if user_signed_in? %>
+
+  <div class="footer mobile hidden-md hidden-lg">
+    <form action="/dreams" method="get">
+      <div class="search">
+        <%= image_tag "search.png", class: "search-icon" %>
+        <input type="text" name="query" class="search-input" placeholder="Search for a dream...">
+        <button type="submit" class="navbar-wagon-search-btn"></button>
+      </div>
+    </form>
+
+    <div class="dropup">
+      <%= content_tag "div", class: "dropdown-toggle navbar-wagon-item navbar-wagon-link navbar-alarm", "data-toggle" => "dropdown" do %>
+        <div class="badge-container">
+          <%= image_tag "alarm.png", class: "alarm" %>
+          <% if current_user.notifications.where(read: false).count > 0 %>
+            <div class="badge badge-blue"><%= current_user.notifications.where(read: false).count %></div>
+          <% end %>
+        </div>
+      <% end %>
+      <% if current_user.notifications.count > 0 %>
+        <ul class="alarm-ul dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <% current_user.notifications.ordered.limit(25).each do |notification| %>
+            <li class="notif-<%= notification.read ? 'read' : 'unread' %>">
+              <%= link_to notification_path(notification) do %>
+                <%= notification.content %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  <% end %>
