@@ -30,10 +30,12 @@
           <%= like_action_for(@dream) %>
         </div>
       </div>
-      <% if current_user != @dream.user && @dream.kitty.private? %>
-        <!-- <h5>kitty closed</h5> -->
-      <% else %>
-        <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+      <% if @dream.reached == false %>
+        <% if current_user != @dream.user && @dream.kitty.private? %>
+          <!-- <h5>kitty closed</h5> -->
+        <% else %>
+          <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+        <% end %>
       <% end %>
     </div>
 </div>
