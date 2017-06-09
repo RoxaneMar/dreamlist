@@ -15,7 +15,7 @@
 
         <% if dream.kitty.goal_amount.to_i > 0 %>
           <div class="metric">
-            <p class="strong"><%= number_to_percentage(dream.kitty.real_contribution_avancement_private, precision: 0) %></p>
+            <p class="strong"><%= number_to_percentage(dream.kitty.real_contribution_avancement_private, precision: 2) %></p>
             <p>collected</p>
           </div>
         <% end %>
