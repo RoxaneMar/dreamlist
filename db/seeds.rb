@@ -421,7 +421,7 @@ dream18 = Dream.create!(
   end_date: 3.months.from_now,
   reached: false,
   user: valentine,
-  category: "adventure",
+  category: "mode",
   picture: File.open('app/assets/images/seeds/dreams/dress.jpg')
   )
 
