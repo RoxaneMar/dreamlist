@@ -5,7 +5,7 @@
       <%= link_to dreams_profile_path(contribution.user) do %>
         <%= user_avatar_tag contribution.user, class: 'avatar-medium text-center' %>
       <% end %>
-      <p class="text-center"><%= contribution.kitty.dream.user.first_name %> <%= contribution.kitty.dream.user.last_name %></p>
+      <p class="text-center"><%= contribution.user.first_name %> <%= contribution.user.last_name %></p>
     </div>
     <div class="col-xs-12 col-sm-6">
       <div class="message">
