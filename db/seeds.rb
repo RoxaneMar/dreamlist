@@ -149,14 +149,14 @@ dream4 = Dream.create!(
   end_date: 4.years.from_now,
   reached: false,
   user: kevin,
-  category: "home",
+  category: "adventure",
   picture: File.open('app/assets/images/seeds/dreams/boat.jpg')
   )
 
 kitty4 = Kitty.create!(
   goal_amount: 20000,
   dream: dream4,
-  private: true
+  private: false
   )
 
 puts "creating dream and kitty 5..."
@@ -189,7 +189,7 @@ dream6 = Dream.create!(
   end_date: 1.year.ago,
   reached: true,
   user: guillaume,
-  category: "challenges",
+  category: "sport",
   picture: File.open('app/assets/images/seeds/dreams/brooklyn_run.jpg')
   )
 
@@ -427,7 +427,7 @@ dream18 = Dream.create!(
 
 kitty18 = Kitty.create!(
   goal_amount: 300,
-  dream: dream17,
+  dream: dream18,
   private: false
   )
 
@@ -446,7 +446,7 @@ dream19 = Dream.create!(
 
 kitty19 = Kitty.create!(
   goal_amount: 0,
-  dream: dream17,
+  dream: dream19,
   private: false
   )
 
