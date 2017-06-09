@@ -15,7 +15,7 @@
 
     <!-- barre avancement kitty -->
     <div class="global-bar">
-      <div class="participation-bar" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_public, precision: 0); %>"></div><% if current_user != dream.user %><div class="participation-bar-private" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_private, precision: 0); %>"></div><% end %>
+      <div class="participation-bar" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_public); %>"></div><% if current_user != dream.user %><div class="participation-bar-private" style="width: <%= number_to_percentage(dream.kitty.contribution_avancement_private); %>"></div><% end %>
     </div>
   </div>
 
@@ -67,7 +67,7 @@
 
 
               <div class="metric">
-                <p class="strong"><%= number_to_percentage(dream.kitty.real_contribution_avancement, precision: 0) %></p>
+                <p class="strong"><%= number_to_percentage(dream.kitty.real_contribution_avancement, precision: 2) %></p>
                 <p>collected</p>
               </div>
 
