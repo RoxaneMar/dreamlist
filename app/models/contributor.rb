@@ -4,6 +4,8 @@ class Contributor < ApplicationRecord
   monetize :price_cents
 
   validates :price, presence: true, numericality: { greater_than: 0 }
+  validates :kitty_id, presence: true
+  validates :user_id, presence: true
 
   after_create :check_kitty_status
 
