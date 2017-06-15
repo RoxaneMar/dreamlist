@@ -45,6 +45,13 @@
   }
 }
 
+.navbar-show-dream.mobile {
+  .btn-dreamlist {
+    min-width: 200px;
+    padding: 10px 0px;
+  }
+}
+
 .navbar-show-dream-sticky {
   top: 0px;
   z-index: 10;
