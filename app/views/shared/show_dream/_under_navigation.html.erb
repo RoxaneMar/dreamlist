@@ -1,10 +1,11 @@
 <div class="bg-color-white">
   <div class="container">
-    <div class="dreams-menu">
+    <div class="dreams-menu hidden-xs hidden-sm">
 
       <div class="navbar-right-links text-center">
         <div class="tabs">
           <div class="navbar-right-links text-center buttons-links-tabs">
+
             <div class="navbar-dreamlist-button text-center tab", data-target="#tab-similar-dreams">
               <p>Similar dreams</p>
               <p class="nb">
@@ -19,83 +20,113 @@
                 <% end %>
                </p>
             </div>
+
             <div class="navbar-dreamlist-button text-center tab", data-target="#tab-likers">
               <p>Popularity</p>
               <p class="nb"><%= dream.likes.count > 0 ? dream.likes.count : '-' %></p>
             </div>
+
             <div class="navbar-dreamlist-button text-center tab", data-target="#tab-contributors">
               <p>Contributors</p>
               <p class="nb"><%= dream.kitty.contributors.count > 0 ? dream.kitty.different_user_contributors.count : '-' %></p>
             </div>
+
           </div>
         </div>
       </div>
+
+    </div>
+
+    <div class="dreams-menu mobile hidden-md hidden-lg">
+      <div class="navbar-wagon-item">
+        <div class="navbar-right-links text-center">
+          <div class="tabs">
+            <div class="dropdown">
+              <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li class="tab", data-target="#tab-similar-dreams">
+                  <p>Similar dreams</p>
+                </li>
+                <li class="tab", data-target="#tab-likers">
+                  <p>Popularity</p>
+                </li>
+                <li class="tab", data-target="#tab-contributors">
+                  <p>Contributors</p>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
 
-<!-- similar dreams -->
-<div class="tab-content" id="tab-similar-dreams">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="likes-avatars">
-            <% if dream.user.has_dream_in?(dream.category) %>
-              <div class="row">
-                <% dreams_in_category_except_this(dream, dream.category).each do |dream| %>
-                  <div class="marged-dream-card">
-                    <%= render 'shared/dream_card', dream: dream %>
-                  </div>
-                <% end %>
+      <!-- similar dreams -->
+      <div class="tab-content" id="tab-similar-dreams">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="likes-avatars">
+                  <% if dream.user.has_dream_in?(dream.category) %>
+                    <div class="row">
+                      <% dreams_in_category_except_this(dream, dream.category).each do |dream| %>
+                        <div class="marged-dream-card">
+                          <%= render 'shared/dream_card', dream: dream %>
+                        </div>
+                      <% end %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
-            <% end %>
+            </div>
+          </div>
+      </div>
+
+      <!-- likes -->
+      <div class="tab-content hidden" id="tab-likers">
+        <div class="dream-lovers">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="likes-avatars">
+                  <% if @dream.likes.count > 0 %>
+
+                    <% @dream.likes.each do |like| %>
+                      <%= link_to dreams_profile_path(like.user) do %>
+                        <%= user_avatar_tag like.user, class: 'avatar-medium' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-</div>
 
-<!-- likes -->
-<div class="tab-content hidden" id="tab-likers">
-  <div class="dream-lovers">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="likes-avatars">
-            <% if @dream.likes.count > 0 %>
-
-              <% @dream.likes.each do |like| %>
-                <%= link_to dreams_profile_path(like.user) do %>
-                  <%= user_avatar_tag like.user, class: 'avatar-medium' %>
-                <% end %>
-              <% end %>
-            <% end %>
+      <!-- contributors -->
+      <div class="tab-content hidden" id="tab-contributors">
+        <div class="dream-lovers">
+          <div class="container">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="likes-avatars">
+                  <% if dream.kitty.contributors.count > 0 %>
+                    <% dream.kitty.different_user_contributors.each do |contributor| %>
+                      <%= link_to dreams_profile_path(contributor) do %>
+                        <%= user_avatar_tag contributor, class: 'avatar-medium' %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
 
-<!-- contributors -->
-<div class="tab-content hidden" id="tab-contributors">
-  <div class="dream-lovers">
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="likes-avatars">
-            <% if dream.kitty.contributors.count > 0 %>
-              <% dream.kitty.different_user_contributors.each do |contributor| %>
-                <%= link_to dreams_profile_path(contributor) do %>
-                  <%= user_avatar_tag contributor, class: 'avatar-medium' %>
-                <% end %>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 

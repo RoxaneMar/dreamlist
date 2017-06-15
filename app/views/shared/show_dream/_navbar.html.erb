@@ -1,4 +1,4 @@
-<div class="navbar-show-dream navbar-show-dream-sticky">
+<div class="navbar-show-dream navbar-show-dream-sticky hidden-xs hidden-sm">
     <!-- avatar dream owner -->
     <div class="info-owner">
       <%= link_to dreams_profile_path(@dream.user) do %>
@@ -25,6 +25,29 @@
 
 
     <div class="show-navbar-btn-items">
+      <div class="like-part">
+        <div class="like-actions" data-id="<%=@dream.id%>">
+          <%= like_action_for(@dream) %>
+        </div>
+      </div>
+      <% if @dream.reached == false %>
+        <% if current_user != @dream.user && @dream.kitty.private? %>
+          <!-- <h5>kitty closed</h5> -->
+        <% else %>
+          <%= link_to "Support this dream", new_kitty_contributor_path(@dream.kitty), class: 'btn-dreamlist' %>
+        <% end %>
+      <% end %>
+    </div>
+</div>
+
+<div class="navbar-show-dream navbar-show-dream-sticky mobile hidden-md hidden-lg">
+      <div class="info-owner">
+        <%= link_to dreams_profile_path(@dream.user) do %>
+        <%= user_avatar_tag @dream.user, class: 'avatar-medium' %>
+        <% end %>
+      </div>
+
+      <div class="show-navbar-btn-items">
       <div class="like-part">
         <div class="like-actions" data-id="<%=@dream.id%>">
           <%= like_action_for(@dream) %>
