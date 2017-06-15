@@ -1,6 +1,6 @@
 class DreamPolicy < ApplicationPolicy
   def create?
-    user == record.user || user.admin?
+    true
   end
 
   def new?
