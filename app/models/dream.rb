@@ -7,6 +7,9 @@ class Dream < ApplicationRecord
   has_attachment :picture
 
   validates :category, inclusion: { in: CATEGORIES, allow_nil: false }
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :end_date, presence: true
 
   include PgSearch
   pg_search_scope :global_search, against: [:title, :description, :category],

@@ -3,6 +3,9 @@ class Kitty < ApplicationRecord
   has_many :contributors
   monetize :goal_amount_cents
 
+  validates :dream_id, presence: true
+  validates :goal_amount, presence: true, numericality: { greater_than: 0 }
+
   def reached?
     if self.total_contribution_public >= goal_amount && goal_amount > 0
       true
